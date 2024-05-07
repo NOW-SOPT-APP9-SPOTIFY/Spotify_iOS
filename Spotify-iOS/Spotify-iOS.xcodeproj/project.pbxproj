@@ -73,8 +73,9 @@
 			isa = PBXGroup;
 			children = (
 				71FCF3432BEA1A5B00D8528A /* Application */,
-				71FCF3442BEA1B3900D8528A /* Resource */,
-				71FCF3452BEA1BDF00D8528A /* TabBar */,
+				71FCF35E2BEA6BC400D8528A /* Global */,
+				71FCF35D2BEA6BC000D8528A /* Data */,
+				71FCF35C2BEA6BB600D8528A /* Network */,
 				71FCF3522BEA2BBD00D8528A /* Presentation */,
 			);
 			path = "Spotify-iOS";
@@ -112,8 +113,31 @@
 		71FCF3522BEA2BBD00D8528A /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				71FCF3452BEA1BDF00D8528A /* TabBar */,
 			);
 			path = Presentation;
+			sourceTree = "<group>";
+		};
+		71FCF35C2BEA6BB600D8528A /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		71FCF35D2BEA6BC000D8528A /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		71FCF35E2BEA6BC400D8528A /* Global */ = {
+			isa = PBXGroup;
+			children = (
+				71FCF3442BEA1B3900D8528A /* Resource */,
+			);
+			path = Global;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
