@@ -17,6 +17,10 @@
 		71FCF34D2BEA1C2400D8528A /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 71FCF34C2BEA1C2400D8528A /* SnapKit */; };
 		71FCF34F2BEA1C2400D8528A /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 71FCF34E2BEA1C2400D8528A /* SnapKit-Dynamic */; };
 		71FCF3512BEA1C9A00D8528A /* SpotifyTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FCF3502BEA1C9A00D8528A /* SpotifyTabBarItem.swift */; };
+		71FCF3552BEA658F00D8528A /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 71FCF3542BEA658F00D8528A /* CombineMoya */; };
+		71FCF3572BEA658F00D8528A /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 71FCF3562BEA658F00D8528A /* Moya */; };
+		71FCF3592BEA658F00D8528A /* ReactiveMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 71FCF3582BEA658F00D8528A /* ReactiveMoya */; };
+		71FCF35B2BEA658F00D8528A /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 71FCF35A2BEA658F00D8528A /* RxMoya */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,7 +42,11 @@
 			files = (
 				71FCF34A2BEA1C1A00D8528A /* Then in Frameworks */,
 				71FCF34D2BEA1C2400D8528A /* SnapKit in Frameworks */,
+				71FCF3552BEA658F00D8528A /* CombineMoya in Frameworks */,
+				71FCF3572BEA658F00D8528A /* Moya in Frameworks */,
+				71FCF35B2BEA658F00D8528A /* RxMoya in Frameworks */,
 				71FCF34F2BEA1C2400D8528A /* SnapKit-Dynamic in Frameworks */,
+				71FCF3592BEA658F00D8528A /* ReactiveMoya in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,6 +136,10 @@
 				71FCF3492BEA1C1A00D8528A /* Then */,
 				71FCF34C2BEA1C2400D8528A /* SnapKit */,
 				71FCF34E2BEA1C2400D8528A /* SnapKit-Dynamic */,
+				71FCF3542BEA658F00D8528A /* CombineMoya */,
+				71FCF3562BEA658F00D8528A /* Moya */,
+				71FCF3582BEA658F00D8528A /* ReactiveMoya */,
+				71FCF35A2BEA658F00D8528A /* RxMoya */,
 			);
 			productName = "Spotify-iOS";
 			productReference = 71FCF32C2BE8FB7600D8528A /* Spotify-iOS.app */;
@@ -160,6 +172,7 @@
 			packageReferences = (
 				71FCF3482BEA1C1A00D8528A /* XCRemoteSwiftPackageReference "Then" */,
 				71FCF34B2BEA1C2400D8528A /* XCRemoteSwiftPackageReference "SnapKit" */,
+				71FCF3532BEA658F00D8528A /* XCRemoteSwiftPackageReference "Moya" */,
 			);
 			productRefGroup = 71FCF32D2BE8FB7600D8528A /* Products */;
 			projectDirPath = "";
@@ -424,6 +437,14 @@
 				minimumVersion = 5.7.1;
 			};
 		};
+		71FCF3532BEA658F00D8528A /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 15.0.3;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -441,6 +462,26 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 71FCF34B2BEA1C2400D8528A /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = "SnapKit-Dynamic";
+		};
+		71FCF3542BEA658F00D8528A /* CombineMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 71FCF3532BEA658F00D8528A /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = CombineMoya;
+		};
+		71FCF3562BEA658F00D8528A /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 71FCF3532BEA658F00D8528A /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
+		71FCF3582BEA658F00D8528A /* ReactiveMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 71FCF3532BEA658F00D8528A /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = ReactiveMoya;
+		};
+		71FCF35A2BEA658F00D8528A /* RxMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 71FCF3532BEA658F00D8528A /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = RxMoya;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

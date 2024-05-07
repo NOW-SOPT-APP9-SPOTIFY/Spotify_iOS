@@ -49,7 +49,12 @@ extension SpotifyTabBarController {
         }
     }
     
-    private func templateNavigationController(title: String, unselectedImage: UIImage?, selectedImage: UIImage?, rootViewController: UIViewController) -> UINavigationController {
+    private func templateNavigationController(
+        title: String,
+        unselectedImage: UIImage?,
+        selectedImage: UIImage?,
+        rootViewController: UIViewController
+    ) -> UINavigationController {
         return UINavigationController(rootViewController: rootViewController).then {
             $0.title = title
             $0.tabBarItem.image = unselectedImage
