@@ -28,8 +28,6 @@ extension SpotifyTabBarController {
             $0.backgroundColor = .black
             $0.unselectedItemTintColor = .darkGray
             $0.tintColor = .green
-            $0.layer.cornerRadius = 20
-            $0.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         }
     }
     

@@ -57,7 +57,7 @@ enum SpotifyTabBarItem {
         case .home:
             return ViewController()
         case .search, .myLibrary, .premium:
-            return ViewController()
+            return ViewController().then { $0.view.backgroundColor = .red }
         }
     }
 }
