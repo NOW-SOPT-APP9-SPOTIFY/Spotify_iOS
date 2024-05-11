@@ -27,6 +27,9 @@
 		95D119CF2BEF5B6D004228C0 /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 95D119CC2BEF5B6D004228C0 /* Pretendard-Medium.otf */; };
 		95D119D02BEF5B6D004228C0 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 95D119CD2BEF5B6D004228C0 /* Pretendard-SemiBold.otf */; };
 		95D119D22BEF5B81004228C0 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 95D119D12BEF5B81004228C0 /* Pretendard-Bold.otf */; };
+		95D119E92BEF5FF4004228C0 /* Gotham-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 95D119E82BEF5FF4004228C0 /* Gotham-Bold.otf */; };
+		95D119EB2BEF600A004228C0 /* Gotham-Book.otf in Resources */ = {isa = PBXBuildFile; fileRef = 95D119EA2BEF600A004228C0 /* Gotham-Book.otf */; };
+		95D119ED2BEF601E004228C0 /* Gotham-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 95D119EC2BEF601E004228C0 /* Gotham-Medium.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +48,9 @@
 		95D119CC2BEF5B6D004228C0 /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
 		95D119CD2BEF5B6D004228C0 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
 		95D119D12BEF5B81004228C0 /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
+		95D119E82BEF5FF4004228C0 /* Gotham-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Bold.otf"; sourceTree = "<group>"; };
+		95D119EA2BEF600A004228C0 /* Gotham-Book.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Book.otf"; sourceTree = "<group>"; };
+		95D119EC2BEF601E004228C0 /* Gotham-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Medium.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +164,7 @@
 		95D119BE2BEF5387004228C0 /* Font */ = {
 			isa = PBXGroup;
 			children = (
+				95D119E72BEF5FD7004228C0 /* Gotham */,
 				95D119C12BEF58A5004228C0 /* Pretendard */,
 			);
 			path = Font;
@@ -172,6 +179,16 @@
 				95D119CD2BEF5B6D004228C0 /* Pretendard-SemiBold.otf */,
 			);
 			path = Pretendard;
+			sourceTree = "<group>";
+		};
+		95D119E72BEF5FD7004228C0 /* Gotham */ = {
+			isa = PBXGroup;
+			children = (
+				95D119EC2BEF601E004228C0 /* Gotham-Medium.otf */,
+				95D119EA2BEF600A004228C0 /* Gotham-Book.otf */,
+				95D119E82BEF5FF4004228C0 /* Gotham-Bold.otf */,
+			);
+			path = Gotham;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -246,11 +263,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95D119ED2BEF601E004228C0 /* Gotham-Medium.otf in Resources */,
 				71FCF33C2BE8FB7800D8528A /* LaunchScreen.storyboard in Resources */,
+				95D119E92BEF5FF4004228C0 /* Gotham-Bold.otf in Resources */,
 				95D119D22BEF5B81004228C0 /* Pretendard-Bold.otf in Resources */,
 				95D119CE2BEF5B6D004228C0 /* Pretendard-Regular.otf in Resources */,
 				95D119D02BEF5B6D004228C0 /* Pretendard-SemiBold.otf in Resources */,
 				71FCF3392BE8FB7800D8528A /* Assets.xcassets in Resources */,
+				95D119EB2BEF600A004228C0 /* Gotham-Book.otf in Resources */,
 				95D119CF2BEF5B6D004228C0 /* Pretendard-Medium.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
