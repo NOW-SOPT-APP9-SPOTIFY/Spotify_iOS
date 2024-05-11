@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		712DF5402BEF385600F0BCCB /* Dto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712DF53F2BEF385600F0BCCB /* Dto.swift */; };
+		712DF5422BEF387A00F0BCCB /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712DF5412BEF387A00F0BCCB /* Network.swift */; };
 		71FCF3302BE8FB7600D8528A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FCF32F2BE8FB7600D8528A /* AppDelegate.swift */; };
 		71FCF3322BE8FB7600D8528A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FCF3312BE8FB7600D8528A /* SceneDelegate.swift */; };
 		71FCF3342BE8FB7600D8528A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FCF3332BE8FB7600D8528A /* ViewController.swift */; };
@@ -24,6 +26,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		712DF53F2BEF385600F0BCCB /* Dto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dto.swift; sourceTree = "<group>"; };
+		712DF5412BEF387A00F0BCCB /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		71FCF32C2BE8FB7600D8528A /* Spotify-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Spotify-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		71FCF32F2BE8FB7600D8528A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		71FCF3312BE8FB7600D8528A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -121,6 +125,7 @@
 		71FCF35C2BEA6BB600D8528A /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				712DF5412BEF387A00F0BCCB /* Network.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -128,6 +133,7 @@
 		71FCF35D2BEA6BC000D8528A /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				712DF53F2BEF385600F0BCCB /* Dto.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -229,6 +235,8 @@
 				71FCF3472BEA1BFD00D8528A /* SpotifyTabBarController.swift in Sources */,
 				71FCF3512BEA1C9A00D8528A /* SpotifyTabBarItem.swift in Sources */,
 				71FCF3322BE8FB7600D8528A /* SceneDelegate.swift in Sources */,
+				712DF5422BEF387A00F0BCCB /* Network.swift in Sources */,
+				712DF5402BEF385600F0BCCB /* Dto.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
