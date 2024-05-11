@@ -30,6 +30,7 @@
 		95D119E92BEF5FF4004228C0 /* Gotham-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 95D119E82BEF5FF4004228C0 /* Gotham-Bold.otf */; };
 		95D119EB2BEF600A004228C0 /* Gotham-Book.otf in Resources */ = {isa = PBXBuildFile; fileRef = 95D119EA2BEF600A004228C0 /* Gotham-Book.otf */; };
 		95D119ED2BEF601E004228C0 /* Gotham-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 95D119EC2BEF601E004228C0 /* Gotham-Medium.otf */; };
+		95D119F22BEFB67D004228C0 /* FontLiterals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D119F12BEFB67D004228C0 /* FontLiterals.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 		95D119E82BEF5FF4004228C0 /* Gotham-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Bold.otf"; sourceTree = "<group>"; };
 		95D119EA2BEF600A004228C0 /* Gotham-Book.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Book.otf"; sourceTree = "<group>"; };
 		95D119EC2BEF601E004228C0 /* Gotham-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Medium.otf"; sourceTree = "<group>"; };
+		95D119F12BEFB67D004228C0 /* FontLiterals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontLiterals.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +158,7 @@
 		71FCF35E2BEA6BC400D8528A /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				95D119F02BEFB66D004228C0 /* Literals */,
 				71FCF3442BEA1B3900D8528A /* Resource */,
 			);
 			path = Global;
@@ -189,6 +192,14 @@
 				95D119E82BEF5FF4004228C0 /* Gotham-Bold.otf */,
 			);
 			path = Gotham;
+			sourceTree = "<group>";
+		};
+		95D119F02BEFB66D004228C0 /* Literals */ = {
+			isa = PBXGroup;
+			children = (
+				95D119F12BEFB67D004228C0 /* FontLiterals.swift */,
+			);
+			path = Literals;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -286,6 +297,7 @@
 				71FCF3302BE8FB7600D8528A /* AppDelegate.swift in Sources */,
 				71FCF3472BEA1BFD00D8528A /* SpotifyTabBarController.swift in Sources */,
 				71FCF3512BEA1C9A00D8528A /* SpotifyTabBarItem.swift in Sources */,
+				95D119F22BEFB67D004228C0 /* FontLiterals.swift in Sources */,
 				71FCF3322BE8FB7600D8528A /* SceneDelegate.swift in Sources */,
 				712DF5422BEF387A00F0BCCB /* Network.swift in Sources */,
 				712DF5402BEF385600F0BCCB /* Dto.swift in Sources */,
