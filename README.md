@@ -25,8 +25,78 @@
 [Setting] : 프로젝트 세팅
 [Comment] : 주석 추가, 삭제 (Only 주석)
 ```
-<br>
 ex) [Feat] #5 - 서버 연결 구현
+
+---
+
+> **Code Review Rule**
+
+코드 리뷰를 최대한 빨리 달고 반영하자! (둥글둥글 말투로 해결하기)
+
+ex) 이거 왜 이렇게 짰어요? (X)
+     해당 기능을 구현한 이유가 궁금합니다 ‼️ (O)
+
+---
+> **Issue Naming Rule**
+
+`[Prefix] <Description>`
+
+ex) [Feat] - Spotify 블러처리 구현
+
+---
+> **Git Flow**
+
+1. 이슈 생성
+2. 브랜치 생성
+3. 브랜치 add, commit, push → PR 과정 거치기
+4. 최소 1명 "Approve" 있어야 merge (강제 머지 금지 하면 솝트 제명 ~~bypass~~)
+5. 머지후 ( 해당 브랜치 바로 제거 )
+6. pull 받아서 다음 이슈 진행
+---
+> **Git**
+
+해결 어려운 Confilct 생기면 명진 에게 바로 연락하기 !!!
+
+충돌 안나게 같은 파일 최대한 작업하지 않기
+
+---
+> **Foldering**
+
+```
+Spotify
+├── AppDelegate.swift
+├── SceneDelegate.swift
+├── Network
+│   ├── Base
+│   │   ├── NetworkLoggingPlugin.swift
+│   │   ├── NetworkResult
+│   │   └── Config
+│   ├── API
+│   │   └── UserTargetType.swift
+│   └── Service
+│       └── UserService.swift
+├── Data
+│   ├── Auth
+│   │   ├── AuthRequestModel.swift
+│   │   └── AuthResponseModel.swift
+├── Presentation
+│   ├── Auth
+│   │   ├── Views
+│   │   └── ViewControllers
+│   ├── Main
+│   │   ├── Views
+│   │   └── ViewControllers
+│   └── Common
+│       ├── Base
+│       │   └── BaseView
+│       └── CustomTextField
+└── Global
+    ├── Extension
+    ├── Literals
+    └── Resource
+
+```
+
 
 
 
