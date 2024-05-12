@@ -1,9 +1,39 @@
-# Created by https://www.toptal.com/developers/gitignore/api/swift
-# Edit at https://www.toptal.com/developers/gitignore?templates=swift
+# Created by https://www.toptal.com/developers/gitignore/api/swift,swiftpackagemanager,xcode,cocoapods,fastlane
+# Edit at https://www.toptal.com/developers/gitignore?templates=swift,swiftpackagemanager,xcode,cocoapods,fastlane
+
+### CocoaPods ###
+## CocoaPods GitIgnore Template
+
+# CocoaPods - Only use to conserve bandwidth / Save time on Pushing
+#           - Also handy if you have a large number of dependant pods
+#           - AS PER https://guides.cocoapods.org/using/using-cocoapods.html NEVER IGNORE THE LOCK FILE
+Pods/
+
+### fastlane ###
+# fastlane - A streamlined workflow tool for Cocoa deployment
+#
+# It is recommended to not store the screenshots in the git repo. Instead, use fastlane to re-generate the
+# screenshots whenever they are needed.
+# For more information about the recommended setup visit:
+# https://docs.fastlane.tools/best-practices/source-control/#source-control
+
+# fastlane specific
+**/fastlane/report.xml
+
+# deliver temporary files
+**/fastlane/Preview.html
+
+# snapshot generated screenshots
+**/fastlane/screenshots
+
+# scan temporary files
+**/fastlane/test_output
+
+# Fastlane.swift runner binary
+**/fastlane/FastlaneRunner
 
 ### Swift ###
 # Xcode
-#
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
 
 ## User settings
@@ -42,7 +72,7 @@ playground.xcworkspace
 # Add this line if you want to avoid checking in source code from Swift Package Manager dependencies.
 # Packages/
 # Package.pins
-# Package.resolved
+Package.resolved
 # *.xcodeproj
 # Xcode automatically generates this directory with a .xcworkspacedata file and xcuserdata
 # hence it is not needed unless you have added a package configuration file to your project
@@ -85,4 +115,28 @@ fastlane/test_output
 
 iOSInjectionProject/
 
-# End of https://www.toptal.com/developers/gitignore/api/swift
+### SwiftPackageManager ###
+Packages
+xcuserdata
+#*.xcodeproj
+
+
+### Xcode ###
+
+## Xcode 8 and earlier
+
+### Xcode Patch ###
+*.xcodeproj/*
+.idea
+!*.xcodeproj/project.pbxproj
+!*.xcodeproj/xcshareddata/
+!*.xcodeproj/project.xcworkspace/
+!*.xcworkspace/contents.xcworkspacedata
+/*.gcno
+**/xcshareddata/WorkspaceSettings.xcsettings
+
+# End of https://www.toptal.com/developers/gitignore/api/swift,swiftpackagemanager,xcode,cocoapods,fastlane
+
+.DS_STORE
+
+*.xcconfig
