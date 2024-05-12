@@ -4,7 +4,7 @@
 ## Member
 | 이명진<br/>([@thingineeer](https://github.com/thingineeer)) | 김나연<br/>([@Nya128](https://github.com/Nya128)) | 김민성<br/>([@mminny](https://github.com/mminny)) |
 | :---: | :---: | :---: |
-| <img width="540" src=""/> | <img width="540" src=""/> | <img width="540" src=""/> |
+| <img width="540" src="https://github.com/NOW-SOPT-APP9-SPOTIFY/Spotify_iOS/assets/88179341/0edaa970-b08b-4212-8d76-2d8db6cab3ff"/> | <img width="540" src="https://github.com/NOW-SOPT-APP9-SPOTIFY/Spotify_iOS/assets/88179341/0aa8e320-2b52-4790-8c38-a5d31b1e4c94"/> | <img width="540" src="https://github.com/NOW-SOPT-APP9-SPOTIFY/Spotify_iOS/assets/88179341/ea9f1897-9797-4924-bb67-e27829405aaa"/> |
 <br>
 
 > **Commit Message Rule**
@@ -63,37 +63,25 @@ ex) [Feat] - Spotify 블러처리 구현
 > **Foldering**
 
 ```
-Spotify
-├── AppDelegate.swift
-├── SceneDelegate.swift
-├── Network
-│   ├── Base
-│   │   ├── NetworkLoggingPlugin.swift
-│   │   ├── NetworkResult
-│   │   └── Config
-│   ├── API
-│   │   └── UserTargetType.swift
-│   └── Service
-│       └── UserService.swift
+├── Application
+│   ├── AppDelegate.swift
+│   ├── Base.lproj
+│   ├── Info.plist
+│   ├── SceneDelegate.swift
+│   └── ViewController.swift
 ├── Data
-│   ├── Auth
-│   │   ├── AuthRequestModel.swift
-│   │   └── AuthResponseModel.swift
-├── Presentation
-│   ├── Auth
-│   │   ├── Views
-│   │   └── ViewControllers
-│   ├── Main
-│   │   ├── Views
-│   │   └── ViewControllers
-│   └── Common
-│       ├── Base
-│       │   └── BaseView
-│       └── CustomTextField
-└── Global
-    ├── Extension
-    ├── Literals
-    └── Resource
+│   └── Dto.swift
+├── Global
+│   ├── Extension
+│   ├── Literals
+│   └── Resource
+├── Network
+│   ├── Base
+│   └── Network.swift
+└── Presentation
+    ├── TabBar
+    ├── ViewControllers
+    └── Views
 
 ```
 
