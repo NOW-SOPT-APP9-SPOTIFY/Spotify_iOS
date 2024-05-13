@@ -14,16 +14,16 @@ class MusicRecommandView: UIView {
     
     // MARK: - UI Components
     
-    private lazy var musicRecommendationCollectionView: UICollectionView = {
-        let layout = makeCompositionalLayout()
-        let musicRecommendationCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        
-        musicRecommendationCollectionView.isScrollEnabled = true
-        musicRecommendationCollectionView.backgroundColor = .clear
-        musicRecommendationCollectionView.showsVerticalScrollIndicator = false
-        
-        return musicRecommendationCollectionView
-    }()
+//    private lazy var musicRecommendationCollectionView: UICollectionView = {
+//        let layout = makeCompositionalLayout()
+//        let musicRecommendationCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+//        
+//        musicRecommendationCollectionView.isScrollEnabled = true
+//        musicRecommendationCollectionView.backgroundColor = .clear
+//        musicRecommendationCollectionView.showsVerticalScrollIndicator = false
+//        
+//        return musicRecommendationCollectionView
+//    }()
     
     // MARK: - Life Cycles
     
@@ -56,8 +56,8 @@ class MusicRecommandView: UIView {
 
 // MARK: - Extensions
 
-extension MusicRecommandView {
-    func makeCompositionalLayout() -> UICollectionViewCompositionalLayout {
-        
-    }
-}
+//extension MusicRecommandView {
+//    func makeCompositionalLayout() -> UICollectionViewCompositionalLayout {
+//        
+//    }
+//}

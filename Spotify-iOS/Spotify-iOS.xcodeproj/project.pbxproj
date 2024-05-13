@@ -38,6 +38,7 @@
 		95D119EB2BEF600A004228C0 /* Gotham-Book.otf in Resources */ = {isa = PBXBuildFile; fileRef = 95D119EA2BEF600A004228C0 /* Gotham-Book.otf */; };
 		95D119ED2BEF601E004228C0 /* Gotham-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 95D119EC2BEF601E004228C0 /* Gotham-Medium.otf */; };
 		95D119F22BEFB67D004228C0 /* FontLiterals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D119F12BEFB67D004228C0 /* FontLiterals.swift */; };
+		B80EF86C2BF27267007A82C3 /* musicItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80EF86B2BF27267007A82C3 /* musicItemCollectionViewCell.swift */; };
 		B81A0D942BF25B6700C5E591 /* MusicRecommandView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81A0D932BF25B6700C5E591 /* MusicRecommandView.swift */; };
 		B81A0D982BF262B100C5E591 /* MusicRecommandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81A0D972BF262B100C5E591 /* MusicRecommandViewController.swift */; };
 /* End PBXBuildFile section */
@@ -69,6 +70,7 @@
 		95D119EA2BEF600A004228C0 /* Gotham-Book.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Book.otf"; sourceTree = "<group>"; };
 		95D119EC2BEF601E004228C0 /* Gotham-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Medium.otf"; sourceTree = "<group>"; };
 		95D119F12BEFB67D004228C0 /* FontLiterals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontLiterals.swift; sourceTree = "<group>"; };
+		B80EF86B2BF27267007A82C3 /* musicItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = musicItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		B81A0D932BF25B6700C5E591 /* MusicRecommandView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicRecommandView.swift; sourceTree = "<group>"; };
 		B81A0D972BF262B100C5E591 /* MusicRecommandViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicRecommandViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -179,6 +181,7 @@
 			children = (
 				95AF20272BF0855C0057D44A /* ViewControllers */,
 				95AF20262BF085520057D44A /* Views */,
+				B81A0D952BF2626100C5E591 /* Cells */,
 				71FCF3452BEA1BDF00D8528A /* TabBar */,
 			);
 			path = Presentation;
@@ -214,7 +217,6 @@
 		95AF20262BF085520057D44A /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				B81A0D952BF2626100C5E591 /* Cells */,
 				B81A0D922BF25B1B00C5E591 /* Recommand */,
 				95AF20282BF086540057D44A /* Home */,
 				95AF202A2BF086610057D44A /* Artist */,
@@ -305,6 +307,7 @@
 		B81A0D952BF2626100C5E591 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				B80EF86B2BF27267007A82C3 /* musicItemCollectionViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -423,6 +426,7 @@
 				71FCF3322BE8FB7600D8528A /* SceneDelegate.swift in Sources */,
 				712DF5422BEF387A00F0BCCB /* Network.swift in Sources */,
 				712DF5402BEF385600F0BCCB /* Dto.swift in Sources */,
+				B80EF86C2BF27267007A82C3 /* musicItemCollectionViewCell.swift in Sources */,
 				712DF54C2BEFA7EA00F0BCCB /* getClassName.swift in Sources */,
 				B81A0D942BF25B6700C5E591 /* MusicRecommandView.swift in Sources */,
 			);
