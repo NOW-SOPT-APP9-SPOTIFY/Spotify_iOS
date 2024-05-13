@@ -1,5 +1,5 @@
 //
-//  RecommandView.swift
+//  MusicRecommendView.swift
 //  Spotify-iOS
 //
 //  Created by 김민성 on 5/13/24.
@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-class MusicRecommandView: UIView {
+class MusicRecommendView: UIView {
     
     // MARK: - UI Components
     
@@ -56,7 +56,7 @@ class MusicRecommandView: UIView {
 
 // MARK: - Extensions
 
-//extension MusicRecommandView {
+//extension MusicRecommendView {
 //    func makeCompositionalLayout() -> UICollectionViewCompositionalLayout {
 //        
 //    }
