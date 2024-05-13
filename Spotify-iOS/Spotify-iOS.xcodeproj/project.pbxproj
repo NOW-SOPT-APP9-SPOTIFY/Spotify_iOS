@@ -14,6 +14,7 @@
 		712DF54A2BEFA7BB00F0BCCB /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712DF5492BEFA7BB00F0BCCB /* UIView+.swift */; };
 		712DF54C2BEFA7EA00F0BCCB /* getClassName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712DF54B2BEFA7EA00F0BCCB /* getClassName.swift */; };
 		712DF54F2BEFAD1000F0BCCB /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712DF54E2BEFAD1000F0BCCB /* Config.swift */; };
+		712DF5542BF29E5400F0BCCB /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 712DF5532BF29E5400F0BCCB /* .swiftlint.yml */; };
 		71FCF3302BE8FB7600D8528A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FCF32F2BE8FB7600D8528A /* AppDelegate.swift */; };
 		71FCF3322BE8FB7600D8528A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FCF3312BE8FB7600D8528A /* SceneDelegate.swift */; };
 		71FCF3342BE8FB7600D8528A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FCF3332BE8FB7600D8528A /* ViewController.swift */; };
@@ -51,6 +52,7 @@
 		712DF5492BEFA7BB00F0BCCB /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		712DF54B2BEFA7EA00F0BCCB /* getClassName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getClassName.swift; sourceTree = "<group>"; };
 		712DF54E2BEFAD1000F0BCCB /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		712DF5532BF29E5400F0BCCB /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		71FCF32C2BE8FB7600D8528A /* Spotify-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Spotify-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		71FCF32F2BE8FB7600D8528A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		71FCF3312BE8FB7600D8528A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 		71FCF3232BE8FB7600D8528A = {
 			isa = PBXGroup;
 			children = (
+				712DF5532BF29E5400F0BCCB /* .swiftlint.yml */,
 				71FCF32E2BE8FB7600D8528A /* Spotify-iOS */,
 				71FCF32D2BE8FB7600D8528A /* Products */,
 			);
@@ -327,6 +330,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 71FCF3402BE8FB7800D8528A /* Build configuration list for PBXNativeTarget "Spotify-iOS" */;
 			buildPhases = (
+				712DF5522BF29DE200F0BCCB /* SwiftLint Script */,
 				71FCF3282BE8FB7600D8528A /* Sources */,
 				71FCF3292BE8FB7600D8528A /* Frameworks */,
 				71FCF32A2BE8FB7600D8528A /* Resources */,
@@ -392,6 +396,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				712DF5542BF29E5400F0BCCB /* .swiftlint.yml in Resources */,
 				95D119ED2BEF601E004228C0 /* Gotham-Medium.otf in Resources */,
 				71FCF33C2BE8FB7800D8528A /* LaunchScreen.storyboard in Resources */,
 				95D119E92BEF5FF4004228C0 /* Gotham-Bold.otf in Resources */,
@@ -405,6 +410,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		712DF5522BF29DE200F0BCCB /* SwiftLint Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "SwiftLint Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		71FCF3282BE8FB7600D8528A /* Sources */ = {
@@ -574,6 +601,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8Q4H7X3Q58;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Spotify-iOS/Application/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -603,6 +631,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8Q4H7X3Q58;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Spotify-iOS/Application/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
