@@ -31,4 +31,3 @@ extension Config {
         return key
     }()
 }
-
