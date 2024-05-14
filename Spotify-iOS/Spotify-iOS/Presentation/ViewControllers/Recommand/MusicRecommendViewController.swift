@@ -14,7 +14,6 @@ class MusicRecommendViewController: UIViewController {
     
     // MARK: - UIComponents
     
-    
     // MARK: - Life Cycles
     
     override func viewDidLoad() {
