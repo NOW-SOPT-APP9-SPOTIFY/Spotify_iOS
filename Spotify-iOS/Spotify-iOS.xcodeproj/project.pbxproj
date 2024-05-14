@@ -42,6 +42,7 @@
 		B80EF86C2BF27267007A82C3 /* MusicItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80EF86B2BF27267007A82C3 /* MusicItemCollectionViewCell.swift */; };
 		B81A0D942BF25B6700C5E591 /* MusicRecommendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81A0D932BF25B6700C5E591 /* MusicRecommendView.swift */; };
 		B81A0D982BF262B100C5E591 /* MusicRecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81A0D972BF262B100C5E591 /* MusicRecommendViewController.swift */; };
+		B873C5012BF3E0B4002D03D0 /* MusicProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B873C5002BF3E0B4002D03D0 /* MusicProgressBarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +76,7 @@
 		B80EF86B2BF27267007A82C3 /* MusicItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		B81A0D932BF25B6700C5E591 /* MusicRecommendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicRecommendView.swift; sourceTree = "<group>"; };
 		B81A0D972BF262B100C5E591 /* MusicRecommendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicRecommendViewController.swift; sourceTree = "<group>"; };
+		B873C5002BF3E0B4002D03D0 /* MusicProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicProgressBarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -303,6 +305,7 @@
 			isa = PBXGroup;
 			children = (
 				B81A0D932BF25B6700C5E591 /* MusicRecommendView.swift */,
+				B873C5002BF3E0B4002D03D0 /* MusicProgressBarView.swift */,
 			);
 			path = Recommand;
 			sourceTree = "<group>";
@@ -439,6 +442,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				712DF5472BEFA75D00F0BCCB /* HomeView.swift in Sources */,
+				B873C5012BF3E0B4002D03D0 /* MusicProgressBarView.swift in Sources */,
 				71FCF3342BE8FB7600D8528A /* ViewController.swift in Sources */,
 				95AF202E2BF088020057D44A /* ArtistView.swift in Sources */,
 				71FCF3302BE8FB7600D8528A /* AppDelegate.swift in Sources */,
