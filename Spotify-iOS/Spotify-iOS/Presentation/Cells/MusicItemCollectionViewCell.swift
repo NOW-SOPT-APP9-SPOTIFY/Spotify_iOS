@@ -67,6 +67,7 @@ extension MusicItemCollectionViewCell {
         }
         
         background.do {
+            $0.backgroundColor = .clear
             $0.layer.addSublayer(gradientLayer)
             $0.layer.cornerRadius = 14
             
@@ -112,7 +113,7 @@ extension MusicItemCollectionViewCell {
             $0.text = "Doo-Wops & Hooligans"
             $0.font = UIFont(name: GothamType.B.rawValue, size: 17)
             $0.textColor = .white
-            $0.textAlignment = .center
+            $0.textAlignment = .left
             
         }
         
@@ -120,7 +121,7 @@ extension MusicItemCollectionViewCell {
             $0.text = "앨범 · Bruno Mars"
             $0.font = UIFont(name: PretendardType.R.rawValue, size: 10)
             $0.textColor = .white
-            $0.textAlignment = .center
+            $0.textAlignment = .left
         }
         
         addPlaylistButton.do {
@@ -149,7 +150,102 @@ extension MusicItemCollectionViewCell {
     }
     
     func setLayout() {
+        background.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(140) // top view 만들면 거기에 레이아웃 맞추기
+            $0.leading.equalToSuperview().offset(16)
+            $0.width.equalTo(343)
+            $0.height.equalTo(466)
+        }
         
+        musicTitle.snp.makeConstraints {
+            $0.top.equalTo(background.snp.top).offset(16)
+            $0.leading.equalTo(background.snp.leading).offset(15.91)
+            $0.width.equalTo(115)
+            $0.height.equalTo(14)
+        }
+        
+        progressBar.snp.makeConstraints {
+            $0.top.equalTo(musicTitle.snp.bottom).offset(6)
+            $0.leading.equalTo(background.snp.leading).offset(15.91)
+            $0.width.equalTo(54)
+            $0.height.equalTo(4)
+        }
+        
+        muteButton.snp.makeConstraints {
+            $0.top.equalTo(background.snp.top).offset(9.5)
+            $0.trailing.equalTo(background.snp.trailing).inset(8.5)
+        }
+        
+        mainAlbumImage.snp.makeConstraints {
+            $0.top.equalTo(background.snp.top).offset(86)
+            $0.leading.equalTo(background.snp.leading).offset(70.59)
+            $0.width.equalTo(201.82)
+            $0.height.equalTo(203)
+        }
+        
+        subAlbumImage.snp.makeConstraints {
+            $0.top.equalTo(mainAlbumImage.snp.bottom).offset(71)
+            $0.leading.equalTo(background.snp.leading).offset(14)
+            $0.width.equalTo(53)
+            $0.height.equalTo(53)
+        }
+        
+        albumName.snp.makeConstraints {
+            $0.top.equalTo(mainAlbumImage.snp.bottom).offset(79.5)
+            $0.leading.equalTo(subAlbumImage.snp.trailing).offset(8)
+            $0.width.equalTo(193)
+            $0.height.equalTo(22)
+        }
+
+        musicianName.snp.makeConstraints {
+            $0.top.equalTo(albumName.snp.bottom)
+            $0.leading.equalTo(subAlbumImage.snp.trailing).offset(8)
+            $0.width.equalTo(80)
+            $0.height.equalTo(14)
+        }
+
+        addPlaylistButton.snp.makeConstraints {
+            $0.top.equalTo(subAlbumImage.snp.bottom).offset(14)
+            $0.leading.equalTo(background.snp.leading).offset(14.91)
+            $0.width.equalTo(20.88)
+            $0.height.equalTo(21)
+        }
+        
+        optionButton.snp.makeConstraints {
+            $0.top.equalTo(subAlbumImage.snp.bottom).offset(23.5)
+            $0.leading.equalTo(background.snp.leading).offset(62.55)
+            $0.width.equalTo(16.9)
+            $0.height.equalTo(3)
+        }
+        
+        albumInfo.snp.makeConstraints {
+            $0.top.equalTo(mainAlbumImage.snp.bottom).offset(142)
+            $0.trailing.equalTo(background.snp.trailing).inset(59.65)
+            $0.width.equalTo(59.65)
+            $0.height.equalTo(14)
+        }
+        
+        playButton.snp.makeConstraints {
+            $0.top.equalTo(mainAlbumImage.snp.bottom).offset(133.5)
+            $0.trailing.equalTo(background.snp.trailing).inset(13.59)
+            $0.width.equalTo(30.82)
+            $0.height.equalTo(31)
+        }
 
     }
+    
+    // 서버 통신 되면 데이터 바인딩 관련해서 적을 내용들
+    //    func bindData(
+    //        musicTitle: String = "Bruno Mars - Grenade",
+    //        albumImage: UIImage,
+    //        albumName: String = "Doo-Wops & Hooligans",
+    //        musicianName: String = "앨범 · Bruno Mars"
+    //        albumInfo: String = "2010 · 10곡"
+    //    ) {
+    //        self.musicTitle.text = musicTitle
+    //        self.mainAlbumImage.image = albumImage
+    //        self.albumName.text = albumName
+    //        self.musicianName.text = musicianName
+    //        self.albumInfo.text = albumInfo
+    //    }
 }
