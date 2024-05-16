@@ -19,7 +19,7 @@ class MusicRecommendViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        progressBar.progress = CGFloat.random(in: 0...1)
+//        progressBar.progress = CGFloat.random(in: 0...1)
         
         setLayout()
         setRegister()
