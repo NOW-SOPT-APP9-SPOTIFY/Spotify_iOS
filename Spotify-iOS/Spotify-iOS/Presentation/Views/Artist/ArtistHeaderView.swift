@@ -15,6 +15,7 @@ final class ArtistHeaderView: UIView {
     // MARK: - UI Components
     
     private let artistImageView = UIImageView()
+    private let gradientView = UIView()
     private let monthlyListenerLabel = UILabel()
     private let shortsButton = UIButton()
     private let followButton = RoundBorderCustomButton(
@@ -39,6 +40,12 @@ final class ArtistHeaderView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        setGradient()
+    }
 }
 
 // MARK: - Extensions
@@ -46,8 +53,6 @@ final class ArtistHeaderView: UIView {
 private extension ArtistHeaderView {
     
     func setStyle() {
-        // TODO: 그라데이션
-        
         artistImageView.do {
             $0.contentMode = .scaleAspectFill
             $0.image = .imgBrunoMars
@@ -78,12 +83,27 @@ private extension ArtistHeaderView {
     }
     
     func setHierarchy() {
-        self.addSubviews(artistImageView, monthlyListenerLabel, shortsButton, followButton, moreButton, shuffleButton, playButton)
+        self.addSubviews(
+            artistImageView,
+            gradientView,
+            monthlyListenerLabel,
+            shortsButton,
+            followButton,
+            moreButton,
+            shuffleButton,
+            playButton
+        )
     }
     
     func setLayout() {
         artistImageView.snp.makeConstraints {
             $0.top.horizontalEdges.equalToSuperview()
+        }
+        
+        gradientView.snp.makeConstraints {
+            $0.top.equalTo(artistImageView.snp.bottom)
+            $0.horizontalEdges.equalToSuperview()
+            $0.bottom.equalTo(monthlyListenerLabel.snp.bottom)
         }
         
         monthlyListenerLabel.snp.makeConstraints {
@@ -117,5 +137,15 @@ private extension ArtistHeaderView {
             $0.top.equalTo(monthlyListenerLabel.snp.bottom).offset(5)
             $0.trailing.equalToSuperview().inset(15)
         }
+    }
+    
+    func setGradient() {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = gradientView.bounds
+        gradientLayer.colors = [
+            CGColor.init(red: 49/255, green: 32/255, blue: 25/255, alpha: 1),
+            CGColor.init(red: 18/255, green: 18/255, blue: 18/255, alpha: 0.3)
+        ]
+        gradientView.layer.addSublayer(gradientLayer)
     }
 }
