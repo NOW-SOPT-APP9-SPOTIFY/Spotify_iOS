@@ -97,6 +97,7 @@ private extension ArtistHeaderView {
     
     func setLayout() {
         artistImageView.snp.makeConstraints {
+            $0.height.equalTo(299/812 * UIScreen.main.bounds.height)
             $0.top.horizontalEdges.equalToSuperview()
         }
         
@@ -136,6 +137,7 @@ private extension ArtistHeaderView {
         playButton.snp.makeConstraints {
             $0.top.equalTo(monthlyListenerLabel.snp.bottom).offset(5)
             $0.trailing.equalToSuperview().inset(15)
+            $0.bottom.equalToSuperview()
         }
     }
     
