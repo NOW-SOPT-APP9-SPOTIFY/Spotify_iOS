@@ -77,12 +77,10 @@ private extension ArtistViewController {
     }
 
     func registerCell() {
-        collectionView.register(ArtistTabbarCell.self, forCellWithReuseIdentifier: ArtistTabbarCell.identifier)
+        collectionView.register(ArtistTabbarCell.self, forCellWithReuseIdentifier: ArtistTabbarCell.className)
     }
     
     func setPageViewController() {
-        self.addChild(pageViewController)
-        pageViewController.didMove(toParent: self)
         addViewControllersData()
         guard let firstVC = viewControllers.first else { return }
         pageViewController.setViewControllers([firstVC], direction: .forward, animated: true)
@@ -150,7 +148,7 @@ extension ArtistViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ArtistTabbarCell.identifier, for: indexPath) as? ArtistTabbarCell else { return UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ArtistTabbarCell.className, for: indexPath) as? ArtistTabbarCell else { return UICollectionViewCell() }
         cell.configure(title: tabbarData[indexPath.item].title)
         return cell
     }

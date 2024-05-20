@@ -49,10 +49,6 @@ private extension ArtistView {
             $0.showsVerticalScrollIndicator = false
         }
         
-        pageViewController.view.do {
-            $0.translatesAutoresizingMaskIntoConstraints = false
-        }
-        
         flowLayout.do {
             $0.scrollDirection = .horizontal
         }
@@ -100,7 +96,6 @@ private extension ArtistView {
         }
         
         indicatorBar.snp.makeConstraints {
-            $0.width.equalTo(0)
             $0.height.equalTo(2)
             $0.top.equalTo(tabbarCollectionView.snp.bottom)
             $0.leading.equalToSuperview().offset(16.5)

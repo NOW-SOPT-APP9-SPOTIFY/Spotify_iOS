@@ -11,7 +11,6 @@ import SnapKit
 import Then
 
 final class ArtistTabbarCell: UICollectionViewCell {
-    static let identifier = className
     
     let titleLabel = UILabel()
     
