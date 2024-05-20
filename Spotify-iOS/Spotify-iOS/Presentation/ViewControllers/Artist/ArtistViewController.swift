@@ -89,7 +89,8 @@ private extension ArtistViewController {
     }
     
     func addViewControllersData() {
-        viewControllers.append(ArtistMusicViewController())
+        let artistMusicViewController = ArtistMusicViewController(pageVC: pageViewController)
+        viewControllers.append(artistMusicViewController)
         for _ in 0 ..< tabbarData.count - 1 {
             let vc = UIViewController()
             vc.view.backgroundColor = .spotifyGray10

@@ -14,7 +14,7 @@ final class ArtistView: UIView {
     // MARK: - UI Components
     
     // TODO: 내비바 디자이너님한테 프레임(높이) 따로 잡아달라고 하기
-    private let scrollView = UIScrollView()
+    let scrollView = UIScrollView()
     private let contentView = UIView()
     private let header = ArtistHeaderView()
     lazy var pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
@@ -49,10 +49,9 @@ private extension ArtistView {
             $0.showsVerticalScrollIndicator = false
         }
         
-//        pageViewController.view.do {
-//            $0.translatesAutoresizingMaskIntoConstraints = false
-//            $0.isUserInteractionEnabled = false
-//        }
+        pageViewController.view.do {
+            $0.translatesAutoresizingMaskIntoConstraints = false
+        }
         
         flowLayout.do {
             $0.scrollDirection = .horizontal
@@ -108,7 +107,6 @@ private extension ArtistView {
         }
         
         pageViewController.view.snp.makeConstraints {
-//            $0.height.equalTo(100).priority(.low)
             $0.top.equalTo(indicatorBar.snp.bottom).offset(2)
             $0.horizontalEdges.bottom.equalToSuperview()
         }
