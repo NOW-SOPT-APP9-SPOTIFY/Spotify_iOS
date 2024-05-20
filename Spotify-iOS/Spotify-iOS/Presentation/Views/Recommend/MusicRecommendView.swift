@@ -78,6 +78,11 @@ extension MusicRecommendView {
         
         let section = NSCollectionLayoutSection(group: group)
         
+        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(23))
+        
+        let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
+        section.boundarySupplementaryItems = [header]
+        
         let layout = UICollectionViewCompositionalLayout(section: section)
         return layout
     }

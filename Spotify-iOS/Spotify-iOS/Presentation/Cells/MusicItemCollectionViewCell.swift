@@ -82,6 +82,7 @@ extension MusicItemCollectionViewCell {
             $0.font = UIFont(name: GothamType.R.rawValue, size: 11)
             $0.textColor = .white
             $0.textAlignment = .left
+            $0.numberOfLines = 1
         }
         
         for _ in 0 ..< 5 { // 이게 되나...?
@@ -125,6 +126,7 @@ extension MusicItemCollectionViewCell {
             $0.font = UIFont(name: PretendardType.R.rawValue, size: 10)
             $0.textColor = .white
             $0.textAlignment = .left
+            $0.numberOfLines = 1
         }
         
         addPlaylistButton.do {
@@ -167,7 +169,7 @@ extension MusicItemCollectionViewCell {
     
     func setLayout() {
         background.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(32) // top view 만들면 거기에 레이아웃 맞추기
+            $0.top.equalToSuperview().offset(8) // top view 만들면 거기에 레이아웃 맞추기
             $0.leading.equalToSuperview().offset(16)
             $0.trailing.equalToSuperview().inset(16)
             $0.width.equalTo(343)
@@ -177,7 +179,7 @@ extension MusicItemCollectionViewCell {
         musicTitle.snp.makeConstraints {
             $0.top.equalTo(background.snp.top).offset(16)
             $0.leading.equalTo(background.snp.leading).offset(15.91)
-            $0.width.equalTo(115)
+            $0.width.equalTo(282)
             $0.height.equalTo(14)
         }
         
@@ -210,7 +212,7 @@ extension MusicItemCollectionViewCell {
         albumName.snp.makeConstraints {
             $0.top.equalTo(mainAlbumImage.snp.bottom).offset(79.5)
             $0.leading.equalTo(subAlbumImage.snp.trailing).offset(8)
-            $0.width.equalTo(193)
+            $0.width.equalTo(200)
             $0.height.equalTo(22)
         }
         
