@@ -42,6 +42,7 @@
 		B80EF86C2BF27267007A82C3 /* MusicItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80EF86B2BF27267007A82C3 /* MusicItemCollectionViewCell.swift */; };
 		B81A0D942BF25B6700C5E591 /* MusicRecommendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81A0D932BF25B6700C5E591 /* MusicRecommendView.swift */; };
 		B81A0D982BF262B100C5E591 /* MusicRecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81A0D972BF262B100C5E591 /* MusicRecommendViewController.swift */; };
+		B82875722BF82CBB0084B22F /* MusicCollectionViewHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82875712BF82CBB0084B22F /* MusicCollectionViewHeaderCell.swift */; };
 		B873C5012BF3E0B4002D03D0 /* MusicProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B873C5002BF3E0B4002D03D0 /* MusicProgressBarView.swift */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +77,7 @@
 		B80EF86B2BF27267007A82C3 /* MusicItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		B81A0D932BF25B6700C5E591 /* MusicRecommendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicRecommendView.swift; sourceTree = "<group>"; };
 		B81A0D972BF262B100C5E591 /* MusicRecommendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicRecommendViewController.swift; sourceTree = "<group>"; };
+		B82875712BF82CBB0084B22F /* MusicCollectionViewHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicCollectionViewHeaderCell.swift; sourceTree = "<group>"; };
 		B873C5002BF3E0B4002D03D0 /* MusicProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicProgressBarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -222,7 +224,7 @@
 		95AF20262BF085520057D44A /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				B81A0D922BF25B1B00C5E591 /* Recommand */,
+				B81A0D922BF25B1B00C5E591 /* Recommend */,
 				95AF20282BF086540057D44A /* Home */,
 				95AF202A2BF086610057D44A /* Artist */,
 			);
@@ -301,18 +303,19 @@
 			path = Literals;
 			sourceTree = "<group>";
 		};
-		B81A0D922BF25B1B00C5E591 /* Recommand */ = {
+		B81A0D922BF25B1B00C5E591 /* Recommend */ = {
 			isa = PBXGroup;
 			children = (
 				B81A0D932BF25B6700C5E591 /* MusicRecommendView.swift */,
 				B873C5002BF3E0B4002D03D0 /* MusicProgressBarView.swift */,
 			);
-			path = Recommand;
+			path = Recommend;
 			sourceTree = "<group>";
 		};
 		B81A0D952BF2626100C5E591 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				B82875732BF82CBF0084B22F /* HeaderCell */,
 				B80EF86B2BF27267007A82C3 /* MusicItemCollectionViewCell.swift */,
 			);
 			path = Cells;
@@ -324,6 +327,14 @@
 				B81A0D972BF262B100C5E591 /* MusicRecommendViewController.swift */,
 			);
 			path = Recommand;
+			sourceTree = "<group>";
+		};
+		B82875732BF82CBF0084B22F /* HeaderCell */ = {
+			isa = PBXGroup;
+			children = (
+				B82875712BF82CBB0084B22F /* MusicCollectionViewHeaderCell.swift */,
+			);
+			path = HeaderCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -448,6 +459,7 @@
 				71FCF3302BE8FB7600D8528A /* AppDelegate.swift in Sources */,
 				95AF202C2BF087F70057D44A /* ArtistViewController.swift in Sources */,
 				71FCF3472BEA1BFD00D8528A /* SpotifyTabBarController.swift in Sources */,
+				B82875722BF82CBB0084B22F /* MusicCollectionViewHeaderCell.swift in Sources */,
 				712DF54A2BEFA7BB00F0BCCB /* UIView+.swift in Sources */,
 				712DF54F2BEFAD1000F0BCCB /* Config.swift in Sources */,
 				712DF5452BEFA71A00F0BCCB /* HomeViewController.swift in Sources */,

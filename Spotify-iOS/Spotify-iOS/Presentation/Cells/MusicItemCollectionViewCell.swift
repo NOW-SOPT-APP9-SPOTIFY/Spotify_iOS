@@ -14,18 +14,17 @@ class MusicItemCollectionViewCell: UICollectionViewCell {
     
     // MARK: Properties
     let colors: [CGColor] = [
-        .init(red: 255, green: 185, blue: 6, alpha: 0.33),
-        .init(red: 161, green: 160, blue: 158, alpha: 0.14),
-        .init(red: 109, green: 109, blue: 109, alpha: 0.14)
+        .init(red: 255/255, green: 185/255, blue: 6/255, alpha: 0.33),
+        .init(red: 161/255, green: 160/255, blue: 158/255, alpha: 0.14),
+        .init(red: 109/255, green: 109/255, blue: 109/255, alpha: 0.14)
     ]
     
     // MARK: - UIComponents
     
     private let background = UIView()
-    private let gradientLayer = CAGradientLayer()
-    
+    let gradientLayer = CAGradientLayer()
     private let musicTitle = UILabel()
-    private lazy var progressBar = MusicProgressBarView() // 이걸 5개 반복해서 하면 될 듯
+    lazy var progressBar = MusicProgressBarView() // 이걸 5개 반복해서 하면 될 듯
     private let progressBarStackView = UIStackView()
     private lazy var muteButton = UIImageView()
     private let mainAlbumImage = UIView() // 서버 연결되면 UIImage로 교체
@@ -35,7 +34,7 @@ class MusicItemCollectionViewCell: UICollectionViewCell {
     private lazy var addPlaylistButton = UIImageView() // plus 표시 되어 있는 버튼
     private lazy var optionButton = UIImageView()
     private let albumInfo = UILabel()
-    private lazy var playButton = UIImageView() 
+    private lazy var playButton = UIImageView()
     
     // MARK: - Life Cycles
     
@@ -46,6 +45,12 @@ class MusicItemCollectionViewCell: UICollectionViewCell {
         setHierarchy()
         setLayout()
         
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        gradientLayer.frame = background.bounds
     }
     
     required init?(coder: NSCoder) {
@@ -60,23 +65,21 @@ extension MusicItemCollectionViewCell {
     func setUI() {
         
         gradientLayer.do {
-            $0.frame = background.bounds
             $0.colors = colors
             $0.startPoint = CGPoint(x: 0.5, y: 0.0)
             $0.endPoint = CGPoint(x: 0.5, y: 1.0)
+            $0.cornerRadius = 14
         }
         
         background.do {
             $0.backgroundColor = .clear
             $0.layer.addSublayer(gradientLayer)
             $0.layer.cornerRadius = 14
-            
         }
-        
         
         musicTitle.do {
             $0.text = "Bruno Mars - Grenade"
-            $0.font = UIFont(name: GothamType.R.rawValue, size: <#T##CGFloat#>)
+            $0.font = UIFont(name: GothamType.R.rawValue, size: 11)
             $0.textColor = .white
             $0.textAlignment = .left
         }
@@ -125,11 +128,11 @@ extension MusicItemCollectionViewCell {
         }
         
         addPlaylistButton.do {
-            $0.image = UIImage(resource: .icEllipsisWhite)
+            $0.image = UIImage(resource: .icPlusCircleWhite)
         }
         
         optionButton.do {
-            $0.image = UIImage(resource: .icPlusCircleWhite)
+            $0.image = UIImage(resource: .icEllipsisWhite)
         }
         
         albumInfo.do {
@@ -146,13 +149,27 @@ extension MusicItemCollectionViewCell {
     }
     
     func setHierarchy() {
-        addSubview(progressBarStackView)
+        addSubviews(
+            background,
+            musicTitle,
+            progressBarStackView,
+            muteButton,
+            mainAlbumImage,
+            subAlbumImage,
+            albumName,
+            musicianName,
+            addPlaylistButton,
+            optionButton,
+            albumInfo,
+            playButton
+        )
     }
     
     func setLayout() {
         background.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(140) // top view 만들면 거기에 레이아웃 맞추기
+            $0.top.equalToSuperview().offset(32) // top view 만들면 거기에 레이아웃 맞추기
             $0.leading.equalToSuperview().offset(16)
+            $0.trailing.equalToSuperview().inset(16)
             $0.width.equalTo(343)
             $0.height.equalTo(466)
         }
@@ -196,14 +213,14 @@ extension MusicItemCollectionViewCell {
             $0.width.equalTo(193)
             $0.height.equalTo(22)
         }
-
+        
         musicianName.snp.makeConstraints {
             $0.top.equalTo(albumName.snp.bottom)
             $0.leading.equalTo(subAlbumImage.snp.trailing).offset(8)
             $0.width.equalTo(80)
             $0.height.equalTo(14)
         }
-
+        
         addPlaylistButton.snp.makeConstraints {
             $0.top.equalTo(subAlbumImage.snp.bottom).offset(14)
             $0.leading.equalTo(background.snp.leading).offset(14.91)
@@ -231,21 +248,22 @@ extension MusicItemCollectionViewCell {
             $0.width.equalTo(30.82)
             $0.height.equalTo(31)
         }
-
+        
     }
     
     // 서버 통신 되면 데이터 바인딩 관련해서 적을 내용들
-    //    func bindData(
-    //        musicTitle: String = "Bruno Mars - Grenade",
-    //        albumImage: UIImage,
-    //        albumName: String = "Doo-Wops & Hooligans",
-    //        musicianName: String = "앨범 · Bruno Mars"
-    //        albumInfo: String = "2010 · 10곡"
-    //    ) {
-    //        self.musicTitle.text = musicTitle
-    //        self.mainAlbumImage.image = albumImage
-    //        self.albumName.text = albumName
-    //        self.musicianName.text = musicianName
-    //        self.albumInfo.text = albumInfo
-    //    }
+        func bindData(
+//            musicTitle: String = "Bruno Mars - Grenade",
+//            albumImage: UIImage,
+//            albumName: String = "Doo-Wops & Hooligans",
+//            musicianName: String = "앨범 · Bruno Mars",
+//             albumInfo: String = "2010 · 10곡"
+            _ testData: testModel
+        ) {
+            self.musicTitle.text = testData.musicTitle
+//            self.mainAlbumImage.image = albumImage
+            self.albumName.text = testData.albumName
+            self.musicianName.text = testData.musicianName
+            self.albumInfo.text = testData.albumInfo
+        }
 }
