@@ -31,6 +31,13 @@
 		71FCF35B2BEA658F00D8528A /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 71FCF35A2BEA658F00D8528A /* RxMoya */; };
 		95AF202C2BF087F70057D44A /* ArtistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AF202B2BF087F70057D44A /* ArtistViewController.swift */; };
 		95AF202E2BF088020057D44A /* ArtistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AF202D2BF088020057D44A /* ArtistView.swift */; };
+		95AF20302BF87A470057D44A /* ArtistHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AF202F2BF87A470057D44A /* ArtistHeaderView.swift */; };
+		95AF20332BF9CE7C0057D44A /* RoundBorderCustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AF20322BF9CE7C0057D44A /* RoundBorderCustomButton.swift */; };
+		95AF20372BFA6D840057D44A /* ArtistTabbarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AF20362BFA6D840057D44A /* ArtistTabbarCell.swift */; };
+		95AF20392BFA6F700057D44A /* TabbarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AF20382BFA6F700057D44A /* TabbarModel.swift */; };
+		95AF203B2BFA70230057D44A /* ArtistMusicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AF203A2BFA70230057D44A /* ArtistMusicViewController.swift */; };
+		95AF203D2BFA732E0057D44A /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AF203C2BFA732E0057D44A /* String+.swift */; };
+		95AF203F2BFB7F600057D44A /* ArtistMusicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AF203E2BFB7F600057D44A /* ArtistMusicView.swift */; };
 		95D119CE2BEF5B6D004228C0 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 95D119CB2BEF5B6D004228C0 /* Pretendard-Regular.otf */; };
 		95D119CF2BEF5B6D004228C0 /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 95D119CC2BEF5B6D004228C0 /* Pretendard-Medium.otf */; };
 		95D119D02BEF5B6D004228C0 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 95D119CD2BEF5B6D004228C0 /* Pretendard-SemiBold.otf */; };
@@ -64,6 +71,13 @@
 		71FCF3502BEA1C9A00D8528A /* SpotifyTabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyTabBarItem.swift; sourceTree = "<group>"; };
 		95AF202B2BF087F70057D44A /* ArtistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistViewController.swift; sourceTree = "<group>"; };
 		95AF202D2BF088020057D44A /* ArtistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistView.swift; sourceTree = "<group>"; };
+		95AF202F2BF87A470057D44A /* ArtistHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistHeaderView.swift; sourceTree = "<group>"; };
+		95AF20322BF9CE7C0057D44A /* RoundBorderCustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundBorderCustomButton.swift; sourceTree = "<group>"; };
+		95AF20362BFA6D840057D44A /* ArtistTabbarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistTabbarCell.swift; sourceTree = "<group>"; };
+		95AF20382BFA6F700057D44A /* TabbarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarModel.swift; sourceTree = "<group>"; };
+		95AF203A2BFA70230057D44A /* ArtistMusicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistMusicViewController.swift; sourceTree = "<group>"; };
+		95AF203C2BFA732E0057D44A /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		95AF203E2BFB7F600057D44A /* ArtistMusicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistMusicView.swift; sourceTree = "<group>"; };
 		95D119CB2BEF5B6D004228C0 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
 		95D119CC2BEF5B6D004228C0 /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
 		95D119CD2BEF5B6D004228C0 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
@@ -108,6 +122,7 @@
 			children = (
 				712DF5492BEFA7BB00F0BCCB /* UIView+.swift */,
 				712DF54B2BEFA7EA00F0BCCB /* getClassName.swift */,
+				95AF203C2BFA732E0057D44A /* String+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -186,6 +201,7 @@
 				95AF20262BF085520057D44A /* Views */,
 				B81A0D952BF2626100C5E591 /* Cells */,
 				71FCF3452BEA1BDF00D8528A /* TabBar */,
+				95AF20312BF9CE1A0057D44A /* Common */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -203,6 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				712DF53F2BEF385600F0BCCB /* Dto.swift */,
+				95AF20382BFA6F700057D44A /* TabbarModel.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -249,6 +266,7 @@
 			isa = PBXGroup;
 			children = (
 				95AF202B2BF087F70057D44A /* ArtistViewController.swift */,
+				95AF203A2BFA70230057D44A /* ArtistMusicViewController.swift */,
 			);
 			path = Artist;
 			sourceTree = "<group>";
@@ -257,8 +275,18 @@
 			isa = PBXGroup;
 			children = (
 				95AF202D2BF088020057D44A /* ArtistView.swift */,
+				95AF202F2BF87A470057D44A /* ArtistHeaderView.swift */,
+				95AF203E2BFB7F600057D44A /* ArtistMusicView.swift */,
 			);
 			path = Artist;
+			sourceTree = "<group>";
+		};
+		95AF20312BF9CE1A0057D44A /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				95AF20322BF9CE7C0057D44A /* RoundBorderCustomButton.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		95D119BE2BEF5387004228C0 /* Font */ = {
@@ -311,6 +339,7 @@
 			isa = PBXGroup;
 			children = (
 				B80EF86B2BF27267007A82C3 /* MusicItemCollectionViewCell.swift */,
+				95AF20362BFA6D840057D44A /* ArtistTabbarCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -438,19 +467,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95AF20372BFA6D840057D44A /* ArtistTabbarCell.swift in Sources */,
+				95AF20392BFA6F700057D44A /* TabbarModel.swift in Sources */,
 				712DF5472BEFA75D00F0BCCB /* HomeView.swift in Sources */,
 				71FCF3342BE8FB7600D8528A /* ViewController.swift in Sources */,
 				95AF202E2BF088020057D44A /* ArtistView.swift in Sources */,
 				71FCF3302BE8FB7600D8528A /* AppDelegate.swift in Sources */,
 				95AF202C2BF087F70057D44A /* ArtistViewController.swift in Sources */,
 				71FCF3472BEA1BFD00D8528A /* SpotifyTabBarController.swift in Sources */,
+				95AF203F2BFB7F600057D44A /* ArtistMusicView.swift in Sources */,
 				712DF54A2BEFA7BB00F0BCCB /* UIView+.swift in Sources */,
 				712DF54F2BEFAD1000F0BCCB /* Config.swift in Sources */,
+				95AF203D2BFA732E0057D44A /* String+.swift in Sources */,
 				712DF5452BEFA71A00F0BCCB /* HomeViewController.swift in Sources */,
 				B81A0D982BF262B100C5E591 /* MusicRecommendViewController.swift in Sources */,
+				95AF203B2BFA70230057D44A /* ArtistMusicViewController.swift in Sources */,
+				95AF20302BF87A470057D44A /* ArtistHeaderView.swift in Sources */,
 				71FCF3512BEA1C9A00D8528A /* SpotifyTabBarItem.swift in Sources */,
 				95D119F22BEFB67D004228C0 /* FontLiterals.swift in Sources */,
 				71FCF3322BE8FB7600D8528A /* SceneDelegate.swift in Sources */,
+				95AF20332BF9CE7C0057D44A /* RoundBorderCustomButton.swift in Sources */,
 				712DF5422BEF387A00F0BCCB /* Network.swift in Sources */,
 				712DF5402BEF385600F0BCCB /* Dto.swift in Sources */,
 				B80EF86C2BF27267007A82C3 /* MusicItemCollectionViewCell.swift in Sources */,
