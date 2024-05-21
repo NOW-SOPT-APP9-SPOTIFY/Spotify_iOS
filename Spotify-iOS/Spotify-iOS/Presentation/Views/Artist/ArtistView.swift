@@ -103,7 +103,7 @@ private extension ArtistView {
         }
         
         pageViewController.view.snp.makeConstraints {
-            $0.top.equalTo(indicatorBar.snp.bottom).offset(2)
+            $0.top.equalTo(indicatorBar.snp.bottom).offset(26)
             $0.horizontalEdges.bottom.equalToSuperview()
         }
     }

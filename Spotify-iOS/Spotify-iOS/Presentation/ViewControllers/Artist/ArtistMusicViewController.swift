@@ -17,6 +17,7 @@ final class ArtistMusicViewController: UIViewController {
     
     let pageVC: UIPageViewController
     private let rootView = ArtistMusicView()
+    private lazy var collectionView = rootView.collectionView
     
     // MARK: - Life Cycles
     
@@ -39,6 +40,8 @@ final class ArtistMusicViewController: UIViewController {
         super.viewDidLoad()
         
         setRootViewConstraint()
+        setDelegate()
+        setRegister()
     }
     
     override func viewDidLayoutSubviews() {
@@ -58,4 +61,75 @@ private extension ArtistMusicViewController {
             $0.width.equalTo(pageVC.view.bounds.width)
         }
     }
+    
+    func setDelegate() {
+        collectionView.delegate = self
+        collectionView.dataSource = self
+    }
+    
+    func setRegister() {
+        collectionView.register(PopularityCollectionViewCell.self, forCellWithReuseIdentifier: PopularityCollectionViewCell.className)
+        
+        collectionView.register(ArtistMusicHeaderReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: ArtistMusicHeaderReusableView.className)
+    }
+}
+
+extension ArtistMusicViewController: UICollectionViewDataSource {
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return Section.allCases.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        let sectionType = Section.allCases[section]
+        switch sectionType {
+        case .popularity:
+            return 5
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let sectionType = Section.allCases[indexPath.section]
+        switch sectionType {
+        case .popularity:
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PopularityCollectionViewCell.className, for: indexPath) as? PopularityCollectionViewCell else { return UICollectionViewCell() }
+//            let data = popularMusics[indexPath.item]
+            cell.configure(
+                ranking: 1,
+                albumImg: .imgProfile,
+                title: "Locked out of Heaven",
+                numberOfPlays: "1,915,943,900",
+                is19Plus: true
+            )
+            return cell
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        switch kind {
+        case UICollectionView.elementKindSectionHeader:
+            guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: ArtistMusicHeaderReusableView.className, for: indexPath) as? ArtistMusicHeaderReusableView
+            else { return UICollectionReusableView() }
+            
+            let section = Section.allCases[indexPath.section]
+            switch section {
+            case .popularity:
+                header.configure(title: Section.popularity.rawValue, isIconIncluded: true)
+//            default:
+//                header.configure(title: "", isIconIncluded: false)
+            }
+            return header
+            
+//        case UICollectionView.elementKindSectionFooter:
+//            guard let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: HomeFooterReusableView.identifier, for: indexPath) as? HomeFooterReusableView
+//            else { return UICollectionReusableView() }
+//            footer.configure(pageNumber: carouselMovies.count)
+//            return footer
+        default:
+            return UICollectionReusableView()
+        }
+    }
+}
+
+extension ArtistMusicViewController: UICollectionViewDelegate {
 }
