@@ -13,8 +13,7 @@ import Then
 final class MusicCollectionViewHeaderCell: UICollectionViewCell {
     private let artistImage = UIImageView()
     private let artistName = UILabel()
-    private let text = UILabel()
-    private lazy var headerTextStack = UIStackView(arrangedSubviews: [artistName, text])
+    private let subText = UILabel()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -42,7 +41,7 @@ extension MusicCollectionViewHeaderCell {
             $0.textColor = .spotifyGray20
         }
         
-        text.do {
+        subText.do {
             $0.text = "과(와) 비슷한 아티스트 찾기"
             $0.font = UIFont(name: PretendardType.R.rawValue, size: 11)
             $0.textAlignment = .left
@@ -54,7 +53,7 @@ extension MusicCollectionViewHeaderCell {
         addSubviews(
             artistImage,
             artistName,
-            text
+            subText
         )
     }
     
@@ -71,7 +70,7 @@ extension MusicCollectionViewHeaderCell {
             $0.height.equalTo(15)
         }
         
-        text.snp.makeConstraints {
+        subText.snp.makeConstraints {
             $0.top.equalToSuperview().offset(4)
             $0.leading.equalTo(artistName.snp.trailing)
             $0.height.equalTo(15)

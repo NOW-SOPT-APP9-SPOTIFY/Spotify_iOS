@@ -34,8 +34,6 @@ class MusicRecommendViewController: UIViewController, UICollectionViewDelegate {
     
     // MARK: - Properties
     
-    let musicItemIdentifier = MusicItemCollectionViewCell.className
-    let headerIdentifier = MusicCollectionViewHeaderCell.className
     let headerTitle: [String] = ["Taylor Swift"]
     private let testList = testModel.dummy()
     
@@ -71,11 +69,11 @@ class MusicRecommendViewController: UIViewController, UICollectionViewDelegate {
         musicRecommendView.musicRecommendationCollectionView.register(
             MusicCollectionViewHeaderCell.self,
             forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
-            withReuseIdentifier: headerIdentifier
+            withReuseIdentifier: MusicCollectionViewHeaderCell.className
         )
         musicRecommendView.musicRecommendationCollectionView.register(
             MusicItemCollectionViewCell.self,
-            forCellWithReuseIdentifier: musicItemIdentifier
+            forCellWithReuseIdentifier: MusicItemCollectionViewCell.className
         )
     }
     
@@ -95,7 +93,7 @@ extension MusicRecommendViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: musicItemIdentifier, for: indexPath) as?
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MusicItemCollectionViewCell.className, for: indexPath) as?
                 MusicItemCollectionViewCell else { return UICollectionViewCell()}
         let model = testList[indexPath.row]
         cell.bindData(testModel(musicTitle: model.musicTitle, albumName: model.albumName, musicianName: model.musicianName, albumInfo: model.albumInfo))
@@ -103,7 +101,7 @@ extension MusicRecommendViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerIdentifier, for: indexPath) as? MusicCollectionViewHeaderCell else { return UICollectionReusableView() }
+        guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: MusicCollectionViewHeaderCell.className, for: indexPath) as? MusicCollectionViewHeaderCell else { return UICollectionReusableView() }
         headerView.bindTitle(musicianName: headerTitle[0])
         return headerView
     }
