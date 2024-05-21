@@ -43,6 +43,8 @@ final class Button1Cell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - UI & Layout
+    
     private func setUI() {
         singerTitle.do {
             $0.textColor = .spotifyGray30
@@ -73,10 +75,12 @@ final class Button1Cell: UICollectionViewCell {
         mainImageView.layer.cornerRadius = mainImageView.frame.size.width / 2
     }
     
+    // MARK: - Methods
+    
     func bindData(data: ArtistModel) {
         self.mainImageView.image = data.image
         self.singerTitle.text = data.title
-
+        
     }
     
 }

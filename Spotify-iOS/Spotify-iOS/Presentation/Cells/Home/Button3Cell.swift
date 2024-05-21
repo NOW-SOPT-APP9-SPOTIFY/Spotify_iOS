@@ -49,6 +49,8 @@ final class Button3Cell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - UI & Layout
+    
     private func setUI() {
         
         genreTitle.do {
@@ -82,6 +84,8 @@ final class Button3Cell: UICollectionViewCell {
             $0.width.equalTo(mainImageView.snp.height)
         }
     }
+    
+    // MARK: - Methods
     
     func bindData(data: ShowModel) {
         self.mainImageView.image = data.image

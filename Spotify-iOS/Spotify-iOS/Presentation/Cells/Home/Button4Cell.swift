@@ -43,6 +43,8 @@ final class Button4Cell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - UI & Layout
+    
     private func setUI() {
         songName.do {
             $0.textColor = .white
@@ -66,6 +68,8 @@ final class Button4Cell: UICollectionViewCell {
             $0.width.equalTo(mainImageView.snp.height)
         }
     }
+    
+    // MARK: - Methods
     
     func bindData(data: RecentlyModel) {
         self.mainImageView.image = data.image

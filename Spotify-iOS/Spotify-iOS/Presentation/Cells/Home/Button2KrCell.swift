@@ -43,6 +43,8 @@ final class Button2KrCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - UI & Layout
+    
     private func setUI() {
         
         imageTitle.do {
@@ -66,6 +68,9 @@ final class Button2KrCell: UICollectionViewCell {
             $0.height.equalTo(142)
         }
     }
+    
+    
+    // MARK: - Methods
     
     func bindData(data: RadioModel) {
         self.mainImageView.image = data.image

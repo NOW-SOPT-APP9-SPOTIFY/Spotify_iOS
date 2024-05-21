@@ -30,6 +30,8 @@ final class HomeViewHeaderCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - UI & Layout
+    
     private func setUI() {
         
         headertitleLabel.do {
@@ -52,8 +54,10 @@ final class HomeViewHeaderCell: UICollectionViewCell {
         }
     }
     
+    // MARK: - Methods
+    
     func bindData(text: String) {
         self.headertitleLabel.text = text
     }
-
+    
 }

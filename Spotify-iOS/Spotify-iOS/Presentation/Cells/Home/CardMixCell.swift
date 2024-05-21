@@ -47,11 +47,13 @@ final class CardMixCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - UI & Layout
+    
     private func setUI() {
         contentView.do {
             $0.layer.cornerRadius = 16
             $0.layer.masksToBounds = true
-             
+            
             $0.layer.shadowColor = UIColor.black.cgColor
             $0.layer.shadowOpacity = 0.1
             $0.layer.shadowOffset = CGSize(width: 0, height: 2)
@@ -90,6 +92,8 @@ final class CardMixCell: UICollectionViewCell {
             $0.edges.equalTo(emptyView).inset(8.5)
         }
     }
+    
+    // MARK: - Methods
     
     func bindData(image: UIImage) {
         self.mainImageView.image = image
