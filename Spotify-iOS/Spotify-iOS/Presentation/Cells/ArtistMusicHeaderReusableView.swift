@@ -42,7 +42,7 @@ final class ArtistMusicHeaderReusableView: UICollectionReusableView {
     private func setLayout() {
         titleLabel.snp.makeConstraints {
             $0.height.equalTo(22)
-            $0.leading.equalToSuperview().inset(16)
+            $0.leading.equalToSuperview()
             $0.centerY.equalToSuperview()
         }
     }
@@ -67,6 +67,10 @@ extension ArtistMusicHeaderReusableView {
             $0.size.equalTo(33)
             $0.leading.equalTo(titleLabel.snp.trailing)
             $0.verticalEdges.equalToSuperview()
+        }
+        
+        titleLabel.snp.updateConstraints {
+            $0.leading.equalToSuperview().inset(16)
         }
     }
 }
