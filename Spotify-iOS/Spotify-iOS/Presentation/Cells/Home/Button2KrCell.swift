@@ -69,7 +69,6 @@ final class Button2KrCell: UICollectionViewCell {
         }
     }
     
-    
     // MARK: - Methods
     
     func bindData(data: RadioModel) {

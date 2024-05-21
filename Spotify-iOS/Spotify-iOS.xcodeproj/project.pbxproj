@@ -10,6 +10,7 @@
 		712531682BFB434F0099E8F8 /* HomeViewHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712531672BFB434F0099E8F8 /* HomeViewHeaderCell.swift */; };
 		7125316A2BFB84220099E8F8 /* HomeMockingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712531692BFB84220099E8F8 /* HomeMockingModel.swift */; };
 		7125316D2BFBB1620099E8F8 /* LabelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7125316C2BFBB1620099E8F8 /* LabelFactory.swift */; };
+		7125316F2BFC9CE50099E8F8 /* DeepDiveHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7125316E2BFC9CE50099E8F8 /* DeepDiveHeaderCell.swift */; };
 		712DF5402BEF385600F0BCCB /* Dto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712DF53F2BEF385600F0BCCB /* Dto.swift */; };
 		712DF5422BEF387A00F0BCCB /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712DF5412BEF387A00F0BCCB /* Network.swift */; };
 		712DF5452BEFA71A00F0BCCB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712DF5442BEFA71A00F0BCCB /* HomeViewController.swift */; };
@@ -59,6 +60,7 @@
 		712531672BFB434F0099E8F8 /* HomeViewHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewHeaderCell.swift; sourceTree = "<group>"; };
 		712531692BFB84220099E8F8 /* HomeMockingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMockingModel.swift; sourceTree = "<group>"; };
 		7125316C2BFBB1620099E8F8 /* LabelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelFactory.swift; sourceTree = "<group>"; };
+		7125316E2BFC9CE50099E8F8 /* DeepDiveHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepDiveHeaderCell.swift; sourceTree = "<group>"; };
 		712DF53F2BEF385600F0BCCB /* Dto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dto.swift; sourceTree = "<group>"; };
 		712DF5412BEF387A00F0BCCB /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		712DF5442BEFA71A00F0BCCB /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				712531672BFB434F0099E8F8 /* HomeViewHeaderCell.swift */,
+				7125316E2BFC9CE50099E8F8 /* DeepDiveHeaderCell.swift */,
 			);
 			path = Header;
 			sourceTree = "<group>";
@@ -527,6 +530,7 @@
 				71B5A3B02BF7A0BE00D0E957 /* Button2KrCell.swift in Sources */,
 				71B5A3AE2BF7A0A400D0E957 /* Button1Cell.swift in Sources */,
 				712DF5402BEF385600F0BCCB /* Dto.swift in Sources */,
+				7125316F2BFC9CE50099E8F8 /* DeepDiveHeaderCell.swift in Sources */,
 				B80EF86C2BF27267007A82C3 /* MusicItemCollectionViewCell.swift in Sources */,
 				7125316A2BFB84220099E8F8 /* HomeMockingModel.swift in Sources */,
 				712DF54C2BEFA7EA00F0BCCB /* getClassName.swift in Sources */,
