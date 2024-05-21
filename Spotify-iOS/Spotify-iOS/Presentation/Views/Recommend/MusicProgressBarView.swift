@@ -29,7 +29,7 @@ final class MusicProgressBarView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        setUI()
+//        setUI()
     }
     
     required init?(coder: NSCoder) {
@@ -46,13 +46,4 @@ extension MusicProgressBarView {
         let newWidth = self.bounds.width * progress
         musicProgressBar.frame.size.width = newWidth
     }
-    
-    func setUI() {
-        musicProgressBar.do { // progress bar 진행하는 건 일단 뷰 다 완성하고 나서 시도함.
-            $0.backgroundColor = UIColor(red: 173, green: 173, blue: 173, alpha: 1) // 이거 합세 파일에서는 .spotifyGray20하면 됨.
-            $0.layer.cornerRadius = 2
-            $0.frame = self.bounds
-        }
-    }
-    
 }
