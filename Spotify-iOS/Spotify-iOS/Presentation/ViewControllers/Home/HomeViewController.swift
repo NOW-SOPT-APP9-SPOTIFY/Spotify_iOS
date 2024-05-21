@@ -18,7 +18,6 @@ final class HomeViewController: UIViewController {
     
     private let sectionTwoDummyData: [HitSongModel] = HomeMockingModel.getRecommendData()
     private let sectionArtistDummyData: [ArtistModel] = HomeMockingModel.getAristData()
-    
     private let sectionRecentlyDummyData: [RecentlyModel] = HomeMockingModel.getRecentlyData()
     private let sectionShowDummyData: [ShowModel] = HomeMockingModel.getShowData()
     private let sectionRadioDummyData: [RadioModel] = HomeMockingModel.getRadioData()
@@ -59,6 +58,26 @@ final class HomeViewController: UIViewController {
         rootView.homeCollectionView.register(Button2KrCell.self, forCellWithReuseIdentifier: Button2KrCell.className)
         
         rootView.homeCollectionView.register(HomeViewHeaderCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HomeViewHeaderCell.className)
+        rootView.homeCollectionView.register(DeepDiveHeaderCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: DeepDiveHeaderCell.className)
+    }
+    
+    private func headerTitle(for section: CompositionalLayout.HomeSection) -> String {
+        switch section {
+        case .recommend:
+            return "나만을 위한 추천"
+        case .hitSong:
+            return "오늘의 최고 히트곡"
+        case .artist:
+            return "인기 아티스트"
+        case .recently:
+            return "최근 재생한 항목"
+        case .show:
+            return "들어볼만한 Show"
+        case .radio:
+            return "인기 라디오"
+        case .specific:
+            return ""
+        }
     }
     
     // MARK: - Objc Func
@@ -81,85 +100,92 @@ extension HomeViewController: UICollectionViewDelegate {
 extension HomeViewController: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        7
+        return CompositionalLayout.HomeSection.allCases.count
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        guard let sectionType = CompositionalLayout.HomeSection(rawValue: section) else {
+            return 0
+        }
+        
+        switch sectionType {
+        case .recommend:
+            return dummyImages.count
+        case .hitSong:
+            return sectionTwoDummyData.count
+        case .artist:
+            return sectionArtistDummyData.count
+        case .recently:
+            return sectionRecentlyDummyData.count
+        case .show:
+            return sectionShowDummyData.count
+        case .radio:
+            return sectionRadioDummyData.count
+        case .specific:
+            return sectionDeepDiveDummyData.count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let sectionType = CompositionalLayout.HomeSection(rawValue: indexPath.section) else {
+            return UICollectionViewCell()
+        }
         
-        switch indexPath.section {
-        case 0:
+        switch sectionType {
+        case .recommend:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CardMixCell.className, for: indexPath) as? CardMixCell else { return UICollectionViewCell() }
-            
             cell.bindData(image: dummyImages[indexPath.row])
             cell.bindTitle(text: dummmyText[indexPath.row])
-            
             return cell
-        case 1:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Button5Cell.className, for: indexPath) as?
-                    Button5Cell else { return UICollectionViewCell() }
-            
+        case .hitSong:
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Button5Cell.className, for: indexPath) as? Button5Cell else { return UICollectionViewCell() }
             cell.bindData(data: sectionTwoDummyData[indexPath.row])
-            
             return cell
-        case 2:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Button1Cell.className, for: indexPath) as?
-                    Button1Cell else { return UICollectionViewCell() }
-            
+        case .artist:
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Button1Cell.className, for: indexPath) as? Button1Cell else { return UICollectionViewCell() }
             cell.bindData(data: sectionArtistDummyData[indexPath.row])
-            
             return cell
-            
-        case 3:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Button4Cell.className, for: indexPath) as?
-                    Button4Cell else { return UICollectionViewCell() }
-            
+        case .recently:
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Button4Cell.className, for: indexPath) as? Button4Cell else { return UICollectionViewCell() }
             cell.bindData(data: sectionRecentlyDummyData[indexPath.row])
-            
             return cell
-        case 4:
-            
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Button3Cell.className, for: indexPath) as?
-                    Button3Cell else { return UICollectionViewCell() }
-            
+        case .show:
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Button3Cell.className, for: indexPath) as? Button3Cell else { return UICollectionViewCell() }
             cell.bindData(data: sectionShowDummyData[indexPath.row])
-            
             return cell
-        case 5:
-            
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Button2KrCell.className, for: indexPath) as?
-                    Button2KrCell else { return UICollectionViewCell() }
-            
+        case .radio:
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Button2KrCell.className, for: indexPath) as? Button2KrCell else { return UICollectionViewCell() }
             cell.bindData(data: sectionRadioDummyData[indexPath.row])
-            
             return cell
-        case 6:
-            
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Button2KrCell.className, for: indexPath) as?
-                    Button2KrCell else { return UICollectionViewCell() }
-            
+        case .specific:
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Button2KrCell.className, for: indexPath) as? Button2KrCell else { return UICollectionViewCell() }
             cell.bindData(data: sectionDeepDiveDummyData[indexPath.row])
-            
             return cell
-        default:
-            return UICollectionViewCell()
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        
-        guard kind == UICollectionView.elementKindSectionHeader,
-              let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: HomeViewHeaderCell.className, for: indexPath) as? HomeViewHeaderCell else {
+        guard kind == UICollectionView.elementKindSectionHeader else {
             return UICollectionReusableView()
         }
         
-        headerView.bindData(text: "예시 헤더입니다.")
+        if let sectionType = CompositionalLayout.HomeSection(rawValue: indexPath.section) {
+            switch sectionType {
+            case .specific:
+                guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: DeepDiveHeaderCell.className, for: indexPath) as? DeepDiveHeaderCell else {
+                    return UICollectionReusableView()
+                }
+                return headerView
+            default:
+                guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: HomeViewHeaderCell.className, for: indexPath) as? HomeViewHeaderCell else {
+                    return UICollectionReusableView()
+                }
+                headerView.bindData(text: headerTitle(for: sectionType))
+                return headerView
+            }
+        }
         
-        return headerView
-        
+        return UICollectionReusableView()
     }
-    
+
 }
