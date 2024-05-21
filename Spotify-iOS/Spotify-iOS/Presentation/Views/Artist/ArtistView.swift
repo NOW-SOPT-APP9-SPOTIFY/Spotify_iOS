@@ -45,6 +45,7 @@ private extension ArtistView {
         backgroundColor = .spotifyBg
         
         scrollView.do {
+            $0.contentInsetAdjustmentBehavior = .never
             $0.showsHorizontalScrollIndicator = false
             $0.showsVerticalScrollIndicator = false
         }
