@@ -78,6 +78,14 @@ private extension ArtistViewController {
                                          target: self,
                                          action: #selector(backButtonDidTap))
         navigationItem.leftBarButtonItem = backButton
+        
+        /// Navigation Bar의 배경색을 투명하게 설정하고, 스크롤 시에도 색상이 변하지 않도록 합니다.
+        let appearance = UINavigationBarAppearance().then {
+            $0.configureWithOpaqueBackground()
+            $0.backgroundColor = .clear
+        }
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
         navigationController?.navigationBar.isHidden = false
         tabBarController?.tabBar.isHidden = false
     }

@@ -54,8 +54,9 @@ extension ArtistPopularityChartViewController {
             $0.axis = .horizontal
         }
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: stackView)
-        self.navigationController?.navigationBar.isHidden = false
-        self.tabBarController?.tabBar.isHidden = true
+        navigationController?.navigationBar.standardAppearance.backgroundColor = .clear
+        navigationController?.navigationBar.isHidden = false
+        tabBarController?.tabBar.isHidden = true
     }
     
     func setDelegate() {
