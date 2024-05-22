@@ -44,6 +44,8 @@
 		95AF20472BFE33A30057D44A /* PopularMusicCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AF20462BFE33A30057D44A /* PopularMusicCollectionViewCell.swift */; };
 		95AF20492BFE3BD10057D44A /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AF20482BFE3BD10057D44A /* UIViewController+.swift */; };
 		95AF204B2BFE43C30057D44A /* ArtistMusicFooterReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AF204A2BFE43C30057D44A /* ArtistMusicFooterReusableView.swift */; };
+		95AF204D2BFE55B10057D44A /* ArtistPopularityChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AF204C2BFE55B10057D44A /* ArtistPopularityChartViewController.swift */; };
+		95AF204F2BFE566A0057D44A /* ArtistPopularityChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AF204E2BFE566A0057D44A /* ArtistPopularityChartView.swift */; };
 		95D119CE2BEF5B6D004228C0 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 95D119CB2BEF5B6D004228C0 /* Pretendard-Regular.otf */; };
 		95D119CF2BEF5B6D004228C0 /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 95D119CC2BEF5B6D004228C0 /* Pretendard-Medium.otf */; };
 		95D119D02BEF5B6D004228C0 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 95D119CD2BEF5B6D004228C0 /* Pretendard-SemiBold.otf */; };
@@ -90,6 +92,8 @@
 		95AF20462BFE33A30057D44A /* PopularMusicCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularMusicCollectionViewCell.swift; sourceTree = "<group>"; };
 		95AF20482BFE3BD10057D44A /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		95AF204A2BFE43C30057D44A /* ArtistMusicFooterReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistMusicFooterReusableView.swift; sourceTree = "<group>"; };
+		95AF204C2BFE55B10057D44A /* ArtistPopularityChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistPopularityChartViewController.swift; sourceTree = "<group>"; };
+		95AF204E2BFE566A0057D44A /* ArtistPopularityChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistPopularityChartView.swift; sourceTree = "<group>"; };
 		95D119CB2BEF5B6D004228C0 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
 		95D119CC2BEF5B6D004228C0 /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
 		95D119CD2BEF5B6D004228C0 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
@@ -280,6 +284,7 @@
 			children = (
 				95AF202B2BF087F70057D44A /* ArtistViewController.swift */,
 				95AF203A2BFA70230057D44A /* ArtistMusicViewController.swift */,
+				95AF204C2BFE55B10057D44A /* ArtistPopularityChartViewController.swift */,
 			);
 			path = Artist;
 			sourceTree = "<group>";
@@ -290,6 +295,7 @@
 				95AF202D2BF088020057D44A /* ArtistView.swift */,
 				95AF202F2BF87A470057D44A /* ArtistHeaderView.swift */,
 				95AF203E2BFB7F600057D44A /* ArtistMusicView.swift */,
+				95AF204E2BFE566A0057D44A /* ArtistPopularityChartView.swift */,
 			);
 			path = Artist;
 			sourceTree = "<group>";
@@ -490,6 +496,7 @@
 				95AF20492BFE3BD10057D44A /* UIViewController+.swift in Sources */,
 				95AF20432BFD121D0057D44A /* ArtistMusicHeaderReusableView.swift in Sources */,
 				712DF5472BEFA75D00F0BCCB /* HomeView.swift in Sources */,
+				95AF204D2BFE55B10057D44A /* ArtistPopularityChartViewController.swift in Sources */,
 				95AF20472BFE33A30057D44A /* PopularMusicCollectionViewCell.swift in Sources */,
 				71FCF3342BE8FB7600D8528A /* ViewController.swift in Sources */,
 				95AF202E2BF088020057D44A /* ArtistView.swift in Sources */,
@@ -508,6 +515,7 @@
 				95AF20302BF87A470057D44A /* ArtistHeaderView.swift in Sources */,
 				71FCF3512BEA1C9A00D8528A /* SpotifyTabBarItem.swift in Sources */,
 				95D119F22BEFB67D004228C0 /* FontLiterals.swift in Sources */,
+				95AF204F2BFE566A0057D44A /* ArtistPopularityChartView.swift in Sources */,
 				71FCF3322BE8FB7600D8528A /* SceneDelegate.swift in Sources */,
 				95AF20332BF9CE7C0057D44A /* RoundBorderCustomButton.swift in Sources */,
 				712DF5422BEF387A00F0BCCB /* Network.swift in Sources */,

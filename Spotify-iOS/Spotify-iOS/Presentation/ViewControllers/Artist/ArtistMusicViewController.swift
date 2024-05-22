@@ -9,7 +9,15 @@ import UIKit
 
 import SnapKit
 
+protocol PushVCDelegate: AnyObject {
+    func pushVC(_ viewController: UIViewController)
+}
+
 final class ArtistMusicViewController: UIViewController {
+    
+    // MARK: - Properties
+    
+    weak var delegate: PushVCDelegate?
     
     // MARK: - UI Components
     
@@ -106,7 +114,7 @@ extension ArtistMusicViewController: UICollectionViewDataSource {
 //            let data = popularMusics[indexPath.item]
             cell.configure(
                 ranking: 1,
-                albumImg: .imgProfile,
+                albumImg: .imgAlbumExample,
                 title: "Locked out of Heaven",
                 numberOfPlays: "1,915,943,900",
                 is19Plus: true
@@ -135,6 +143,7 @@ extension ArtistMusicViewController: UICollectionViewDataSource {
                     isIconIncluded: true,
                     isLeadingPaddingIncluded: true
                 )
+                header.delegate = self
             case .artistRecommendation:
                 header.configure(
                     title: Section.artistRecommendation.rawValue,
@@ -162,4 +171,11 @@ extension ArtistMusicViewController: UICollectionViewDataSource {
 }
 
 extension ArtistMusicViewController: UICollectionViewDelegate {
+}
+
+extension ArtistMusicViewController: HeaderTapEventDelegate {
+    
+    func popularityHeaderDidTap() {
+        delegate?.pushVC(ArtistPopularityChartViewController())
+    }
 }

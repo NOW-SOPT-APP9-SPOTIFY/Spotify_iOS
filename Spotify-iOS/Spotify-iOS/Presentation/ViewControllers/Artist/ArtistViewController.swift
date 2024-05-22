@@ -106,6 +106,7 @@ private extension ArtistViewController {
     
     func addViewControllersData() {
         let artistMusicViewController = ArtistMusicViewController(pageVC: pageViewController)
+        artistMusicViewController.delegate = self
         viewControllers.append(artistMusicViewController)
         for _ in 0 ..< tabbarData.count - 1 {
             let vc = UIViewController()
@@ -147,6 +148,13 @@ private extension ArtistViewController {
     
     func checkIfBarAndPageAreInSameIndex(for currentIndex: Int) -> Bool {
         return currentMenuIndex == currentIndex
+    }
+}
+
+extension ArtistViewController: PushVCDelegate {
+    
+    func pushVC(_ viewController: UIViewController) {
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
 }
 

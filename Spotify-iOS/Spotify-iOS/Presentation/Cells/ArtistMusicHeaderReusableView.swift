@@ -10,10 +10,22 @@ import UIKit
 import SnapKit
 import Then
 
+protocol HeaderTapEventDelegate: AnyObject {
+    func popularityHeaderDidTap()
+}
+
 final class ArtistMusicHeaderReusableView: UICollectionReusableView {
+    
+    // MARK: - Properties
+    
+    weak var delegate: HeaderTapEventDelegate?
+    
+    // MARK: - UI Components
     
     private let titleLabel = UILabel()
     private var nextButton: UIButton?
+    
+    // MARK: - View Life Cycle
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -63,6 +75,7 @@ extension ArtistMusicHeaderReusableView {
     func setNextButton() {
         self.nextButton = UIButton()
         self.addSubview(nextButton!)
+        setButtonAction()
         
         nextButton!.do {
             $0.setImage(.icNextGray, for: .normal)
@@ -79,5 +92,16 @@ extension ArtistMusicHeaderReusableView {
         titleLabel.snp.updateConstraints {
             $0.leading.equalToSuperview().inset(16)
         }
+    }
+    
+    func setButtonAction() {
+        nextButton?.addTarget(self, action: #selector(nextButtonDidTap), for: .touchUpInside)
+    }
+    
+    // MARK: - Actions
+    
+    @objc
+    func nextButtonDidTap() {
+        delegate?.popularityHeaderDidTap()
     }
 }
