@@ -21,7 +21,7 @@ class MusicRecommendView: UIView {
         musicRecommendationCollectionView.isScrollEnabled = true
         musicRecommendationCollectionView.backgroundColor = .clear
         musicRecommendationCollectionView.showsVerticalScrollIndicator = false
-            musicRecommendationCollectionView.isPagingEnabled = true
+    
         
         return musicRecommendationCollectionView
     }()
