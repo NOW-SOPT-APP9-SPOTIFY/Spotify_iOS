@@ -24,11 +24,11 @@ class MusicItemCollectionViewCell: UICollectionViewCell {
     private let background = UIView()
     let gradientLayer = CAGradientLayer()
     private let musicTitle = UILabel()
-    lazy var progressBar1 = MusicProgressBarView() // 이걸 5개 반복해서 하면 될 듯
-    lazy var progressBar2 = MusicProgressBarView()
-    lazy var progressBar3 = MusicProgressBarView()
-    lazy var progressBar4 = MusicProgressBarView()
-    lazy var progressBar5 = MusicProgressBarView()
+    lazy var progressBar1 = MusicProgressBarView(frame: CGRect(x: 0, y: 0, width: 52, height: 4))
+    lazy var progressBar2 = MusicProgressBarView(frame: CGRect(x: 0, y: 0, width: 52, height: 4))
+    lazy var progressBar3 = MusicProgressBarView(frame: CGRect(x: 0, y: 0, width: 52, height: 4))
+    lazy var progressBar4 = MusicProgressBarView(frame: CGRect(x: 0, y: 0, width: 52, height: 4))
+    lazy var progressBar5 = MusicProgressBarView(frame: CGRect(x: 0, y: 0, width: 52, height: 4))
     private let progressBarStackView = UIStackView()
     private lazy var muteButton = UIImageView()
     private let mainAlbumImage = UIView() // 서버 연결되면 UIImage로 교체
@@ -89,39 +89,12 @@ extension MusicItemCollectionViewCell {
             $0.numberOfLines = 1
         }
         
-        progressBar1.do {
-            $0.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0.2)
-            $0.layer.cornerRadius = 2
-            $0.progress = 5
-            progressBarStackView.addArrangedSubview(progressBar1)
-        }
-        
-        progressBar2.do {
-            $0.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0.2)
-            $0.layer.cornerRadius = 2
-            $0.progress = 5
-            progressBarStackView.addArrangedSubview(progressBar2)
-        }
-        
-        progressBar3.do {
-            $0.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0.2)
-            $0.layer.cornerRadius = 2
-            $0.progress = 5
-            progressBarStackView.addArrangedSubview(progressBar3)
-        }
-        
-        progressBar4.do {
-            $0.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0.2)
-            $0.layer.cornerRadius = 2
-            $0.progress = 5
-            progressBarStackView.addArrangedSubview(progressBar4)
-        }
-        
-        progressBar5.do {
-            $0.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0.2)
-            $0.layer.cornerRadius = 2
-            $0.progress = 5
-            progressBarStackView.addArrangedSubview(progressBar5)
+        [progressBar1,
+         progressBar2,
+         progressBar3,
+         progressBar4,
+         progressBar5].forEach {
+            self.progressBarStackView.addArrangedSubview($0)
         }
         
         progressBarStackView.do {
@@ -214,17 +187,11 @@ extension MusicItemCollectionViewCell {
             $0.height.equalTo(14)
         }
         
-        progressBar1.snp.makeConstraints {
-            $0.top.equalTo(musicTitle.snp.bottom).offset(6)
-            $0.leading.equalTo(background.snp.leading).offset(15.91)
-            $0.width.equalTo(54)
-            $0.height.equalTo(4)
-        }
-        
         progressBarStackView.snp.makeConstraints {
             $0.top.equalTo(musicTitle.snp.bottom).offset(6)
             $0.leading.equalTo(background.snp.leading).offset(15.91)
             $0.width.equalTo(269)
+            $0.height.equalTo(4)
         }
         
         muteButton.snp.makeConstraints {

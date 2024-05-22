@@ -21,6 +21,7 @@ class MusicRecommendView: UIView {
         musicRecommendationCollectionView.isScrollEnabled = true
         musicRecommendationCollectionView.backgroundColor = .clear
         musicRecommendationCollectionView.showsVerticalScrollIndicator = false
+            musicRecommendationCollectionView.isPagingEnabled = true
         
         return musicRecommendationCollectionView
     }()
@@ -53,14 +54,10 @@ class MusicRecommendView: UIView {
     func setLayout() {
         musicRecommendationCollectionView.snp.makeConstraints {
             $0.top.equalToSuperview().offset(140)
-            $0.leading.equalToSuperview().offset(16)
-            $0.trailing.equalToSuperview().inset(16)
-            $0.width.equalTo(350)
-            $0.height.equalTo(1000)
+            $0.horizontalEdges.equalToSuperview().inset(16)
+            $0.bottom.equalToSuperview()
         }
-
     }
-    
 }
 
 // MARK: - Extensions
@@ -72,7 +69,7 @@ extension MusicRecommendView {
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                               heightDimension: .fractionalHeight(0.5))
+                                               heightDimension: .absolute(500))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
                                                        subitems: [item])
         

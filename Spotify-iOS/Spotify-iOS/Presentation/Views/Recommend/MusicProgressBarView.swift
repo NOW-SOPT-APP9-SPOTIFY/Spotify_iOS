@@ -29,7 +29,9 @@ final class MusicProgressBarView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-//        setUI()
+        self.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0.2)
+        self.layer.cornerRadius = 2
+        self.frame = .init(x: 0, y: 0, width: 54, height: 4)
     }
     
     required init?(coder: NSCoder) {
@@ -46,4 +48,13 @@ extension MusicProgressBarView {
         let newWidth = self.bounds.width * progress
         musicProgressBar.frame.size.width = newWidth
     }
+    
+    func setLayout() {
+        musicProgressBar.snp.makeConstraints {
+            $0.leading.equalToSuperview()
+            $0.height.equalTo(4)
+        }
+    }
+    
+    // update constraint
 }
