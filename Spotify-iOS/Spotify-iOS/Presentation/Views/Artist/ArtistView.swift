@@ -13,7 +13,6 @@ final class ArtistView: UIView {
     
     // MARK: - UI Components
     
-    // TODO: 내비바 디자이너님한테 프레임(높이) 따로 잡아달라고 하기
     let scrollView = UIScrollView()
     private let contentView = UIView()
     private let header = ArtistHeaderView()
@@ -43,12 +42,6 @@ private extension ArtistView {
     
     func setStyle() {
         backgroundColor = .spotifyBg
-        
-        scrollView.do {
-            $0.contentInsetAdjustmentBehavior = .never
-            $0.showsHorizontalScrollIndicator = false
-            $0.showsVerticalScrollIndicator = false
-        }
         
         flowLayout.do {
             $0.scrollDirection = .horizontal

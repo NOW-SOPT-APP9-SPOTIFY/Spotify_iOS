@@ -8,6 +8,7 @@
 import UIKit
 
 import SnapKit
+import Then
 
 final class ArtistViewController: UIViewController {
     
@@ -16,7 +17,7 @@ final class ArtistViewController: UIViewController {
     private let indicatorBarHorizontalPadding: CGFloat = 6
     private let tabbarCellHorizontalPadding: CGFloat = 10
     private let tabbarInteritemSpacing: CGFloat = 13
-    private let tabbarData = TabbarModel.tabbarData()
+    private let tabbarData = ArtistTabbarModel.tabbarData()
     private var viewControllers: [UIViewController] = []
     private var currentMenuIndex: Int = 0 {
         didSet {
@@ -47,8 +48,9 @@ final class ArtistViewController: UIViewController {
         super.viewDidLoad()
 
         setNavigationBar()
+        setStyle()
         setDelegate()
-        registerCell()
+        setRegister()
         setPageViewController()
     }
     
@@ -69,6 +71,17 @@ private extension ArtistViewController {
         self.navigationController?.navigationBar.isHidden = true
     }
     
+    func setStyle() {
+        rootView.scrollView.do {
+            /// ScrollView의 contentInset을 설정합니다.
+            /// top은 0으로(=> safeArea를 무시하고), bottom은 [safeArea bottomInset과 탭바 길이를 합한 값]으로 설정했습니다.
+            $0.contentInset = .init(top: 0, left: 0, bottom: bottomInset(), right: 0)
+            $0.contentInsetAdjustmentBehavior = .never
+            $0.showsHorizontalScrollIndicator = false
+            $0.showsVerticalScrollIndicator = false
+        }
+    }
+    
     func setDelegate() {
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -76,7 +89,7 @@ private extension ArtistViewController {
         pageViewController.dataSource = self
     }
 
-    func registerCell() {
+    func setRegister() {
         collectionView.register(ArtistTabbarCell.self, forCellWithReuseIdentifier: ArtistTabbarCell.className)
     }
     

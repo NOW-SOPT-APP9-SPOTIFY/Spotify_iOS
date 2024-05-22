@@ -50,9 +50,14 @@ final class ArtistMusicHeaderReusableView: UICollectionReusableView {
 
 extension ArtistMusicHeaderReusableView {
     
-    func configure(title: String, isIconIncluded: Bool) {
+    func configure(
+        title: String,
+        isIconIncluded: Bool, 
+        isLeadingPaddingIncluded: Bool
+    ) {
         titleLabel.text = title
         if isIconIncluded { setNextButton() }
+        if isLeadingPaddingIncluded { updateTitleConstraint() }
     }
     
     func setNextButton() {
@@ -68,7 +73,9 @@ extension ArtistMusicHeaderReusableView {
             $0.leading.equalTo(titleLabel.snp.trailing)
             $0.verticalEdges.equalToSuperview()
         }
-        
+    }
+    
+    func updateTitleConstraint() {
         titleLabel.snp.updateConstraints {
             $0.leading.equalToSuperview().inset(16)
         }

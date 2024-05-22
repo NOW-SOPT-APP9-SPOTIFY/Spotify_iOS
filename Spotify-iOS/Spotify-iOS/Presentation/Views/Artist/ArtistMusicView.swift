@@ -8,11 +8,12 @@
 import UIKit
 
 import SnapKit
+import Then
 
 enum Section: String, CaseIterable {
     case popularity = "인기"
     case artistRecommendation = "아티스트 추천"
-//    case popularMusic = "인기 음악"
+    case popularMusic = "인기 음악"
 //    case genre = "Bruno Mars 장르"
 //    case detail = "상세정보"
 //    case playlist = "아티스트 플레이리스트"
@@ -49,7 +50,6 @@ private extension ArtistMusicView {
         collectionView.do {
             $0.isScrollEnabled = false
             $0.backgroundColor = .clear
-//            $0.contentInsetAdjustmentBehavior = .never
             $0.showsVerticalScrollIndicator = false
             $0.showsHorizontalScrollIndicator = false
         }
@@ -61,10 +61,9 @@ private extension ArtistMusicView {
     
     func setLayout() {
         collectionView.snp.makeConstraints {
-            $0.height.equalTo(705).priority(.low)
+            $0.height.equalTo(100).priority(.low)
             $0.edges.equalToSuperview()
         }
-        collectionView.setContentHuggingPriority(.required, for: .vertical)
     }
 }
 
@@ -84,10 +83,8 @@ private extension ArtistMusicView {
                 return self.popularitySectionLayout()
             case .artistRecommendation:
                 return self.artistRecommendationSectionLayout()
-//            case .popularMusic:
-//                return self.getLiveChannelSectionLayout(sectionType: sectionType)
-//            case .genre:
-//                return self.getImageBannerSectionLayout(sectionType: sectionType)
+            case .popularMusic:
+                return self.popularMusicSectionLayout()
             }
         }
         setInterSectionSpacing(layout)
@@ -137,49 +134,26 @@ private extension ArtistMusicView {
         return section
     }
     
-//    func getLiveChannelSectionLayout(sectionType: Section) -> NSCollectionLayoutSection {
-//        let itemSize = NSCollectionLayoutSize(
-//            widthDimension: .fractionalWidth(1),
-//            heightDimension: .fractionalHeight(1)
-//        )
-//        let item = NSCollectionLayoutItem(layoutSize: itemSize)
-//        
-//        let groupSize = NSCollectionLayoutSize(
-//            widthDimension: .absolute(160),
-//            heightDimension: .absolute(138)
-//        )
-//        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-//
-//        let section = NSCollectionLayoutSection(group: group)
-//        let header = getSectionHeader()
-//        section.interGroupSpacing = 7
-//        section.boundarySupplementaryItems = [header]
-//        section.orthogonalScrollingBehavior = .continuous
-//        section.contentInsets = .init(top: 8, leading: 15, bottom: 0, trailing: 0)
-//
-//        return section
-//    }
-//    
-//    func getImageBannerSectionLayout(sectionType: Section) -> NSCollectionLayoutSection {
-//        let itemSize = NSCollectionLayoutSize(
-//            widthDimension: .fractionalWidth(0.5),
-//            heightDimension: .fractionalHeight(1)
-//        )
-//        let item = NSCollectionLayoutItem(layoutSize: itemSize)
-//        item.contentInsets = .init(top: 0, leading: 0, bottom: 0, trailing: 0)
-//
-//        let groupSize = NSCollectionLayoutSize(
-//            widthDimension: .fractionalWidth(1),
-//            heightDimension: .absolute(58)
-//        )
-//        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-//
-//        let section = NSCollectionLayoutSection(group: group)
-//        section.orthogonalScrollingBehavior = .continuous
-//        section.contentInsets = .init(top: 49-18, leading: 0, bottom: 38, trailing: 0)
-//        
-//        return section
-//    }
+    func popularMusicSectionLayout() -> NSCollectionLayoutSection {
+        let itemSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1),
+            heightDimension: .fractionalHeight(1)
+        )
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        
+        let groupSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1),
+            heightDimension: .estimated(93)
+        )
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+
+        let section = NSCollectionLayoutSection(group: group)
+        let header = getSectionHeader()
+        section.contentInsets = .init(top: 20, leading: 0, bottom: 0, trailing: 0)
+        section.boundarySupplementaryItems = [header]
+
+        return section
+    }
     
     func getSectionHeader() -> NSCollectionLayoutBoundarySupplementaryItem {
        let header = NSCollectionLayoutBoundarySupplementaryItem(
