@@ -13,16 +13,30 @@ final class RoundBorderCustomButton: UIButton {
 
     // MARK: - Properties
     
-    private var title: String
+    var title: String {
+        didSet {
+            configuration?.attributedTitle = AttributedString(title, attributes: AttributeContainer([NSAttributedString.Key.font : UIFont.font(self.font)]))
+        }
+    }
+    private var font: FontLevel
     private var verticalPadding: CGFloat
     private var horizontalPadding: CGFloat
+    private var cornerRadius: CGFloat
     
     // MARK: - View Life Cycle
     
-    init(title: String, verticalPadding: CGFloat, horizontalPadding: CGFloat) {
+    init(
+        title: String,
+        font: FontLevel,
+        verticalPadding: CGFloat,
+        horizontalPadding: CGFloat,
+        cornerRadius: CGFloat
+    ) {
         self.title = title
+        self.font = font
         self.verticalPadding = verticalPadding
         self.horizontalPadding = horizontalPadding
+        self.cornerRadius = cornerRadius
         super.init(frame: .zero)
         
         setStyle()
@@ -41,7 +55,7 @@ extension RoundBorderCustomButton {
     
     private func setStyle() {
         configuration = UIButton.Configuration.plain()
-        configuration?.attributedTitle = AttributedString(title, attributes: AttributeContainer([NSAttributedString.Key.font : UIFont.font(.regular_kr_semibold)]))
+        configuration?.attributedTitle = AttributedString(title, attributes: AttributeContainer([NSAttributedString.Key.font : UIFont.font(self.font)]))
         configuration?.baseForegroundColor = .white
         configuration?.contentInsets = NSDirectionalEdgeInsets(
             top: verticalPadding,
@@ -50,6 +64,6 @@ extension RoundBorderCustomButton {
             trailing: horizontalPadding
         )
         makeBorder(width: 1, color: .spotifyGray30)
-        layer.cornerRadius = 15.5
+        layer.cornerRadius = self.cornerRadius
     }
 }

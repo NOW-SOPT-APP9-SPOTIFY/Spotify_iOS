@@ -76,6 +76,7 @@ private extension ArtistMusicViewController {
         collectionView.register(PopularMusicCollectionViewCell.self, forCellWithReuseIdentifier: PopularMusicCollectionViewCell.className)
         
         collectionView.register(ArtistMusicHeaderReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: ArtistMusicHeaderReusableView.className)
+        collectionView.register(ArtistMusicFooterReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: ArtistMusicFooterReusableView.className)
     }
 }
 
@@ -149,11 +150,11 @@ extension ArtistMusicViewController: UICollectionViewDataSource {
             }
             return header
             
-//        case UICollectionView.elementKindSectionFooter:
-//            guard let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: HomeFooterReusableView.identifier, for: indexPath) as? HomeFooterReusableView
-//            else { return UICollectionReusableView() }
-//            footer.configure(pageNumber: carouselMovies.count)
-//            return footer
+        case UICollectionView.elementKindSectionFooter:
+            guard let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: ArtistMusicFooterReusableView.className, for: indexPath) as? ArtistMusicFooterReusableView
+            else { return UICollectionReusableView() }
+            footer.configure(title: "디스코그래피 보기")
+            return footer
         default:
             return UICollectionReusableView()
         }

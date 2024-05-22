@@ -149,8 +149,9 @@ private extension ArtistMusicView {
 
         let section = NSCollectionLayoutSection(group: group)
         let header = getSectionHeader()
-        section.contentInsets = .init(top: 20, leading: 0, bottom: 0, trailing: 0)
-        section.boundarySupplementaryItems = [header]
+        let footer = getSectionFooter()
+        section.contentInsets = .init(top: 20, leading: 0, bottom: 4, trailing: 0)
+        section.boundarySupplementaryItems = [header, footer]
 
         return section
     }
@@ -167,15 +168,15 @@ private extension ArtistMusicView {
        return header
     }
     
-//    func getSectionFooter() -> NSCollectionLayoutBoundarySupplementaryItem {
-//        let footer = NSCollectionLayoutBoundarySupplementaryItem(
-//            layoutSize: NSCollectionLayoutSize(
-//                widthDimension: .fractionalWidth(1),
-//                heightDimension: .absolute(14)
-//            ),
-//            elementKind: UICollectionView.elementKindSectionFooter,
-//            alignment: .bottomLeading
-//        )
-//        return footer
-//     }
+    func getSectionFooter() -> NSCollectionLayoutBoundarySupplementaryItem {
+        let footer = NSCollectionLayoutBoundarySupplementaryItem(
+            layoutSize: NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(1),
+                heightDimension: .estimated(34)
+            ),
+            elementKind: UICollectionView.elementKindSectionFooter,
+            alignment: .bottom
+        )
+        return footer
+     }
 }

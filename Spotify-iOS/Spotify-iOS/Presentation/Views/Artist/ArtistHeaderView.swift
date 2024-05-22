@@ -20,8 +20,10 @@ final class ArtistHeaderView: UIView {
     private let shortsButton = UIButton()
     private let followButton = RoundBorderCustomButton(
         title: "팔로우하기",
+        font: .regular_kr_semibold,
         verticalPadding: 8.5,
-        horizontalPadding: 16
+        horizontalPadding: 16,
+        cornerRadius: 15.5
     )
     private let moreButton = UIButton()
     private let shuffleButton = UIButton()

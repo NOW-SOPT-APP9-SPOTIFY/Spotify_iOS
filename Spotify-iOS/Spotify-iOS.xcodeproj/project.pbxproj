@@ -43,6 +43,7 @@
 		95AF20452BFD30C70057D44A /* ArtistRecommendationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AF20442BFD30C70057D44A /* ArtistRecommendationCollectionViewCell.swift */; };
 		95AF20472BFE33A30057D44A /* PopularMusicCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AF20462BFE33A30057D44A /* PopularMusicCollectionViewCell.swift */; };
 		95AF20492BFE3BD10057D44A /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AF20482BFE3BD10057D44A /* UIViewController+.swift */; };
+		95AF204B2BFE43C30057D44A /* ArtistMusicFooterReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AF204A2BFE43C30057D44A /* ArtistMusicFooterReusableView.swift */; };
 		95D119CE2BEF5B6D004228C0 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 95D119CB2BEF5B6D004228C0 /* Pretendard-Regular.otf */; };
 		95D119CF2BEF5B6D004228C0 /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 95D119CC2BEF5B6D004228C0 /* Pretendard-Medium.otf */; };
 		95D119D02BEF5B6D004228C0 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 95D119CD2BEF5B6D004228C0 /* Pretendard-SemiBold.otf */; };
@@ -88,6 +89,7 @@
 		95AF20442BFD30C70057D44A /* ArtistRecommendationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistRecommendationCollectionViewCell.swift; sourceTree = "<group>"; };
 		95AF20462BFE33A30057D44A /* PopularMusicCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularMusicCollectionViewCell.swift; sourceTree = "<group>"; };
 		95AF20482BFE3BD10057D44A /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
+		95AF204A2BFE43C30057D44A /* ArtistMusicFooterReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistMusicFooterReusableView.swift; sourceTree = "<group>"; };
 		95D119CB2BEF5B6D004228C0 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
 		95D119CC2BEF5B6D004228C0 /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
 		95D119CD2BEF5B6D004228C0 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
@@ -355,6 +357,7 @@
 				95AF20422BFD121D0057D44A /* ArtistMusicHeaderReusableView.swift */,
 				95AF20442BFD30C70057D44A /* ArtistRecommendationCollectionViewCell.swift */,
 				95AF20462BFE33A30057D44A /* PopularMusicCollectionViewCell.swift */,
+				95AF204A2BFE43C30057D44A /* ArtistMusicFooterReusableView.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -512,6 +515,7 @@
 				B80EF86C2BF27267007A82C3 /* MusicItemCollectionViewCell.swift in Sources */,
 				712DF54C2BEFA7EA00F0BCCB /* getClassName.swift in Sources */,
 				B81A0D942BF25B6700C5E591 /* MusicRecommendView.swift in Sources */,
+				95AF204B2BFE43C30057D44A /* ArtistMusicFooterReusableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
