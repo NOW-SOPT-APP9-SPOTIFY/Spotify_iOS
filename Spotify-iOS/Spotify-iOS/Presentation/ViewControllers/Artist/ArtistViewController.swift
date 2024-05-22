@@ -47,7 +47,6 @@ final class ArtistViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setNavigationBarAndTabBar()
         setDelegate()
         setRegister()
         setPageViewController()
@@ -59,8 +58,14 @@ final class ArtistViewController: UIViewController {
         setStyle()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        setNavigationBarAndTabBar()
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
+        super.viewDidAppear(animated)
         
         moveIndicatorbar(to: 0)
     }
