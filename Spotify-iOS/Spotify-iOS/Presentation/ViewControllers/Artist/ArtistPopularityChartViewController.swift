@@ -29,6 +29,7 @@ final class ArtistPopularityChartViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setNavigationBarAndTabBar()
         setDelegate()
         setRegister()
     }
@@ -38,6 +39,25 @@ final class ArtistPopularityChartViewController: UIViewController {
 
 extension ArtistPopularityChartViewController {
     
+    func setNavigationBarAndTabBar() {
+        let backButton = UIButton().then {
+            $0.setImage(.icBackGray, for: .normal)
+            $0.addTarget(self, action: #selector(backButtonDidTap), for: .touchUpInside)
+        }
+        let title = UILabel().then {
+            $0.text = "인기"
+            $0.textColor = .white
+            $0.font = .systemFont(ofSize: 17, weight: .bold)
+        }
+        let stackView = UIStackView(arrangedSubviews: [backButton, title]).then {
+            $0.spacing = 0
+            $0.axis = .horizontal
+        }
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: stackView)
+        self.navigationController?.navigationBar.isHidden = false
+        self.tabBarController?.tabBar.isHidden = true
+    }
+    
     func setDelegate() {
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -45,6 +65,13 @@ extension ArtistPopularityChartViewController {
     
     func setRegister() {
         collectionView.register(PopularityCollectionViewCell.self, forCellWithReuseIdentifier: PopularityCollectionViewCell.className)
+    }
+    
+    // MARK: - Actions
+    
+    @objc
+    func backButtonDidTap() {
+        navigationController?.popViewController(animated: true)
     }
 }
 

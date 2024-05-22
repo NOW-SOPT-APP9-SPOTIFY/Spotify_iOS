@@ -47,7 +47,7 @@ final class ArtistViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setNavigationBar()
+        setNavigationBarAndTabBar()
         setDelegate()
         setRegister()
         setPageViewController()
@@ -72,8 +72,14 @@ private extension ArtistViewController {
     
     // MARK: - Methods
     
-    func setNavigationBar() {
-        self.navigationController?.navigationBar.isHidden = true
+    func setNavigationBarAndTabBar() {
+        let backButton = UIBarButtonItem(image: .icBackWhite,
+                                         style: .plain,
+                                         target: self,
+                                         action: #selector(backButtonDidTap))
+        navigationItem.leftBarButtonItem = backButton
+        navigationController?.navigationBar.isHidden = false
+        tabBarController?.tabBar.isHidden = false
     }
     
     func setStyle() {
@@ -148,6 +154,13 @@ private extension ArtistViewController {
     
     func checkIfBarAndPageAreInSameIndex(for currentIndex: Int) -> Bool {
         return currentMenuIndex == currentIndex
+    }
+    
+    // MARK: - Actions
+    
+    @objc
+    func backButtonDidTap() {
+        navigationController?.popViewController(animated: true)
     }
 }
 

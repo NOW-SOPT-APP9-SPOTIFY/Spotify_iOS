@@ -55,7 +55,7 @@ private extension ArtistPopularityChartView {
     
     func setLayout() {
         collectionView.snp.makeConstraints {
-            $0.top.equalTo(safeAreaLayoutGuide)
+            $0.top.equalTo(safeAreaLayoutGuide).inset(9.5)
             $0.horizontalEdges.bottom.equalToSuperview()
         }
     }
