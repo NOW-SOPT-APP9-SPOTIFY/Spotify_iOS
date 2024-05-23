@@ -57,6 +57,7 @@ class MusicRecommendViewController: UIViewController, UICollectionViewDelegate {
         musicProgressBarView.progress = CGFloat.random(in: 0...1)
         
 //        setLayout() // topView 때문에 레이아웃 설정해줘야 할 수도 있어서 남겨놓음
+        addTarget()
         setRegister()
         setDelegate()
     }
@@ -64,6 +65,12 @@ class MusicRecommendViewController: UIViewController, UICollectionViewDelegate {
 //    func setLayout() {
         
 //    }
+    
+    func addTarget() {
+        musicRecommendView.removeButton.addTarget(self, action: #selector(chipButtonDidTap), for: .touchUpInside)
+        
+        navigationItem.hidesBackButton = true
+    }
     
     func setRegister() {
         musicRecommendView.musicRecommendationCollectionView.register(
@@ -80,6 +87,17 @@ class MusicRecommendViewController: UIViewController, UICollectionViewDelegate {
     func setDelegate() {
         musicRecommendView.musicRecommendationCollectionView.delegate = self
         musicRecommendView.musicRecommendationCollectionView.dataSource = self
+    }
+    
+    @objc 
+    func chipButtonDidTap() {
+        if let navigationController = self.navigationController {
+            let homeViewController = HomeViewController()
+            var viewControllers = navigationController.viewControllers
+            viewControllers.removeLast()
+            viewControllers.append(homeViewController)
+            navigationController.setViewControllers(viewControllers, animated: false)
+        }
     }
 }
 

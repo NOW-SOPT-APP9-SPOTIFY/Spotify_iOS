@@ -19,6 +19,9 @@
 		7125317F2BFF0C620099E8F8 /* RecommendServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7125317E2BFF0C620099E8F8 /* RecommendServiceType.swift */; };
 		712531832BFF14EC0099E8F8 /* PlaylistsDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712531822BFF14EC0099E8F8 /* PlaylistsDTO.swift */; };
 		712531852BFF64770099E8F8 /* ArtistServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712531802BFF0C7F0099E8F8 /* ArtistServiceType.swift */; };
+		712531882BFF6BD40099E8F8 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712531872BFF6BD40099E8F8 /* BlurView.swift */; };
+		7125318A2BFF87970099E8F8 /* SongsDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712531892BFF87970099E8F8 /* SongsDTO.swift */; };
+		7125318C2BFF903C0099E8F8 /* PopularArtistDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7125318B2BFF903C0099E8F8 /* PopularArtistDTO.swift */; };
 		712DF5402BEF385600F0BCCB /* Dto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712DF53F2BEF385600F0BCCB /* Dto.swift */; };
 		712DF5422BEF387A00F0BCCB /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712DF5412BEF387A00F0BCCB /* Network.swift */; };
 		712DF5452BEFA71A00F0BCCB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712DF5442BEFA71A00F0BCCB /* HomeViewController.swift */; };
@@ -94,6 +97,9 @@
 		7125317E2BFF0C620099E8F8 /* RecommendServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendServiceType.swift; sourceTree = "<group>"; };
 		712531802BFF0C7F0099E8F8 /* ArtistServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistServiceType.swift; sourceTree = "<group>"; };
 		712531822BFF14EC0099E8F8 /* PlaylistsDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistsDTO.swift; sourceTree = "<group>"; };
+		712531872BFF6BD40099E8F8 /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
+		712531892BFF87970099E8F8 /* SongsDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsDTO.swift; sourceTree = "<group>"; };
+		7125318B2BFF903C0099E8F8 /* PopularArtistDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularArtistDTO.swift; sourceTree = "<group>"; };
 		712DF53F2BEF385600F0BCCB /* Dto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dto.swift; sourceTree = "<group>"; };
 		712DF5412BEF387A00F0BCCB /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		712DF5442BEFA71A00F0BCCB /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -202,6 +208,14 @@
 				712531802BFF0C7F0099E8F8 /* ArtistServiceType.swift */,
 			);
 			path = ServiceType;
+			sourceTree = "<group>";
+		};
+		712531862BFF6BC60099E8F8 /* Blur */ = {
+			isa = PBXGroup;
+			children = (
+				712531872BFF6BD40099E8F8 /* BlurView.swift */,
+			);
+			path = Blur;
 			sourceTree = "<group>";
 		};
 		712DF5432BEFA15200F0BCCB /* Home */ = {
@@ -347,6 +361,8 @@
 				95AF20382BFA6F700057D44A /* ArtistTabbarModel.swift */,
 				712531692BFB84220099E8F8 /* HomeMockingModel.swift */,
 				712531822BFF14EC0099E8F8 /* PlaylistsDTO.swift */,
+				712531892BFF87970099E8F8 /* SongsDTO.swift */,
+				7125318B2BFF903C0099E8F8 /* PopularArtistDTO.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -365,6 +381,7 @@
 		95AF20262BF085520057D44A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				712531862BFF6BC60099E8F8 /* Blur */,
 				B81A0D922BF25B1B00C5E591 /* Recommend */,
 				95AF20282BF086540057D44A /* Home */,
 				95AF202A2BF086610057D44A /* Artist */,
@@ -614,6 +631,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				95AF20372BFA6D840057D44A /* ArtistTabbarCell.swift in Sources */,
+				712531882BFF6BD40099E8F8 /* BlurView.swift in Sources */,
 				95AF20392BFA6F700057D44A /* ArtistTabbarModel.swift in Sources */,
 				95AF20492BFE3BD10057D44A /* UIViewController+.swift in Sources */,
 				95AF20432BFD121D0057D44A /* ArtistMusicHeaderReusableView.swift in Sources */,
@@ -632,6 +650,7 @@
 				95AF202C2BF087F70057D44A /* ArtistViewController.swift in Sources */,
 				7125316D2BFBB1620099E8F8 /* LabelFactory.swift in Sources */,
 				71FCF3472BEA1BFD00D8528A /* SpotifyTabBarController.swift in Sources */,
+				7125318C2BFF903C0099E8F8 /* PopularArtistDTO.swift in Sources */,
 				712531782BFE1A3E0099E8F8 /* SpotifyService.swift in Sources */,
 				B82875722BF82CBB0084B22F /* MusicCollectionViewHeaderCell.swift in Sources */,
 				95AF203F2BFB7F600057D44A /* ArtistMusicView.swift in Sources */,
@@ -654,6 +673,7 @@
 				95AF20332BF9CE7C0057D44A /* RoundBorderCustomButton.swift in Sources */,
 				712DF5422BEF387A00F0BCCB /* Network.swift in Sources */,
 				71B5A3B02BF7A0BE00D0E957 /* Button2KrCell.swift in Sources */,
+				7125318A2BFF87970099E8F8 /* SongsDTO.swift in Sources */,
 				71B5A3AE2BF7A0A400D0E957 /* Button1Cell.swift in Sources */,
 				712531762BFE17F40099E8F8 /* HomeServiceType.swift in Sources */,
 				7125317A2BFE27F50099E8F8 /* BaseResponse.swift in Sources */,

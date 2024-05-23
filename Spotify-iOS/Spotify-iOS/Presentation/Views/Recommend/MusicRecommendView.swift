@@ -22,9 +22,20 @@ class MusicRecommendView: UIView {
         musicRecommendationCollectionView.backgroundColor = .clear
         musicRecommendationCollectionView.showsVerticalScrollIndicator = false
     
-        
         return musicRecommendationCollectionView
     }()
+    
+    private let profileImageView = UIImageView()
+    private let tasteChipButton = UIButton()
+    let removeButton = UIButton()
+    
+    private lazy var hStackView = UIStackView(
+        arrangedSubviews: [
+            profileImageView,
+            removeButton,
+            tasteChipButton
+        ]
+    )
     
     // (UIComponents) CustumView 상단에 프로필하고 메뉴 뜨는거 추가 하면 됨
     
@@ -45,15 +56,40 @@ class MusicRecommendView: UIView {
     
     func setUI() {
         backgroundColor = .black
+        
+        profileImageView.do {
+            $0.image = .imgProfile
+        }
+        
+        tasteChipButton.do {
+            $0.setImage(.imgChipsTasteOn, for: .normal)
+        }
+        
+        removeButton.do {
+            $0.setImage(.imgChipsX, for: .normal)
+        }
+        
+        hStackView.do {
+            $0.axis = .horizontal
+            $0.spacing = 8
+            $0.distribution = .fill
+        }
     }
     
     func setHierarchy() {
-        addSubview(musicRecommendationCollectionView)
+        addSubviews(hStackView, musicRecommendationCollectionView)
     }
     
     func setLayout() {
+        
+        hStackView.snp.makeConstraints {
+            $0.top.equalTo(safeAreaLayoutGuide).offset(9)
+            $0.leading.equalTo(safeAreaLayoutGuide).offset(16)
+            $0.height.equalTo(28)
+        }
+        
         musicRecommendationCollectionView.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(140)
+            $0.top.equalToSuperview().offset(120)
             $0.horizontalEdges.equalToSuperview().inset(16)
             $0.bottom.equalToSuperview()
         }
