@@ -4,7 +4,7 @@
 ## Member
 | 이명진<br/>([@thingineeer](https://github.com/thingineeer)) | 김나연<br/>([@Nya128](https://github.com/Nya128)) | 김민성<br/>([@mminny](https://github.com/mminny)) |
 | :---: | :---: | :---: |
-| <img width="540" src="https://github.com/NOW-SOPT-APP9-SPOTIFY/Spotify_iOS/assets/88179341/0edaa970-b08b-4212-8d76-2d8db6cab3ff"/> | <img width="540" src="https://github.com/NOW-SOPT-APP9-SPOTIFY/Spotify_iOS/assets/88179341/0aa8e320-2b52-4790-8c38-a5d31b1e4c94"/> | <img width="540" src="https://github.com/NOW-SOPT-APP9-SPOTIFY/Spotify_iOS/assets/88179341/ea9f1897-9797-4924-bb67-e27829405aaa"/> |
+| <img width="540" src="https://github.com/NOW-SOPT-APP9-SPOTIFY/Spotify_iOS/assets/88179341/0edaa970-b08b-4212-8d76-2d8db6cab3ff"/> | <img width="540" src="https://github.com/NOW-SOPT-APP9-SPOTIFY/Spotify_iOS/assets/88179341/0aa8e320-2b52-4790-8c38-a5d31b1e4c94"/> | <img width="540" src="https://github.com/NOW-SOPT-APP9-SPOTIFY/Spotify_iOS/assets/65494460/e9d63d4a-8c35-4896-bb4e-e80393488e1d"/> |
 <br>
 
 > **Commit Message Rule**
