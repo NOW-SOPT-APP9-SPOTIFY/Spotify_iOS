@@ -1,5 +1,5 @@
 //
-//  ArtistSeviceType.swift
+//  RecommendSeviceType.swift
 //  Spotify-iOS
 //
 //  Created by 이명진 on 5/23/24.
@@ -8,11 +8,11 @@
 import Foundation
 import Moya
 
-enum ArtistSeviceType {
-    case fetchArtistDatas(artistId: Int)
+enum RecommendServiceType {
+    case fetchRecommendDatas
 }
 
-extension ArtistSeviceType: TargetType {
+extension RecommendServiceType: TargetType {
     var baseURL: URL {
         guard let url = URL(string: Config.baseURL) else {
             preconditionFailure("유효하지 않는 base URL: \(Config.baseURL)")
@@ -22,21 +22,21 @@ extension ArtistSeviceType: TargetType {
     
     var path: String {
         switch self {
-        case .fetchArtistDatas(let artistId):
-            return "/v1/api/artists/\(artistId)"
+        case .fetchRecommendDatas:
+            return "/v1/api/members/me/albums/recommend"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .fetchArtistDatas:
+        case .fetchRecommendDatas:
             return .get
         }
     }
     
     var task: Moya.Task {
         switch self {
-        case .fetchArtistDatas:
+        case .fetchRecommendDatas:
             return .requestPlain
         }
     }

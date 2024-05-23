@@ -8,13 +8,13 @@
 import Foundation
 import Moya
 
-enum HomeSeviceType {
+enum HomeServiceType {
     case fetchOneSectionDatas
     case fetchTwoSectionDatas
     case fetchThreeSectionDatas
 }
 
-extension HomeSeviceType: TargetType {
+extension HomeServiceType: TargetType {
     var baseURL: URL {
         guard let url = URL(string: Config.baseURL) else {
             preconditionFailure("유효하지 않는 base URL: \(Config.baseURL)")

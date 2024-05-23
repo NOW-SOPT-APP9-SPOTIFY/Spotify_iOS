@@ -11,16 +11,16 @@ import Moya
 
 final class SpotifyService {
     static let shared = SpotifyService()
-    private var homeProvider = MoyaProvider<HomeSeviceType>(plugins: [MoyaLoggingPlugin()])
-    private var recommendProvider = MoyaProvider<RecommendSeviceType>(plugins: [MoyaLoggingPlugin()])
-    private var artistsProvider = MoyaProvider<ArtistSeviceType>(plugins: [MoyaLoggingPlugin()])
+    private var homeProvider = MoyaProvider<HomeServiceType>(plugins: [MoyaLoggingPlugin()])
+    private var recommendProvider = MoyaProvider<RecommendServiceType>(plugins: [MoyaLoggingPlugin()])
+    private var artistsProvider = MoyaProvider<ArtistServiceType>(plugins: [MoyaLoggingPlugin()])
     
     private init() {}
 }
 
 extension SpotifyService {
     func fetchOneSectionDatas(completion: @escaping (NetworkResult<Any>) -> Void) {
-        homeProvider.request(.fetchTwoSectionDatas) { result in
+        homeProvider.request(.fetchOneSectionDatas) { result in
             switch result {
             case .success(let response):
                 let statusCode = response.statusCode
