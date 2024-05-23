@@ -40,24 +40,24 @@ extension gradientColor {
     static func gradientDummy() -> [gradientColor] {
         return [
             gradientColor(
-            firstColor: .init(red: 255/255, green: 185/255, blue: 6/255, alpha: 0.33),
-            secondColor: .init(red: 161/255, green: 160/255, blue: 158/255, alpha: 0.14), 
-            thirdColor: .init(red: 109/255, green: 109/255, blue: 109/255, alpha: 0.14)),
+                firstColor: .init(red: 255/255, green: 185/255, blue: 6/255, alpha: 0.33),
+                secondColor: .init(red: 161/255, green: 160/255, blue: 158/255, alpha: 0.14),
+                thirdColor: .init(red: 109/255, green: 109/255, blue: 109/255, alpha: 0.14)),
             
             gradientColor(
-            firstColor: .init(red: 255/255, green: 223/255, blue: 161/255, alpha: 0.3),
-            secondColor: .init(red: 198/255, green: 183/255, blue: 155/255, alpha: 0.12),
-            thirdColor: .init(red: 149/255, green: 149/255, blue: 149/255, alpha: 0.14)),
+                firstColor: .init(red: 255/255, green: 223/255, blue: 161/255, alpha: 0.3),
+                secondColor: .init(red: 198/255, green: 183/255, blue: 155/255, alpha: 0.12),
+                thirdColor: .init(red: 149/255, green: 149/255, blue: 149/255, alpha: 0.14)),
             
             gradientColor(
-            firstColor: .init(red: 169/255, green: 11/255, blue: 11/255, alpha: 1),
-            secondColor: .init(red: 91/255, green: 26/255, blue: 26/255, alpha: 0.88),
-            thirdColor: .init(red: 35/255, green: 35/255, blue: 35/255, alpha: 1))
+                firstColor: .init(red: 169/255, green: 11/255, blue: 11/255, alpha: 1),
+                secondColor: .init(red: 91/255, green: 26/255, blue: 26/255, alpha: 0.88),
+                thirdColor: .init(red: 35/255, green: 35/255, blue: 35/255, alpha: 1))
         ]
     }
 }
 
-class MusicRecommendViewController: UIViewController, UICollectionViewDelegate {
+class MusicRecommendViewController: UIViewController {
     
     // MARK: - Properties
     
@@ -70,6 +70,8 @@ class MusicRecommendViewController: UIViewController, UICollectionViewDelegate {
     
     let musicRecommendView = MusicRecommendView()
     let musicProgressBarView = MusicProgressBarView()
+    
+    let blurView = BlurView(effect: UIBlurEffect(style: .light))
     
     // MARK: - Life Cycles
     
@@ -85,15 +87,15 @@ class MusicRecommendViewController: UIViewController, UICollectionViewDelegate {
         fetchAlbumInfo()
         musicProgressBarView.progress = CGFloat.random(in: 0...1)
         
-//        setLayout() // topView 때문에 레이아웃 설정해줘야 할 수도 있어서 남겨놓음
+        //        setLayout() // topView 때문에 레이아웃 설정해줘야 할 수도 있어서 남겨놓음
         addTarget()
         setRegister()
         setDelegate()
     }
     
-//    func setLayout() {
-        
-//    }
+    //    func setLayout() {
+    
+    //    }
     
     func addTarget() {
         musicRecommendView.removeButton.addTarget(self, action: #selector(chipButtonDidTap), for: .touchUpInside)
@@ -118,7 +120,7 @@ class MusicRecommendViewController: UIViewController, UICollectionViewDelegate {
         musicRecommendView.musicRecommendationCollectionView.dataSource = self
     }
     
-    @objc 
+    @objc
     func chipButtonDidTap() {
         if let navigationController = self.navigationController {
             let homeViewController = HomeViewController()
@@ -155,6 +157,27 @@ extension MusicRecommendViewController: UICollectionViewDataSource {
     
 }
 
+extension MusicRecommendViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        presentBlurView(index: indexPath.row)
+    }
+    
+    
+    private func presentBlurView(index: Int) {
+        let albumId = albumArray[index].id
+        blurView.show(in: self.view)
+        
+        // You can also pass data to the BlurView here if needed
+        // For example: blurView?.setData(albumId: albumId)
+    }
+    
+    @objc
+    private func dismissBlurView() {
+        blurView.hide()
+    }
+}
+
 // MARK: - Extensions
 
 extension MusicRecommendViewController {
@@ -170,8 +193,8 @@ extension MusicRecommendViewController {
                 print("🫠🫠\(baseResponse.data)🫠🫠")
                 self?.albumArray = baseResponse.data.albums
                 DispatchQueue.main.async { // UI 업데이트는 메인 쓰레드에서
-                                    self?.musicRecommendView.musicRecommendationCollectionView.reloadData()
-                                }
+                    self?.musicRecommendView.musicRecommendationCollectionView.reloadData()
+                }
                 
             case .requestErr:
                 print("요청 오류 입니다")
@@ -186,5 +209,5 @@ extension MusicRecommendViewController {
             }
         }
     }
-
+    
 }

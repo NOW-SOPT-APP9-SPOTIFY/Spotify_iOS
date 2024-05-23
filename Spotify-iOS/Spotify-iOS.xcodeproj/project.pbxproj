@@ -38,6 +38,7 @@
 		71B5A3B22BF7A0D300D0E957 /* Button5Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B5A3B12BF7A0D300D0E957 /* Button5Cell.swift */; };
 		71B5A3B42BF7A0E200D0E957 /* Button4Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B5A3B32BF7A0E200D0E957 /* Button4Cell.swift */; };
 		71B5A3B62BF7A10B00D0E957 /* Button3Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B5A3B52BF7A10B00D0E957 /* Button3Cell.swift */; };
+		71D0A0FA2BFFD563008CF981 /* BlurViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D0A0F92BFFD563008CF981 /* BlurViewController.swift */; };
 		71FCF3302BE8FB7600D8528A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FCF32F2BE8FB7600D8528A /* AppDelegate.swift */; };
 		71FCF3322BE8FB7600D8528A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FCF3312BE8FB7600D8528A /* SceneDelegate.swift */; };
 		71FCF3342BE8FB7600D8528A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FCF3332BE8FB7600D8528A /* ViewController.swift */; };
@@ -117,6 +118,7 @@
 		71B5A3B12BF7A0D300D0E957 /* Button5Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button5Cell.swift; sourceTree = "<group>"; };
 		71B5A3B32BF7A0E200D0E957 /* Button4Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button4Cell.swift; sourceTree = "<group>"; };
 		71B5A3B52BF7A10B00D0E957 /* Button3Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button3Cell.swift; sourceTree = "<group>"; };
+		71D0A0F92BFFD563008CF981 /* BlurViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurViewController.swift; sourceTree = "<group>"; };
 		71FCF32C2BE8FB7600D8528A /* Spotify-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Spotify-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		71FCF32F2BE8FB7600D8528A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		71FCF3312BE8FB7600D8528A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -273,6 +275,14 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
+		71D0A0F82BFFD547008CF981 /* Blur */ = {
+			isa = PBXGroup;
+			children = (
+				71D0A0F92BFFD563008CF981 /* BlurViewController.swift */,
+			);
+			path = Blur;
+			sourceTree = "<group>";
+		};
 		71FCF3232BE8FB7600D8528A = {
 			isa = PBXGroup;
 			children = (
@@ -395,8 +405,9 @@
 		95AF20272BF0855C0057D44A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				B81A0D962BF2629B00C5E591 /* Recommand */,
 				712DF5432BEFA15200F0BCCB /* Home */,
+				B81A0D962BF2629B00C5E591 /* Recommand */,
+				71D0A0F82BFFD547008CF981 /* Blur */,
 				95AF20292BF0865C0057D44A /* Artist */,
 			);
 			path = ViewControllers;
@@ -676,6 +687,7 @@
 				95AF20332BF9CE7C0057D44A /* RoundBorderCustomButton.swift in Sources */,
 				717FA4432BFFCF1900B90849 /* PopularArtistDTO.swift in Sources */,
 				712DF5422BEF387A00F0BCCB /* Network.swift in Sources */,
+				71D0A0FA2BFFD563008CF981 /* BlurViewController.swift in Sources */,
 				71B5A3B02BF7A0BE00D0E957 /* Button2KrCell.swift in Sources */,
 				7125318A2BFF87970099E8F8 /* SongsDTO.swift in Sources */,
 				712531762BFE17F40099E8F8 /* HomeServiceType.swift in Sources */,
