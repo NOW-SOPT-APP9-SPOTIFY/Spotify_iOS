@@ -8,6 +8,7 @@
 import UIKit
 
 import SnapKit
+import Then
 
 final class ArtistViewController: UIViewController {
     
@@ -16,7 +17,7 @@ final class ArtistViewController: UIViewController {
     private let indicatorBarHorizontalPadding: CGFloat = 6
     private let tabbarCellHorizontalPadding: CGFloat = 10
     private let tabbarInteritemSpacing: CGFloat = 13
-    private let tabbarData = TabbarModel.tabbarData()
+    private let tabbarData = ArtistTabbarModel.tabbarData()
     private var viewControllers: [UIViewController] = []
     private var currentMenuIndex: Int = 0 {
         didSet {
@@ -46,14 +47,25 @@ final class ArtistViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setNavigationBar()
         setDelegate()
-        registerCell()
+        setRegister()
         setPageViewController()
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        setStyle()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        setNavigationBarAndTabBar()
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
+        super.viewDidAppear(animated)
         
         moveIndicatorbar(to: 0)
     }
@@ -65,8 +77,33 @@ private extension ArtistViewController {
     
     // MARK: - Methods
     
-    func setNavigationBar() {
-        self.navigationController?.navigationBar.isHidden = true
+    func setNavigationBarAndTabBar() {
+        let backButton = UIBarButtonItem(image: .icBackWhite,
+                                         style: .plain,
+                                         target: self,
+                                         action: #selector(backButtonDidTap))
+        navigationItem.leftBarButtonItem = backButton
+        
+        /// Navigation Bar의 배경색을 투명하게 설정하고, 스크롤 시에도 색상이 변하지 않도록 합니다.
+        let appearance = UINavigationBarAppearance().then {
+            $0.configureWithOpaqueBackground()
+            $0.backgroundColor = .clear
+        }
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        navigationController?.navigationBar.isHidden = false
+        tabBarController?.tabBar.isHidden = false
+    }
+    
+    func setStyle() {
+        rootView.scrollView.do {
+            /// ScrollView의 contentInset을 설정합니다.
+            /// top은 0으로(safeArea 무시), bottom은 [safeArea bottomInset(탭바 height 포함됨)]으로 설정했습니다.
+            $0.contentInset = .init(top: 0, left: 0, bottom: safeAreaBottomInset(), right: 0)
+            $0.contentInsetAdjustmentBehavior = .never
+            $0.showsHorizontalScrollIndicator = false
+            $0.showsVerticalScrollIndicator = false
+        }
     }
     
     func setDelegate() {
@@ -76,7 +113,7 @@ private extension ArtistViewController {
         pageViewController.dataSource = self
     }
 
-    func registerCell() {
+    func setRegister() {
         collectionView.register(ArtistTabbarCell.self, forCellWithReuseIdentifier: ArtistTabbarCell.className)
     }
     
@@ -88,6 +125,7 @@ private extension ArtistViewController {
     
     func addViewControllersData() {
         let artistMusicViewController = ArtistMusicViewController(pageVC: pageViewController)
+        artistMusicViewController.delegate = self
         viewControllers.append(artistMusicViewController)
         for _ in 0 ..< tabbarData.count - 1 {
             let vc = UIViewController()
@@ -129,6 +167,20 @@ private extension ArtistViewController {
     
     func checkIfBarAndPageAreInSameIndex(for currentIndex: Int) -> Bool {
         return currentMenuIndex == currentIndex
+    }
+    
+    // MARK: - Actions
+    
+    @objc
+    func backButtonDidTap() {
+        navigationController?.popViewController(animated: true)
+    }
+}
+
+extension ArtistViewController: PushVCDelegate {
+    
+    func pushVC(_ viewController: UIViewController) {
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
 }
 

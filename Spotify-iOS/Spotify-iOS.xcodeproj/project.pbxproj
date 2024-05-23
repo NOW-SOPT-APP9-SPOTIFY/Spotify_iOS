@@ -54,10 +54,18 @@
 		95AF20302BF87A470057D44A /* ArtistHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AF202F2BF87A470057D44A /* ArtistHeaderView.swift */; };
 		95AF20332BF9CE7C0057D44A /* RoundBorderCustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AF20322BF9CE7C0057D44A /* RoundBorderCustomButton.swift */; };
 		95AF20372BFA6D840057D44A /* ArtistTabbarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AF20362BFA6D840057D44A /* ArtistTabbarCell.swift */; };
-		95AF20392BFA6F700057D44A /* TabbarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AF20382BFA6F700057D44A /* TabbarModel.swift */; };
+		95AF20392BFA6F700057D44A /* ArtistTabbarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AF20382BFA6F700057D44A /* ArtistTabbarModel.swift */; };
 		95AF203B2BFA70230057D44A /* ArtistMusicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AF203A2BFA70230057D44A /* ArtistMusicViewController.swift */; };
 		95AF203D2BFA732E0057D44A /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AF203C2BFA732E0057D44A /* String+.swift */; };
 		95AF203F2BFB7F600057D44A /* ArtistMusicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AF203E2BFB7F600057D44A /* ArtistMusicView.swift */; };
+		95AF20412BFCFD140057D44A /* PopularityCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AF20402BFCFD130057D44A /* PopularityCollectionViewCell.swift */; };
+		95AF20432BFD121D0057D44A /* ArtistMusicHeaderReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AF20422BFD121D0057D44A /* ArtistMusicHeaderReusableView.swift */; };
+		95AF20452BFD30C70057D44A /* ArtistRecommendationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AF20442BFD30C70057D44A /* ArtistRecommendationCollectionViewCell.swift */; };
+		95AF20472BFE33A30057D44A /* PopularMusicCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AF20462BFE33A30057D44A /* PopularMusicCollectionViewCell.swift */; };
+		95AF20492BFE3BD10057D44A /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AF20482BFE3BD10057D44A /* UIViewController+.swift */; };
+		95AF204B2BFE43C30057D44A /* ArtistMusicFooterReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AF204A2BFE43C30057D44A /* ArtistMusicFooterReusableView.swift */; };
+		95AF204D2BFE55B10057D44A /* ArtistPopularityChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AF204C2BFE55B10057D44A /* ArtistPopularityChartViewController.swift */; };
+		95AF204F2BFE566A0057D44A /* ArtistPopularityChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AF204E2BFE566A0057D44A /* ArtistPopularityChartView.swift */; };
 		95D119CE2BEF5B6D004228C0 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 95D119CB2BEF5B6D004228C0 /* Pretendard-Regular.otf */; };
 		95D119CF2BEF5B6D004228C0 /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 95D119CC2BEF5B6D004228C0 /* Pretendard-Medium.otf */; };
 		95D119D02BEF5B6D004228C0 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 95D119CD2BEF5B6D004228C0 /* Pretendard-SemiBold.otf */; };
@@ -116,10 +124,18 @@
 		95AF202F2BF87A470057D44A /* ArtistHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistHeaderView.swift; sourceTree = "<group>"; };
 		95AF20322BF9CE7C0057D44A /* RoundBorderCustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundBorderCustomButton.swift; sourceTree = "<group>"; };
 		95AF20362BFA6D840057D44A /* ArtistTabbarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistTabbarCell.swift; sourceTree = "<group>"; };
-		95AF20382BFA6F700057D44A /* TabbarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarModel.swift; sourceTree = "<group>"; };
+		95AF20382BFA6F700057D44A /* ArtistTabbarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistTabbarModel.swift; sourceTree = "<group>"; };
 		95AF203A2BFA70230057D44A /* ArtistMusicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistMusicViewController.swift; sourceTree = "<group>"; };
 		95AF203C2BFA732E0057D44A /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		95AF203E2BFB7F600057D44A /* ArtistMusicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistMusicView.swift; sourceTree = "<group>"; };
+		95AF20402BFCFD130057D44A /* PopularityCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularityCollectionViewCell.swift; sourceTree = "<group>"; };
+		95AF20422BFD121D0057D44A /* ArtistMusicHeaderReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistMusicHeaderReusableView.swift; sourceTree = "<group>"; };
+		95AF20442BFD30C70057D44A /* ArtistRecommendationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistRecommendationCollectionViewCell.swift; sourceTree = "<group>"; };
+		95AF20462BFE33A30057D44A /* PopularMusicCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularMusicCollectionViewCell.swift; sourceTree = "<group>"; };
+		95AF20482BFE3BD10057D44A /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
+		95AF204A2BFE43C30057D44A /* ArtistMusicFooterReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistMusicFooterReusableView.swift; sourceTree = "<group>"; };
+		95AF204C2BFE55B10057D44A /* ArtistPopularityChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistPopularityChartViewController.swift; sourceTree = "<group>"; };
+		95AF204E2BFE566A0057D44A /* ArtistPopularityChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistPopularityChartView.swift; sourceTree = "<group>"; };
 		95D119CB2BEF5B6D004228C0 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
 		95D119CC2BEF5B6D004228C0 /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
 		95D119CD2BEF5B6D004228C0 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
@@ -203,6 +219,7 @@
 				712DF5492BEFA7BB00F0BCCB /* UIView+.swift */,
 				712DF54B2BEFA7EA00F0BCCB /* getClassName.swift */,
 				95AF203C2BFA732E0057D44A /* String+.swift */,
+				95AF20482BFE3BD10057D44A /* UIViewController+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -327,8 +344,8 @@
 			isa = PBXGroup;
 			children = (
 				712DF53F2BEF385600F0BCCB /* Dto.swift */,
+				95AF20382BFA6F700057D44A /* ArtistTabbarModel.swift */,
 				712531692BFB84220099E8F8 /* HomeMockingModel.swift */,
-				95AF20382BFA6F700057D44A /* TabbarModel.swift */,
 				712531822BFF14EC0099E8F8 /* PlaylistsDTO.swift */,
 			);
 			path = Data;
@@ -378,6 +395,7 @@
 			children = (
 				95AF202B2BF087F70057D44A /* ArtistViewController.swift */,
 				95AF203A2BFA70230057D44A /* ArtistMusicViewController.swift */,
+				95AF204C2BFE55B10057D44A /* ArtistPopularityChartViewController.swift */,
 			);
 			path = Artist;
 			sourceTree = "<group>";
@@ -388,6 +406,7 @@
 				95AF202D2BF088020057D44A /* ArtistView.swift */,
 				95AF202F2BF87A470057D44A /* ArtistHeaderView.swift */,
 				95AF203E2BFB7F600057D44A /* ArtistMusicView.swift */,
+				95AF204E2BFE566A0057D44A /* ArtistPopularityChartView.swift */,
 			);
 			path = Artist;
 			sourceTree = "<group>";
@@ -454,6 +473,11 @@
 				B82875732BF82CBF0084B22F /* HeaderCell */,
 				B80EF86B2BF27267007A82C3 /* MusicItemCollectionViewCell.swift */,
 				95AF20362BFA6D840057D44A /* ArtistTabbarCell.swift */,
+				95AF20402BFCFD130057D44A /* PopularityCollectionViewCell.swift */,
+				95AF20422BFD121D0057D44A /* ArtistMusicHeaderReusableView.swift */,
+				95AF20442BFD30C70057D44A /* ArtistRecommendationCollectionViewCell.swift */,
+				95AF20462BFE33A30057D44A /* PopularMusicCollectionViewCell.swift */,
+				95AF204A2BFE43C30057D44A /* ArtistMusicFooterReusableView.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -589,6 +613,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95AF20372BFA6D840057D44A /* ArtistTabbarCell.swift in Sources */,
+				95AF20392BFA6F700057D44A /* ArtistTabbarModel.swift in Sources */,
+				95AF20492BFE3BD10057D44A /* UIViewController+.swift in Sources */,
+				95AF20432BFD121D0057D44A /* ArtistMusicHeaderReusableView.swift in Sources */,
+				95AF204D2BFE55B10057D44A /* ArtistPopularityChartViewController.swift in Sources */,
+				95AF20472BFE33A30057D44A /* PopularMusicCollectionViewCell.swift in Sources */,
 				712DF5472BEFA75D00F0BCCB /* HomeView.swift in Sources */,
 				712531682BFB434F0099E8F8 /* HomeViewHeaderCell.swift in Sources */,
 				71B5A3B22BF7A0D300D0E957 /* Button5Cell.swift in Sources */,
@@ -609,13 +639,16 @@
 				71B5A3B42BF7A0E200D0E957 /* Button4Cell.swift in Sources */,
 				71B5A3AC2BF7A04000D0E957 /* CardMixCell.swift in Sources */,
 				712DF54F2BEFAD1000F0BCCB /* Config.swift in Sources */,
+				95AF20412BFCFD140057D44A /* PopularityCollectionViewCell.swift in Sources */,
 				95AF203D2BFA732E0057D44A /* String+.swift in Sources */,
+				95AF20452BFD30C70057D44A /* ArtistRecommendationCollectionViewCell.swift in Sources */,
 				712DF5452BEFA71A00F0BCCB /* HomeViewController.swift in Sources */,
 				B81A0D982BF262B100C5E591 /* MusicRecommendViewController.swift in Sources */,
 				95AF203B2BFA70230057D44A /* ArtistMusicViewController.swift in Sources */,
 				95AF20302BF87A470057D44A /* ArtistHeaderView.swift in Sources */,
 				71FCF3512BEA1C9A00D8528A /* SpotifyTabBarItem.swift in Sources */,
 				95D119F22BEFB67D004228C0 /* FontLiterals.swift in Sources */,
+				95AF204F2BFE566A0057D44A /* ArtistPopularityChartView.swift in Sources */,
 				71FCF3322BE8FB7600D8528A /* SceneDelegate.swift in Sources */,
 				95AF20332BF9CE7C0057D44A /* RoundBorderCustomButton.swift in Sources */,
 				712DF5422BEF387A00F0BCCB /* Network.swift in Sources */,
@@ -631,6 +664,7 @@
 				7125316A2BFB84220099E8F8 /* HomeMockingModel.swift in Sources */,
 				712DF54C2BEFA7EA00F0BCCB /* getClassName.swift in Sources */,
 				B81A0D942BF25B6700C5E591 /* MusicRecommendView.swift in Sources */,
+				95AF204B2BFE43C30057D44A /* ArtistMusicFooterReusableView.swift in Sources */,
 				712531742BFE17D30099E8F8 /* MoyaLoggingPlugin.swift in Sources */,
 				71B5A3B62BF7A10B00D0E957 /* Button3Cell.swift in Sources */,
 			);
