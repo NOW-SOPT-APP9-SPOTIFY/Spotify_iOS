@@ -31,8 +31,8 @@ class MusicItemCollectionViewCell: UICollectionViewCell {
     lazy var progressBar5 = MusicProgressBarView(frame: CGRect(x: 0, y: 0, width: 52, height: 4))
     private let progressBarStackView = UIStackView()
     private lazy var muteButton = UIImageView()
-    private let mainAlbumImage = UIView() // 서버 연결되면 UIImage로 교체
-    private let subAlbumImage = UIView() // 서버 연결되면 UIImage로 교체
+    private let mainAlbumImage = UIImageView() // 서버 연결되면 UIImage로 교체
+    private let subAlbumImage = UIImageView() // 서버 연결되면 UIImage로 교체
     private let albumName = UILabel()
     private let musicianName = UILabel() // 앨범 아래에 있는 앨범/브루노 마스 이렇게 되어 있는 부분
     private lazy var addPlaylistButton = UIImageView() // plus 표시 되어 있는 버튼
@@ -108,12 +108,12 @@ extension MusicItemCollectionViewCell {
         }
         
         mainAlbumImage.do {
-            $0.backgroundColor = .spotifyGreen
+//            $0.backgroundColor = .spotifyGreen
             $0.layer.cornerRadius = 5
         }
         
         subAlbumImage.do {
-            $0.backgroundColor = .spotifyGreen
+//            $0.backgroundColor = .spotifyGreen
             $0.layer.cornerRadius = 5
         }
         
@@ -258,18 +258,15 @@ extension MusicItemCollectionViewCell {
     }
     
     // 서버 통신 되면 데이터 바인딩 관련해서 적을 내용들
-        func bindData(
-//            musicTitle: String = "Bruno Mars - Grenade",
-//            albumImage: UIImage,
-//            albumName: String = "Doo-Wops & Hooligans",
-//            musicianName: String = "앨범 · Bruno Mars",
-//             albumInfo: String = "2010 · 10곡"
-            _ testData: testModel
-        ) {
-            self.musicTitle.text = testData.musicTitle
-//            self.mainAlbumImage.image = albumImage
-            self.albumName.text = testData.albumName
-            self.musicianName.text = testData.musicianName
-            self.albumInfo.text = testData.albumInfo
+        func bindData(_ data: Album) {
+            self.musicTitle.text = data.artist.artistName + "-" + data.firstSongName
+            self.mainAlbumImage.image = UIImage(named: "imgMusicCard\(data.id)")
+            self.subAlbumImage.image = UIImage(named: "imgMusicCard\(data.id)")
+            self.albumName.text = data.albumName
+            self.musicianName.text = "앨범 ·" + data.artist.artistName
         }
+    
+    func bindGradient(data: gradientColor) {
+        self.gradientLayer.colors = [data]
+    }
 }
