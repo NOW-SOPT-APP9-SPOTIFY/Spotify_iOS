@@ -13,4 +13,10 @@ extension UIView {
     func addSubviews(_ views: UIView...) {
         views.forEach { self.addSubview($0) }
     }
+    
+    /// width와 color를 받아 UIView의 Border를 설정합니다.
+    func makeBorder(width: CGFloat, color: UIColor) {
+        layer.borderWidth = width
+        layer.borderColor = color.cgColor
+    }
 }
