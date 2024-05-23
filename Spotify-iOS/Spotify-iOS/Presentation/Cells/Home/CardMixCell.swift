@@ -33,6 +33,8 @@ final class CardMixCell: UICollectionViewCell {
         $0.axis = .vertical
     }
     
+    private let highlightLabel = UILabel()
+    
     // MARK: - Life Cycles
     
     override init(frame: CGRect) {
@@ -67,11 +69,19 @@ final class CardMixCell: UICollectionViewCell {
         imageInfoLabel.do {
             $0.numberOfLines = 2
         }
+        
+        highlightLabel.do {
+            $0.text = "Favorites \nMix"
+            $0.numberOfLines = 2
+            $0.font = .font(.h1_kr_bold)
+            $0.textColor = .spotifyGray30
+        }
     }
     
     private func setHierarchy() {
         contentView.addSubview(vStackView)
         vStackView.addSubview(imageInfoLabel)
+        mainImageView.addSubview(highlightLabel)
     }
     
     private func setLayout() {
@@ -91,6 +101,11 @@ final class CardMixCell: UICollectionViewCell {
         imageInfoLabel.snp.makeConstraints {
             $0.edges.equalTo(emptyView).inset(8.5)
         }
+        
+        highlightLabel.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(42)
+            $0.leading.equalToSuperview().inset(10)
+        }
     }
     
     // MARK: - Methods
@@ -101,6 +116,23 @@ final class CardMixCell: UICollectionViewCell {
     
     func bindTitle(text: String) {
         self.imageInfoLabel.text = text
+    }
+    
+    func bindModel(model: Playlist) {
+        self.mainImageView.image = UIImage(named: "imgCard\(model.id)")
+        self.highlightLabel.text = self.transformString(model.playlistName)
+        self.imageInfoLabel.text = self.concatenateArtists(model.artists)
+    }
+    
+    private func concatenateArtists(_ artists: [String]) -> String {
+        let result = artists.joined(separator: ", ")
+        return result
+    }
+    
+    private func transformString(_ input: String) -> String {
+        // 문자열 내의 모든 공백을 \n으로 변환
+        let result = input.replacingOccurrences(of: " ", with: "\n")
+        return result
     }
     
 }

@@ -16,6 +16,7 @@ final class HomeViewController: UIViewController {
     private let dummyImages: [UIImage] = [UIImage(resource: .imgCard4), UIImage(resource: .imgCard3), UIImage(resource: .imgCard2), UIImage(resource: .imgCard1)]
     private let dummmyText: [String] = ["LE SSERAFIM,  ILLIT, (여자) 아이들, BABY MONSTER,...", "LE SSERAFIM,  ILLIT, (여자) 아이들, BABY MONSTER,...", "이명진 신곡", "asdsadasdasdasdasdasds"]
     
+    private var sectionOneData: [Playlist] = []
     private let sectionTwoDummyData: [HitSongModel] = HomeMockingModel.getRecommendData()
     private let sectionArtistDummyData: [ArtistModel] = HomeMockingModel.getAristData()
     private let sectionRecentlyDummyData: [RecentlyModel] = HomeMockingModel.getRecentlyData()
@@ -29,6 +30,7 @@ final class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .spotifyBg
+        fetchDatas()
         setAddTarget()
         setDelegate()
         setRegister()
@@ -110,7 +112,7 @@ extension HomeViewController: UICollectionViewDataSource {
         
         switch sectionType {
         case .recommend:
-            return dummyImages.count
+            return sectionOneData.count
         case .hitSong:
             return sectionTwoDummyData.count
         case .artist:
@@ -134,8 +136,8 @@ extension HomeViewController: UICollectionViewDataSource {
         switch sectionType {
         case .recommend:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CardMixCell.className, for: indexPath) as? CardMixCell else { return UICollectionViewCell() }
-            cell.bindData(image: dummyImages[indexPath.row])
-            cell.bindTitle(text: dummmyText[indexPath.row])
+            
+            cell.bindModel(model: sectionOneData[indexPath.row])
             return cell
         case .hitSong:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Button5Cell.className, for: indexPath) as? Button5Cell else { return UICollectionViewCell() }
@@ -187,5 +189,36 @@ extension HomeViewController: UICollectionViewDataSource {
         
         return UICollectionReusableView()
     }
+    
+}
 
+extension HomeViewController {
+    private func fetchDatas() {
+        SpotifyService.shared.fetchOneSectionDatas { [weak self] response in
+            switch response {
+            case .success(let data):
+                guard let baseResponse = data as? BaseResponse<PlaylistsDTO>,
+                      let playlistsDTO = baseResponse.data else {
+                    print("데이터를 불러오는 데 실패했습니다.")
+                    return
+                }
+
+                print("❤️\(playlistsDTO.playlists)❤️")
+
+                self?.sectionOneData.append(contentsOf: playlistsDTO.playlists)
+                
+                self?.rootView.homeCollectionView.reloadData()
+            case .requestErr:
+                print("요청 오류 입니다")
+            case .decodedErr:
+                print("디코딩 오류 입니다")
+            case .pathErr:
+                print("경로 오류 입니다")
+            case .serverErr:
+                print("서버 오류입니다")
+            case .networkFail:
+                print("네트워크 오류입니다")
+            }
+        }
+    }
 }
