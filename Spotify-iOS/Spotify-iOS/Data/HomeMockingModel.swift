@@ -7,16 +7,6 @@
 
 import UIKit
 
-struct PlaylistsDTO: Codable {
-    let playlists: [Playlist]
-}
-
-struct Playlist: Codable {
-    let id: Int
-    let playlistName: String
-    let artists: [String]
-}
-
 struct HitSongModel {
     let image: UIImage
     let title: String

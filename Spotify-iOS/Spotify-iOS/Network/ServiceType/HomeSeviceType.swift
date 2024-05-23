@@ -10,6 +10,8 @@ import Moya
 
 enum HomeSeviceType {
     case fetchOneSectionDatas
+    case fetchTwoSectionDatas
+    case fetchThreeSectionDatas
 }
 
 extension HomeSeviceType: TargetType {
@@ -24,19 +26,23 @@ extension HomeSeviceType: TargetType {
         switch self {
         case .fetchOneSectionDatas:
             return "/v1/api/members/me/playlists/recommend"
+        case .fetchTwoSectionDatas:
+            return "/v1/api/songs/popular"
+        case .fetchThreeSectionDatas:
+            return "/v1/api/artists/popular"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .fetchOneSectionDatas:
+        case .fetchOneSectionDatas, .fetchTwoSectionDatas, .fetchThreeSectionDatas:
             return .get
         }
     }
     
     var task: Moya.Task {
         switch self {
-        case .fetchOneSectionDatas:
+        case .fetchOneSectionDatas, .fetchTwoSectionDatas, .fetchThreeSectionDatas:
             return .requestPlain
         }
     }

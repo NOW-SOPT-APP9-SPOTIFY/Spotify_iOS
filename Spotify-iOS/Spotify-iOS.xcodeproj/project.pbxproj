@@ -16,6 +16,9 @@
 		712531762BFE17F40099E8F8 /* HomeSeviceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712531752BFE17F40099E8F8 /* HomeSeviceType.swift */; };
 		712531782BFE1A3E0099E8F8 /* SpotifyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712531772BFE1A3E0099E8F8 /* SpotifyService.swift */; };
 		7125317A2BFE27F50099E8F8 /* BaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712531792BFE27F50099E8F8 /* BaseResponse.swift */; };
+		7125317F2BFF0C620099E8F8 /* RecommendSeviceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7125317E2BFF0C620099E8F8 /* RecommendSeviceType.swift */; };
+		712531812BFF0C7F0099E8F8 /* ArtistSeviceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712531802BFF0C7F0099E8F8 /* ArtistSeviceType.swift */; };
+		712531832BFF14EC0099E8F8 /* PlaylistsDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712531822BFF14EC0099E8F8 /* PlaylistsDTO.swift */; };
 		712DF5402BEF385600F0BCCB /* Dto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712DF53F2BEF385600F0BCCB /* Dto.swift */; };
 		712DF5422BEF387A00F0BCCB /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712DF5412BEF387A00F0BCCB /* Network.swift */; };
 		712DF5452BEFA71A00F0BCCB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712DF5442BEFA71A00F0BCCB /* HomeViewController.swift */; };
@@ -71,6 +74,9 @@
 		712531752BFE17F40099E8F8 /* HomeSeviceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSeviceType.swift; sourceTree = "<group>"; };
 		712531772BFE1A3E0099E8F8 /* SpotifyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyService.swift; sourceTree = "<group>"; };
 		712531792BFE27F50099E8F8 /* BaseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResponse.swift; sourceTree = "<group>"; };
+		7125317E2BFF0C620099E8F8 /* RecommendSeviceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendSeviceType.swift; sourceTree = "<group>"; };
+		712531802BFF0C7F0099E8F8 /* ArtistSeviceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistSeviceType.swift; sourceTree = "<group>"; };
+		712531822BFF14EC0099E8F8 /* PlaylistsDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistsDTO.swift; sourceTree = "<group>"; };
 		712DF53F2BEF385600F0BCCB /* Dto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dto.swift; sourceTree = "<group>"; };
 		712DF5412BEF387A00F0BCCB /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		712DF5442BEFA71A00F0BCCB /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -146,16 +152,22 @@
 			path = Factory;
 			sourceTree = "<group>";
 		};
-		712531702BFE16D30099E8F8 /* MJNetworkFile */ = {
+		712531702BFE16D30099E8F8 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				712531712BFE17C60099E8F8 /* NetworkResult.swift */,
-				712531732BFE17D30099E8F8 /* MoyaLoggingPlugin.swift */,
-				712531752BFE17F40099E8F8 /* HomeSeviceType.swift */,
 				712531772BFE1A3E0099E8F8 /* SpotifyService.swift */,
-				712531792BFE27F50099E8F8 /* BaseResponse.swift */,
 			);
-			path = MJNetworkFile;
+			path = Service;
+			sourceTree = "<group>";
+		};
+		7125317D2BFF05F10099E8F8 /* ServiceType */ = {
+			isa = PBXGroup;
+			children = (
+				712531752BFE17F40099E8F8 /* HomeSeviceType.swift */,
+				7125317E2BFF0C620099E8F8 /* RecommendSeviceType.swift */,
+				712531802BFF0C7F0099E8F8 /* ArtistSeviceType.swift */,
+			);
+			path = ServiceType;
 			sourceTree = "<group>";
 		};
 		712DF5432BEFA15200F0BCCB /* Home */ = {
@@ -180,6 +192,9 @@
 			isa = PBXGroup;
 			children = (
 				712DF54E2BEFAD1000F0BCCB /* Config.swift */,
+				712531712BFE17C60099E8F8 /* NetworkResult.swift */,
+				712531732BFE17D30099E8F8 /* MoyaLoggingPlugin.swift */,
+				712531792BFE27F50099E8F8 /* BaseResponse.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -280,7 +295,8 @@
 		71FCF35C2BEA6BB600D8528A /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				712531702BFE16D30099E8F8 /* MJNetworkFile */,
+				7125317D2BFF05F10099E8F8 /* ServiceType */,
+				712531702BFE16D30099E8F8 /* Service */,
 				712DF54D2BEFAD0700F0BCCB /* Base */,
 				712DF5412BEF387A00F0BCCB /* Network.swift */,
 			);
@@ -292,6 +308,7 @@
 			children = (
 				712DF53F2BEF385600F0BCCB /* Dto.swift */,
 				712531692BFB84220099E8F8 /* HomeMockingModel.swift */,
+				712531822BFF14EC0099E8F8 /* PlaylistsDTO.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -529,9 +546,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				712531812BFF0C7F0099E8F8 /* ArtistSeviceType.swift in Sources */,
 				712DF5472BEFA75D00F0BCCB /* HomeView.swift in Sources */,
 				712531682BFB434F0099E8F8 /* HomeViewHeaderCell.swift in Sources */,
 				71B5A3B22BF7A0D300D0E957 /* Button5Cell.swift in Sources */,
+				7125317F2BFF0C620099E8F8 /* RecommendSeviceType.swift in Sources */,
 				712DF5572BF42DD600F0BCCB /* CompositionalLayout.swift in Sources */,
 				71FCF3342BE8FB7600D8528A /* ViewController.swift in Sources */,
 				95AF202E2BF088020057D44A /* ArtistView.swift in Sources */,
@@ -558,6 +577,7 @@
 				712DF5402BEF385600F0BCCB /* Dto.swift in Sources */,
 				712531722BFE17C60099E8F8 /* NetworkResult.swift in Sources */,
 				7125316F2BFC9CE50099E8F8 /* DeepDiveHeaderCell.swift in Sources */,
+				712531832BFF14EC0099E8F8 /* PlaylistsDTO.swift in Sources */,
 				B80EF86C2BF27267007A82C3 /* MusicItemCollectionViewCell.swift in Sources */,
 				7125316A2BFB84220099E8F8 /* HomeMockingModel.swift in Sources */,
 				712DF54C2BEFA7EA00F0BCCB /* getClassName.swift in Sources */,

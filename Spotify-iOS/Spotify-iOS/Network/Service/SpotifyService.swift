@@ -12,13 +12,47 @@ import Moya
 final class SpotifyService {
     static let shared = SpotifyService()
     private var homeProvider = MoyaProvider<HomeSeviceType>(plugins: [MoyaLoggingPlugin()])
+    private var recommendProvider = MoyaProvider<RecommendSeviceType>(plugins: [MoyaLoggingPlugin()])
+    private var artistsProvider = MoyaProvider<ArtistSeviceType>(plugins: [MoyaLoggingPlugin()])
     
     private init() {}
 }
 
 extension SpotifyService {
     func fetchOneSectionDatas(completion: @escaping (NetworkResult<Any>) -> Void) {
-        homeProvider.request(.fetchOneSectionDatas) { result in
+        homeProvider.request(.fetchTwoSectionDatas) { result in
+            switch result {
+            case .success(let response):
+                let statusCode = response.statusCode
+                let data = response.data
+                
+                let networkResult = self.judgeStatus(by: statusCode, data, BaseResponse<PlaylistsDTO>.self)
+                completion(networkResult)
+                
+            case .failure:
+                completion(.networkFail)
+            }
+        }
+    }
+    
+    func fetchTwoSectionDatas(completion: @escaping (NetworkResult<Any>) -> Void) {
+        homeProvider.request(.fetchTwoSectionDatas) { result in
+            switch result {
+            case .success(let response):
+                let statusCode = response.statusCode
+                let data = response.data
+                
+                let networkResult = self.judgeStatus(by: statusCode, data, BaseResponse<PlaylistsDTO>.self)
+                completion(networkResult)
+                
+            case .failure:
+                completion(.networkFail)
+            }
+        }
+    }
+    
+    func fetchThreeSectionDatas(completion: @escaping (NetworkResult<Any>) -> Void) {
+        homeProvider.request(.fetchThreeSectionDatas) { result in
             switch result {
             case .success(let response):
                 let statusCode = response.statusCode

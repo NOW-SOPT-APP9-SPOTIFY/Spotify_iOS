@@ -130,7 +130,6 @@ final class CardMixCell: UICollectionViewCell {
     }
     
     private func transformString(_ input: String) -> String {
-        // 문자열 내의 모든 공백을 \n으로 변환
         let result = input.replacingOccurrences(of: " ", with: "\n")
         return result
     }
