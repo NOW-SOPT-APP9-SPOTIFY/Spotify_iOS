@@ -115,7 +115,7 @@ class MusicRecommendViewController: UIViewController {
     private func bind() {
         blurView.artistDidTapSubject
             .sink { [weak self] in
-                self?.presentArtistViewController()
+                self?.presentToArtistViewController()
             }
             .store(in: &cancellables)
     }
