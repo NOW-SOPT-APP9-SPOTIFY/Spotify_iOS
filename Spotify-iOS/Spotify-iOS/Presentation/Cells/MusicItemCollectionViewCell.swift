@@ -267,6 +267,6 @@ extension MusicItemCollectionViewCell {
         }
     
     func bindGradient(data: gradientColor) {
-        self.gradientLayer.colors = [data]
+        self.gradientLayer.colors = [data.firstColor, data.secondColor, data.thirdColor]
     }
 }

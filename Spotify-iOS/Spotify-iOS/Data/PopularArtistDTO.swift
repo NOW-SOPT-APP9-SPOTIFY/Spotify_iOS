@@ -13,7 +13,6 @@ struct ArtistsDTO: Codable {
     let data: [Artist]
 }
 
-// MARK: - Datum
 struct Artist: Codable {
     let id: Int
     let artistName: String

@@ -21,19 +21,19 @@
 		712531852BFF64770099E8F8 /* ArtistServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712531802BFF0C7F0099E8F8 /* ArtistServiceType.swift */; };
 		712531882BFF6BD40099E8F8 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712531872BFF6BD40099E8F8 /* BlurView.swift */; };
 		7125318A2BFF87970099E8F8 /* SongsDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712531892BFF87970099E8F8 /* SongsDTO.swift */; };
-		7125318C2BFF903C0099E8F8 /* PopularArtistDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7125318B2BFF903C0099E8F8 /* PopularArtistDTO.swift */; };
 		712DF5402BEF385600F0BCCB /* Dto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712DF53F2BEF385600F0BCCB /* Dto.swift */; };
 		712DF5422BEF387A00F0BCCB /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712DF5412BEF387A00F0BCCB /* Network.swift */; };
-		712DF5452BEFA71A00F0BCCB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712DF5442BEFA71A00F0BCCB /* HomeViewController.swift */; };
 		712DF5472BEFA75D00F0BCCB /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712DF5462BEFA75D00F0BCCB /* HomeView.swift */; };
 		712DF54A2BEFA7BB00F0BCCB /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712DF5492BEFA7BB00F0BCCB /* UIView+.swift */; };
 		712DF54C2BEFA7EA00F0BCCB /* getClassName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712DF54B2BEFA7EA00F0BCCB /* getClassName.swift */; };
 		712DF54F2BEFAD1000F0BCCB /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712DF54E2BEFAD1000F0BCCB /* Config.swift */; };
 		712DF5542BF29E5400F0BCCB /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 712DF5532BF29E5400F0BCCB /* .swiftlint.yml */; };
 		712DF5572BF42DD600F0BCCB /* CompositionalLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712DF5562BF42DD600F0BCCB /* CompositionalLayout.swift */; };
+		717FA4412BFFCF0400B90849 /* Button1Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B5A3AD2BF7A0A400D0E957 /* Button1Cell.swift */; };
+		717FA4422BFFCF0A00B90849 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712DF5442BEFA71A00F0BCCB /* HomeViewController.swift */; };
+		717FA4432BFFCF1900B90849 /* PopularArtistDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7125318B2BFF903C0099E8F8 /* PopularArtistDTO.swift */; };
 		71B5A3972BF5F3F700D0E957 /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B5A3962BF5F3F700D0E957 /* CardViewController.swift */; };
 		71B5A3AC2BF7A04000D0E957 /* CardMixCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B5A3AB2BF7A04000D0E957 /* CardMixCell.swift */; };
-		71B5A3AE2BF7A0A400D0E957 /* Button1Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B5A3AD2BF7A0A400D0E957 /* Button1Cell.swift */; };
 		71B5A3B02BF7A0BE00D0E957 /* Button2KrCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B5A3AF2BF7A0BE00D0E957 /* Button2KrCell.swift */; };
 		71B5A3B22BF7A0D300D0E957 /* Button5Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B5A3B12BF7A0D300D0E957 /* Button5Cell.swift */; };
 		71B5A3B42BF7A0E200D0E957 /* Button4Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B5A3B32BF7A0E200D0E957 /* Button4Cell.swift */; };
@@ -653,7 +653,6 @@
 				95AF202C2BF087F70057D44A /* ArtistViewController.swift in Sources */,
 				7125316D2BFBB1620099E8F8 /* LabelFactory.swift in Sources */,
 				71FCF3472BEA1BFD00D8528A /* SpotifyTabBarController.swift in Sources */,
-				7125318C2BFF903C0099E8F8 /* PopularArtistDTO.swift in Sources */,
 				712531782BFE1A3E0099E8F8 /* SpotifyService.swift in Sources */,
 				B82875722BF82CBB0084B22F /* MusicCollectionViewHeaderCell.swift in Sources */,
 				95AF203F2BFB7F600057D44A /* ArtistMusicView.swift in Sources */,
@@ -664,9 +663,9 @@
 				712DF54F2BEFAD1000F0BCCB /* Config.swift in Sources */,
 				95AF20412BFCFD140057D44A /* PopularityCollectionViewCell.swift in Sources */,
 				95AF203D2BFA732E0057D44A /* String+.swift in Sources */,
+				717FA4412BFFCF0400B90849 /* Button1Cell.swift in Sources */,
 				95AF20452BFD30C70057D44A /* ArtistRecommendationCollectionViewCell.swift in Sources */,
 				B8758BB92BFFA06F0054D498 /* RecommendModel.swift in Sources */,
-				712DF5452BEFA71A00F0BCCB /* HomeViewController.swift in Sources */,
 				B81A0D982BF262B100C5E591 /* MusicRecommendViewController.swift in Sources */,
 				95AF203B2BFA70230057D44A /* ArtistMusicViewController.swift in Sources */,
 				95AF20302BF87A470057D44A /* ArtistHeaderView.swift in Sources */,
@@ -675,10 +674,10 @@
 				95AF204F2BFE566A0057D44A /* ArtistPopularityChartView.swift in Sources */,
 				71FCF3322BE8FB7600D8528A /* SceneDelegate.swift in Sources */,
 				95AF20332BF9CE7C0057D44A /* RoundBorderCustomButton.swift in Sources */,
+				717FA4432BFFCF1900B90849 /* PopularArtistDTO.swift in Sources */,
 				712DF5422BEF387A00F0BCCB /* Network.swift in Sources */,
 				71B5A3B02BF7A0BE00D0E957 /* Button2KrCell.swift in Sources */,
 				7125318A2BFF87970099E8F8 /* SongsDTO.swift in Sources */,
-				71B5A3AE2BF7A0A400D0E957 /* Button1Cell.swift in Sources */,
 				712531762BFE17F40099E8F8 /* HomeServiceType.swift in Sources */,
 				7125317A2BFE27F50099E8F8 /* BaseResponse.swift in Sources */,
 				712DF5402BEF385600F0BCCB /* Dto.swift in Sources */,
@@ -689,6 +688,7 @@
 				7125316A2BFB84220099E8F8 /* HomeMockingModel.swift in Sources */,
 				712DF54C2BEFA7EA00F0BCCB /* getClassName.swift in Sources */,
 				B81A0D942BF25B6700C5E591 /* MusicRecommendView.swift in Sources */,
+				717FA4422BFFCF0A00B90849 /* HomeViewController.swift in Sources */,
 				95AF204B2BFE43C30057D44A /* ArtistMusicFooterReusableView.swift in Sources */,
 				712531742BFE17D30099E8F8 /* MoyaLoggingPlugin.swift in Sources */,
 				71B5A3B62BF7A10B00D0E957 /* Button3Cell.swift in Sources */,

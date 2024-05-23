@@ -22,10 +22,10 @@ struct Album: Codable {
     let albumName: String
     let createdAt: String
     let firstSongName: String
-    let artist: Artist
+    let artist: ArtistCard
 }
 
-struct Artist: Codable {
+struct ArtistCard: Codable {
     let artistId: Int
     let artistName: String
 }
