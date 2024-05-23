@@ -31,8 +31,9 @@ extension SpotifyTabBarController {
     private func setUI() {
         tabBar.do {
             $0.backgroundColor = .black
-            $0.unselectedItemTintColor = .darkGray
-            $0.tintColor = .green
+            $0.tintColor = .white
+            $0.unselectedItemTintColor = .spotifyGray10
+
         }
     }
     
