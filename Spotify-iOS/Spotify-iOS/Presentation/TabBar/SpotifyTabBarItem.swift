@@ -55,7 +55,7 @@ enum SpotifyTabBarItem {
     var viewController: UIViewController {
         switch self {
         case .home:
-            return ViewController()
+            return HomeViewController()
         case .search, .myLibrary, .premium:
             return ViewController().then { $0.view.backgroundColor = .red }
         }
