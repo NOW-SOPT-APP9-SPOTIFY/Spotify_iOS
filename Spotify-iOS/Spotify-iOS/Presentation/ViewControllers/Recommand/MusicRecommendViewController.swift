@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 import SnapKit
 import Then
@@ -45,6 +46,8 @@ class MusicRecommendViewController: UIViewController {
     var albumArray: [Album] = []
     private let gradientList = gradientColor.gradientDummy()
     
+    private var cancellables = Set<AnyCancellable>()
+    
     // MARK: - UIComponents
     
     let musicRecommendView = MusicRecommendView()
@@ -70,6 +73,7 @@ class MusicRecommendViewController: UIViewController {
         addTarget()
         setRegister()
         setDelegate()
+        bind()
     }
     
     // MARK: - Methods
@@ -106,6 +110,23 @@ class MusicRecommendViewController: UIViewController {
         blurView.show(in: self.view)
         
         blurView.setData(id: albumId, title: albumTitle, artist: albumArtist) // 여기서 해당하는 Cell의 앨범 id를 받습니다.!
+    }
+    
+    private func bind() {
+        blurView.artistDidTapSubject
+            .sink { [weak self] in
+                self?.presentArtistViewController()
+            }
+            .store(in: &cancellables)
+    }
+    
+    // TODO: 4번째 뷰로 가는 로직 작성을 하면됩니다.
+    // 아마 아티스트 ID가 필요할텐데 현재 뷰에서 albumArray[index].id 를 가져가와 setData 해주면 됩니다. !!
+    // 지금은 그냥 예시로 뷰가 넘어가는지 ViewController로 시험을 해봤어요!
+    private func presentArtistViewController() {
+        let artistViewController = ViewController()
+        artistViewController.view.backgroundColor = .spotifyGray30
+        navigationController?.pushViewController(artistViewController, animated: true)
     }
     
     // MARK: - @Objc Function

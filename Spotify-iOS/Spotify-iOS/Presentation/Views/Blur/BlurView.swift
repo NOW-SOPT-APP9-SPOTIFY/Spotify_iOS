@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Combine
+
 import SnapKit
 import Then
 
@@ -16,6 +18,8 @@ final class BlurView: UIVisualEffectView {
     private var albumId: Int = 0
     private var title: String = ""
     private var artist: String = ""
+    
+    var artistDidTapSubject = PassthroughSubject<Void, Never>()
     
     // MARK: - UI Components
     
@@ -43,6 +47,7 @@ final class BlurView: UIVisualEffectView {
         setUI()
         setHierarchy()
         setLayout()
+        setAddTarget()
     }
     
     required init?(coder: NSCoder) {
@@ -108,6 +113,12 @@ final class BlurView: UIVisualEffectView {
             $0.leading.equalTo(albumImageView.snp.trailing).offset(12)
             $0.top.equalTo(albumTitleLabel.snp.bottom).offset(8)
         }
+    }
+    
+    private func setAddTarget() {
+        let artistViewTapGesture = UITapGestureRecognizer(target: self, action: #selector(artistViewTapped))
+        artistView.addGestureRecognizer(artistViewTapGesture)
+        artistView.isUserInteractionEnabled = true
     }
     
     // MARK: - Methods
@@ -184,8 +195,14 @@ final class BlurView: UIVisualEffectView {
     
     // MARK: - @Objc Function
     
-    @objc private func closeButtonDidTap() {
+    @objc 
+    private func closeButtonDidTap() {
         hide()
     }
+    
+    @objc 
+    private func artistViewTapped() {
+        artistDidTapSubject.send(())
+     }
     
 }
