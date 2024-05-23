@@ -80,11 +80,12 @@ final class BlurViewController: UIViewController {
         }
     }
     
-    private func dismissViewControllerWithAnimation() {
-        UIView.animate(withDuration: 0.3, animations: {
+    private func dismissViewControllerWithAnimation() {     
+        UIView.animate(withDuration: 0.3) {
             self.view.transform = CGAffineTransform(translationX: 0, y: self.view.frame.height)
-        }) { _ in
+        } completion: { _ in
             self.dismiss(animated: false, completion: nil)
         }
+
     }
 }

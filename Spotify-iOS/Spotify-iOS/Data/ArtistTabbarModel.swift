@@ -16,7 +16,7 @@ extension ArtistTabbarModel {
         return [
             ArtistTabbarModel(title: "음악"),
             ArtistTabbarModel(title: "이벤트"),
-            ArtistTabbarModel(title: "Merch"),
+            ArtistTabbarModel(title: "Merch")
         ]
     }
 }

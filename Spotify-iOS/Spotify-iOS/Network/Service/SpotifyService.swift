@@ -102,7 +102,7 @@ extension SpotifyService {
                 let statusCode = response.statusCode
                 let data = response.data
                 
-                let networkResult = self.judgeStatus(by: statusCode, data, RecommendModel.self)
+                let networkResult = self.judgeStatus(by: statusCode, data, RecommendDTO.self)
                 completion(networkResult)
                 
             case .failure:

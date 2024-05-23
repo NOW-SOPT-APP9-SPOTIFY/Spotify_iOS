@@ -15,7 +15,12 @@ final class RoundBorderCustomButton: UIButton {
     
     var title: String {
         didSet {
-            configuration?.attributedTitle = AttributedString(title, attributes: AttributeContainer([NSAttributedString.Key.font : UIFont.font(self.font)]))
+            configuration?.attributedTitle = AttributedString(
+                title,
+                attributes: AttributeContainer(
+                    [NSAttributedString.Key.font: UIFont.font(self.font)]
+                )
+            )
         }
     }
     private var font: FontLevel
@@ -55,7 +60,7 @@ extension RoundBorderCustomButton {
     
     private func setStyle() {
         configuration = UIButton.Configuration.plain()
-        configuration?.attributedTitle = AttributedString(title, attributes: AttributeContainer([NSAttributedString.Key.font : UIFont.font(self.font)]))
+        configuration?.attributedTitle = AttributedString(title, attributes: AttributeContainer([NSAttributedString.Key.font: UIFont.font(self.font)]))
         configuration?.baseForegroundColor = .white
         configuration?.contentInsets = NSDirectionalEdgeInsets(
             top: verticalPadding,

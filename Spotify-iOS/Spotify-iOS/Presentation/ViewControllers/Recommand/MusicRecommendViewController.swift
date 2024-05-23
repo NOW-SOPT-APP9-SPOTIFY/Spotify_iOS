@@ -10,26 +10,6 @@ import UIKit
 import SnapKit
 import Then
 
-struct testModel {
-    let musicTitle: String
-    let albumName: String
-    let musicianName: String
-    let albumInfo: String
-}
-
-extension testModel {
-    static func dummy() -> [testModel] {
-        return [
-            testModel(musicTitle: "Bruno Mars - Grenade", albumName: "Doo-Wops & Hooligans", musicianName: "앨범 · Bruno Mars", albumInfo: "2010 · 10곡"),
-            testModel(musicTitle: "Bruno Mars - Grenade", albumName: "Doo-Wops & Hooligans", musicianName: "앨범 · Bruno Mars", albumInfo: "2010 · 10곡"),
-            testModel(musicTitle: "Bruno Mars - Grenade", albumName: "Doo-Wops & Hooligans", musicianName: "앨범 · Bruno Mars", albumInfo: "2010 · 10곡"),
-            testModel(musicTitle: "Bruno Mars - Grenade", albumName: "Doo-Wops & Hooligans", musicianName: "앨범 · Bruno Mars", albumInfo: "2010 · 10곡"),
-            testModel(musicTitle: "Bruno Mars - Grenade", albumName: "Doo-Wops & Hooligans", musicianName: "앨범 · Bruno Mars", albumInfo: "2010 · 10곡"),
-            testModel(musicTitle: "Bruno Mars - Grenade", albumName: "Doo-Wops & Hooligans", musicianName: "앨범 · Bruno Mars", albumInfo: "2010 · 10곡")
-        ]
-    }
-}
-
 struct gradientColor {
     let firstColor: CGColor
     let secondColor: CGColor
@@ -62,7 +42,6 @@ class MusicRecommendViewController: UIViewController {
     // MARK: - Properties
     
     let headerTitle: [String] = ["Taylor Swift"]
-    private let testList = testModel.dummy()
     var albumArray: [Album] = []
     private let gradientList = gradientColor.gradientDummy()
     
@@ -71,7 +50,7 @@ class MusicRecommendViewController: UIViewController {
     let musicRecommendView = MusicRecommendView()
     let musicProgressBarView = MusicProgressBarView()
     
-    let blurView = BlurView(effect: UIBlurEffect(style: .light))
+    let blurView = BlurView(effect: UIBlurEffect(style: .dark))
     
     // MARK: - Life Cycles
     
@@ -82,20 +61,18 @@ class MusicRecommendViewController: UIViewController {
             navigationController.setNavigationBarHidden(true, animated: false)
         }
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         fetchAlbumInfo()
         musicProgressBarView.progress = CGFloat.random(in: 0...1)
-        
-        //        setLayout() // topView 때문에 레이아웃 설정해줘야 할 수도 있어서 남겨놓음
         addTarget()
         setRegister()
         setDelegate()
     }
     
-    //    func setLayout() {
-    
-    //    }
+    // MARK: - Methods
     
     func addTarget() {
         musicRecommendView.removeButton.addTarget(self, action: #selector(chipButtonDidTap), for: .touchUpInside)
@@ -120,6 +97,19 @@ class MusicRecommendViewController: UIViewController {
         musicRecommendView.musicRecommendationCollectionView.dataSource = self
     }
     
+    private func presentBlurView(index: Int) {
+        let albumId = albumArray[index].id
+        let albumTitle = albumArray[index].albumName
+        let albumArtist = albumArray[index].artist.artistName
+        
+        print("⭐️⭐️⭐️ albumId= \(albumId) ⭐️⭐️⭐️")
+        blurView.show(in: self.view)
+        
+        blurView.setData(id: albumId, title: albumTitle, artist: albumArtist) // 여기서 해당하는 Cell의 앨범 id를 받습니다.!
+    }
+    
+    // MARK: - @Objc Function
+    
     @objc
     func chipButtonDidTap() {
         if let navigationController = self.navigationController {
@@ -130,7 +120,14 @@ class MusicRecommendViewController: UIViewController {
             navigationController.setViewControllers(viewControllers, animated: false)
         }
     }
+    
+    @objc
+    private func dismissBlurView() {
+        blurView.hide()
+    }
 }
+
+// MARK: - UICollectionViewDataSource
 
 extension MusicRecommendViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -157,40 +154,27 @@ extension MusicRecommendViewController: UICollectionViewDataSource {
     
 }
 
+// MARK: - UICollectionViewDelegate
+
 extension MusicRecommendViewController: UICollectionViewDelegate {
-    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         presentBlurView(index: indexPath.row)
     }
-    
-    
-    private func presentBlurView(index: Int) {
-        let albumId = albumArray[index].id
-        blurView.show(in: self.view)
-        
-        // You can also pass data to the BlurView here if needed
-        // For example: blurView?.setData(albumId: albumId)
-    }
-    
-    @objc
-    private func dismissBlurView() {
-        blurView.hide()
-    }
 }
 
-// MARK: - Extensions
+// MARK: - Network
 
 extension MusicRecommendViewController {
     private func fetchAlbumInfo() {
         SpotifyService.shared.fetchRecommendDatas { [weak self] response in
             switch response {
             case .success(let data):
-                guard let baseResponse = data as? RecommendModel else {
+                guard let baseResponse = data as? RecommendDTO else {
                     print("데이터를 불러오는 데 실패했습니다.")
                     return
                 }
                 
-                print("🫠🫠\(baseResponse.data)🫠🫠")
+                //                print("🫠🫠\(baseResponse.data)🫠🫠")
                 self?.albumArray = baseResponse.data.albums
                 DispatchQueue.main.async { // UI 업데이트는 메인 쓰레드에서
                     self?.musicRecommendView.musicRecommendationCollectionView.reloadData()

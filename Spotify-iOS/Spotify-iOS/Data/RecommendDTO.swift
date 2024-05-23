@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct RecommendModel: Codable {
+struct RecommendDTO: Codable {
     let status: Int
     let message: String
     let data: Albums

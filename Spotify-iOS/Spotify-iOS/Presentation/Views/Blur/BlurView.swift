@@ -11,30 +11,47 @@ import Then
 
 final class BlurView: UIVisualEffectView {
     
+    // MARK: - Properties
+    
+    private var albumId: Int = 0
+    private var title: String = ""
+    private var artist: String = ""
+    
     // MARK: - UI Components
+    
+    private lazy var artistView = makeInfoView(title: "아티스트 보기", image: .icUserprofile)
+    
     private lazy var blurVStackView = UIStackView(
-        arrangedSubviews: [makeInfoView(title: "내 라이브러리 추가하기", image: .icPlusCircleGray),
-                           makeInfoView(title: "관심 없음", image: .icThumbDown),
-                           makeInfoView(title: "아티스트 보기", image: .icUserprofile),
-                           makeInfoView(title: "라디오 보러가기", image: .icShuffle),
-                           makeInfoView(title: "공유", image: .icShare),
-                          ]
+        arrangedSubviews: [
+            makeInfoView(title: "내 라이브러리 추가하기", image: .icPlusCircleGray),
+            makeInfoView(title: "관심 없음", image: .icThumbDown),
+            artistView,
+            makeInfoView(title: "라디오 보러가기", image: .icShuffle),
+            makeInfoView(title: "공유", image: .icShare)
+        ]
     )
     private let closeButton = UIButton()
+    
+    private let albumImageView = UIImageView()
+    private let albumTitleLabel = UILabel()
+    private let albumArtistLabel = UILabel()
     
     // MARK: - Initializer
     override init(effect: UIVisualEffect?) {
         super.init(effect: effect)
+        
         setUI()
+        setHierarchy()
+        setLayout()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - Setup UI
+    // MARK: - UI & Layout
+    
     private func setUI() {
-        self.effect = UIBlurEffect(style: .light)
         
         blurVStackView.do {
             $0.axis = .vertical
@@ -42,47 +59,89 @@ final class BlurView: UIVisualEffectView {
             $0.distribution = .fill
         }
         
-        closeButton.setTitle("닫기", for: .normal)
-        closeButton.addTarget(self, action: #selector(closeButtonDidTap), for: .touchUpInside)
+        closeButton.do {
+            $0.setTitle("닫기", for: .normal)
+            $0.addTarget(self, action: #selector(closeButtonDidTap), for: .touchUpInside)
+        }
+        
+        albumTitleLabel.do {
+            $0.font = .font(.h2_en_bold)
+            $0.textColor = .white
+        }
+        
+        albumArtistLabel.do {
+            $0.font = .font(.h3_en_bold)
+            $0.textColor = .spotifyGray30
+        }
+    }
+    
+    private func setHierarchy() {
         blurVStackView.addArrangedSubview(closeButton)
         
-        contentView.addSubview(blurVStackView)
+        contentView.addSubviews(
+            blurVStackView,
+            albumImageView,
+            albumTitleLabel,
+            albumArtistLabel
+        )
         
-        // Layout
+    }
+    
+    private func setLayout() {
         blurVStackView.snp.makeConstraints {
             $0.top.equalToSuperview().inset(425)
             $0.horizontalEdges.equalToSuperview().inset(16)
         }
+        
+        albumImageView.snp.makeConstraints {
+            $0.width.height.equalTo(52)
+            $0.leading.equalToSuperview().inset(16)
+            $0.top.equalToSuperview().inset(337)
+        }
+        
+        albumTitleLabel.snp.makeConstraints {
+            $0.leading.equalTo(albumImageView.snp.trailing).offset(12)
+            $0.top.equalToSuperview().inset(345)
+        }
+        
+        albumArtistLabel.snp.makeConstraints {
+            $0.leading.equalTo(albumImageView.snp.trailing).offset(12)
+            $0.top.equalTo(albumTitleLabel.snp.bottom).offset(8)
+        }
     }
     
-    @objc private func closeButtonDidTap() {
-        hide()
-    }
+    // MARK: - Methods
     
-    // MARK: - Public Methods
     func show(in view: UIView) {
         guard let tabBarController = view.window?.rootViewController as? UITabBarController else { return }
         
-        tabBarController.tabBar.isHidden = true
-        
         view.addSubview(self)
+        
         self.frame = view.bounds
         self.alpha = 0.0
         
         UIView.animate(withDuration: 0.3) {
             self.alpha = 1.0
+            tabBarController.tabBar.isHidden = true
         }
     }
     
     func hide() {
         guard let tabBarController = self.window?.rootViewController as? UITabBarController else { return }
         
-        UIView.animate(withDuration: 0.3, animations: {
+        UIView.animate(withDuration: 0.3) {
             self.alpha = 0.0
-        }) { _ in
+        } completion: { _ in
             self.removeFromSuperview()
             tabBarController.tabBar.isHidden = false
         }
+        
+    }
+    
+    func setData(id: Int, title: String, artist: String) {
+        self.albumImageView.image = UIImage(named: "imgMusicCard\(id)")
+        self.albumTitleLabel.text = title
+        self.albumArtistLabel.text = artist
     }
     
     private func makeInfoView(title: String, image: UIImage) -> UIView {
@@ -99,13 +158,15 @@ final class BlurView: UIVisualEffectView {
             $0.image = image
         }
         
-        containerView.addSubview(leftImage)
-        containerView.addSubview(label)
+        containerView.addSubviews(
+            leftImage,
+            label
+        )
         
         leftImage.snp.makeConstraints {
             $0.top.equalToSuperview().inset(13)
             $0.leading.equalToSuperview().inset(26)
-            $0.width.height.equalTo(24) // Assuming a square image
+            $0.width.height.equalTo(24)
         }
         
         label.snp.makeConstraints {
@@ -115,9 +176,16 @@ final class BlurView: UIVisualEffectView {
         }
         
         containerView.snp.makeConstraints {
-            $0.height.equalTo(50) // Assuming a fixed height for the info views
+            $0.height.equalTo(50)
         }
         
         return containerView
     }
+    
+    // MARK: - @Objc Function
+    
+    @objc private func closeButtonDidTap() {
+        hide()
+    }
+    
 }
