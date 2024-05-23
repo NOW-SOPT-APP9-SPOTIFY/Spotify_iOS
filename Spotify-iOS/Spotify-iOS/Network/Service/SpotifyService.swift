@@ -42,7 +42,7 @@ extension SpotifyService {
                 let statusCode = response.statusCode
                 let data = response.data
                 
-                let networkResult = self.judgeStatus(by: statusCode, data, BaseResponse<PlaylistsDTO>.self)
+                let networkResult = self.judgeStatus(by: statusCode, data, BaseResponse<SongsDTO>.self)
                 completion(networkResult)
                 
             case .failure:
@@ -58,7 +58,7 @@ extension SpotifyService {
                 let statusCode = response.statusCode
                 let data = response.data
                 
-                let networkResult = self.judgeStatus(by: statusCode, data, BaseResponse<PlaylistsDTO>.self)
+                let networkResult = self.judgeStatus(by: statusCode, data, ArtistsDTO.self)
                 completion(networkResult)
                 
             case .failure:

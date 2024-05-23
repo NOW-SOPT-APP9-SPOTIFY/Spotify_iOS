@@ -13,16 +13,17 @@ final class HomeViewController: UIViewController {
     
     private let rootView = HomeView()
     
-    private let dummyImages: [UIImage] = [UIImage(resource: .imgCard4), UIImage(resource: .imgCard3), UIImage(resource: .imgCard2), UIImage(resource: .imgCard1)]
-    private let dummmyText: [String] = ["LE SSERAFIM,  ILLIT, (여자) 아이들, BABY MONSTER,...", "LE SSERAFIM,  ILLIT, (여자) 아이들, BABY MONSTER,...", "이명진 신곡", "asdsadasdasdasdasdasds"]
-    
     private var sectionOneData: [Playlist] = []
-    private let sectionTwoDummyData: [HitSongModel] = HomeMockingModel.getRecommendData()
-    private let sectionArtistDummyData: [ArtistModel] = HomeMockingModel.getAristData()
+    private var sectionTwoData: [Song] = []
+    private var sectionThreeData: [Artist] = []
+    //    private let sectionTwoDummyData: [HitSongModel] = HomeMockingModel.getRecommendData()
+    //    private let sectionArtistDummyData: [ArtistModel] = HomeMockingModel.getAristData()
     private let sectionRecentlyDummyData: [RecentlyModel] = HomeMockingModel.getRecentlyData()
     private let sectionShowDummyData: [ShowModel] = HomeMockingModel.getShowData()
     private let sectionRadioDummyData: [RadioModel] = HomeMockingModel.getRadioData()
     private let sectionDeepDiveDummyData: [RadioModel] = HomeMockingModel.getDeepDiveData()
+    
+    private let blurView = BlurView(effect: UIBlurEffect(style: .light))
     
     // MARK: - Life Cycles
     
@@ -31,6 +32,8 @@ final class HomeViewController: UIViewController {
         
         view.backgroundColor = .spotifyBg
         fetchDatas()
+        fetchDatas2()
+        fetchDatas3()
         setAddTarget()
         setDelegate()
         setRegister()
@@ -44,6 +47,7 @@ final class HomeViewController: UIViewController {
     
     func setAddTarget() {
         rootView.tasteChipButton.addTarget(self, action: #selector(chipButtonDidTap), for: .touchUpInside)
+        rootView.likeChipButton.addTarget(self, action: #selector(likeChipButtonDidTap), for: .touchUpInside)
     }
     
     private func setDelegate() {
@@ -86,12 +90,16 @@ final class HomeViewController: UIViewController {
     
     @objc func chipButtonDidTap() {
         if let navigationController = self.navigationController {
-            let cardViewController = CardViewController()
+            let cardViewController = MusicRecommendViewController()
             var viewControllers = navigationController.viewControllers
             viewControllers.removeLast()
             viewControllers.append(cardViewController)
             navigationController.setViewControllers(viewControllers, animated: false) // 루트 뷰로 바꿔주는 작업
         }
+    }
+    
+    @objc func likeChipButtonDidTap() {
+        blurView.show(in: self.view)
     }
 }
 
@@ -114,9 +122,9 @@ extension HomeViewController: UICollectionViewDataSource {
         case .recommend:
             return sectionOneData.count
         case .hitSong:
-            return sectionTwoDummyData.count
+            return sectionTwoData.count
         case .artist:
-            return sectionArtistDummyData.count
+            return sectionThreeData.count
         case .recently:
             return sectionRecentlyDummyData.count
         case .show:
@@ -141,11 +149,11 @@ extension HomeViewController: UICollectionViewDataSource {
             return cell
         case .hitSong:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Button5Cell.className, for: indexPath) as? Button5Cell else { return UICollectionViewCell() }
-            cell.bindData(data: sectionTwoDummyData[indexPath.row])
+            cell.bindData(data: sectionTwoData[indexPath.row])
             return cell
         case .artist:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Button1Cell.className, for: indexPath) as? Button1Cell else { return UICollectionViewCell() }
-            cell.bindData(data: sectionArtistDummyData[indexPath.row])
+            cell.bindData(data: sectionThreeData[indexPath.row])
             return cell
         case .recently:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Button4Cell.className, for: indexPath) as? Button4Cell else { return UICollectionViewCell() }
@@ -202,10 +210,67 @@ extension HomeViewController {
                     print("데이터를 불러오는 데 실패했습니다.")
                     return
                 }
-
+                
                 print("❤️\(playlistsDTO.playlists)❤️")
-
+                
                 self?.sectionOneData.append(contentsOf: playlistsDTO.playlists)
+                
+                self?.rootView.homeCollectionView.reloadData()
+            case .requestErr:
+                print("요청 오류 입니다")
+            case .decodedErr:
+                print("디코딩 오류 입니다")
+            case .pathErr:
+                print("경로 오류 입니다")
+            case .serverErr:
+                print("서버 오류입니다")
+            case .networkFail:
+                print("네트워크 오류입니다")
+            }
+        }
+    }
+    
+    private func fetchDatas2() {
+        SpotifyService.shared.fetchTwoSectionDatas { [weak self] response in
+            switch response {
+            case .success(let data):
+                guard let baseResponse = data as? BaseResponse<SongsDTO>,
+                      let songsDTO = baseResponse.data else {
+                    print("데이터를 불러오는 데 실패했습니다.")
+                    return
+                }
+                
+                print("🔥\(songsDTO.songs)🔥")
+                
+                self?.sectionTwoData.append(contentsOf: songsDTO.songs)
+                
+                self?.rootView.homeCollectionView.reloadData()
+            case .requestErr:
+                print("요청 오류 입니다")
+            case .decodedErr:
+                print("디코딩 오류 입니다")
+            case .pathErr:
+                print("경로 오류 입니다")
+            case .serverErr:
+                print("서버 오류입니다")
+            case .networkFail:
+                print("네트워크 오류입니다")
+            }
+        }
+    }
+    
+    private func fetchDatas3() {
+        SpotifyService.shared.fetchThreeSectionDatas { [weak self] response in
+            switch response {
+            case .success(let data):
+                guard let baseResponse = data as? ArtistsDTO else {
+                    print("데이터를 불러오는 데 실패했습니다.")
+                    return
+                }
+                
+                print("🫠🫠\(baseResponse.data)🫠🫠")
+                
+                self?.sectionThreeData = baseResponse.data
                 
                 self?.rootView.homeCollectionView.reloadData()
             case .requestErr:

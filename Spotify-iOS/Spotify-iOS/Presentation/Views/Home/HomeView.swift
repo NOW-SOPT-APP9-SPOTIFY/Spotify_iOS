@@ -18,7 +18,7 @@ final class HomeView: UIView {
     
     let tasteChipButton = UIButton()
     private let popCastChipButton = UIButton()
-    private let likeChipButton = UIButton()
+    let likeChipButton = UIButton()
     
     private lazy var hStackView = UIStackView(
         arrangedSubviews: [
