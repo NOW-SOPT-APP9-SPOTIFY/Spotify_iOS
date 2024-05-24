@@ -123,9 +123,9 @@ class MusicRecommendViewController: UIViewController {
     // TODO: 4번째 뷰로 가는 로직 작성을 하면됩니다.
     // 아마 아티스트 ID가 필요할텐데 현재 뷰에서 albumArray[index].id 를 가져가와 setData 해주면 됩니다. !!
     // 지금은 그냥 예시로 뷰가 넘어가는지 ViewController로 시험을 해봤어요!
+    // 네비게이션 부분만 연결 해주면 좋을 것 같아요 !!
     private func presentToArtistViewController() {
-        let artistViewController = ViewController()
-        artistViewController.view.backgroundColor = .spotifyGray30
+        let artistViewController = ArtistViewController()
         navigationController?.pushViewController(artistViewController, animated: true)
     }
     
