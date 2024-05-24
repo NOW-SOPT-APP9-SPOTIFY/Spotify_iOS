@@ -9,7 +9,8 @@ import Foundation
 import Moya
 
 enum ArtistServiceType {
-    case fetchArtistDatas(artistId: Int)
+    case getArtistData(artistId: Int)
+    case getArtistChartData(artistId: Int)
 }
 
 extension ArtistServiceType: TargetType {
@@ -22,21 +23,27 @@ extension ArtistServiceType: TargetType {
     
     var path: String {
         switch self {
-        case .fetchArtistDatas(let artistId):
+        case .getArtistData(let artistId):
             return "/v1/api/artists/\(artistId)"
+        case .getArtistChartData(let artistId):
+            return "/v1/api/artists/\(artistId)/songs/popular"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .fetchArtistDatas:
+        case .getArtistData:
+            return .get
+        case .getArtistChartData:
             return .get
         }
     }
     
     var task: Moya.Task {
         switch self {
-        case .fetchArtistDatas:
+        case .getArtistData:
+            return .requestPlain
+        case .getArtistChartData:
             return .requestPlain
         }
     }

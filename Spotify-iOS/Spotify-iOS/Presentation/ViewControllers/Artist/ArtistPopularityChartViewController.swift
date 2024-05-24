@@ -11,7 +11,9 @@ final class ArtistPopularityChartViewController: UIViewController {
     
     // MARK: - Properties
     
-//    private var chartData = ChartModel.data()
+    let artistId: Int
+    private var chartSongs: [ArtistSong] = []
+    private var albumImages = ArtistImageModel.albumImages()
     
     // MARK: - UI Components
     
@@ -19,6 +21,15 @@ final class ArtistPopularityChartViewController: UIViewController {
     private lazy var collectionView = rootView.collectionView
     
     // MARK: - Life Cycles
+    
+    init(artistId: Int) {
+        self.artistId = artistId
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func loadView() {
         super.loadView()
@@ -29,15 +40,43 @@ final class ArtistPopularityChartViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setNavigationBarAndTabBar()
+        fetchData()
         setDelegate()
         setRegister()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        setNavigationBarAndTabBar()
     }
 }
 
 // MARK: - Extensions
 
 extension ArtistPopularityChartViewController {
+    
+    func fetchData() {
+        SpotifyService.shared.getArtistChartData(artistId: artistId) { [weak self] response in
+            guard let self  = self else { return }
+            switch response {
+            case .success(let data):
+                guard let data = data as? BaseResponse<ArtistChartDTO> else { return }
+                self.chartSongs = data.data?.songs ?? []
+                collectionView.reloadData()
+            case .requestErr:
+                print("요청 오류 입니다")
+            case .decodedErr:
+                print("디코딩 오류 입니다")
+            case .pathErr:
+                print("경로 오류 입니다")
+            case .serverErr:
+                print("서버 오류입니다")
+            case .networkFail:
+                print("네트워크 오류입니다")
+            }
+        }
+    }
     
     func setNavigationBarAndTabBar() {
         let backButton = UIButton().then {
@@ -79,17 +118,18 @@ extension ArtistPopularityChartViewController {
 extension ArtistPopularityChartViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 9
+        return chartSongs.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PopularityCollectionViewCell.className, for: indexPath) as? PopularityCollectionViewCell else { return UICollectionViewCell() }
+        let data = chartSongs[indexPath.item]
             cell.configure(
-                ranking: 10,
-                albumImg: .imgAlbumExample,
-                title: "Locked out of Heaven",
-                numberOfPlays: "1,915,943,900",
-                is19Plus: true
+                ranking: indexPath.item + 1,
+                albumImg: albumImages[indexPath.item % 4],
+                title: data.title,
+                numberOfPlays: data.listenedCount,
+                is19Plus: false
             )
         return cell
     }

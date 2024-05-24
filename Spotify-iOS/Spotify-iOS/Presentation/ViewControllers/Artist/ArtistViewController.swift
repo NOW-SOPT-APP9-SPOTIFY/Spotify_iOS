@@ -14,6 +14,7 @@ final class ArtistViewController: UIViewController {
     
     // MARK: - Properties
     
+    private let artistId: Int
     private let indicatorBarHorizontalPadding: CGFloat = 6
     private let tabbarCellHorizontalPadding: CGFloat = 10
     private let tabbarInteritemSpacing: CGFloat = 13
@@ -37,6 +38,15 @@ final class ArtistViewController: UIViewController {
     private lazy var pageViewController = rootView.pageViewController
 
     // MARK: - Life Cycles
+    
+    init(artistId: Int) {
+        self.artistId = artistId
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func loadView() {
         super.loadView()
@@ -92,7 +102,7 @@ private extension ArtistViewController {
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
         navigationController?.navigationBar.isHidden = false
-        tabBarController?.tabBar.isHidden = false
+        tabBarController?.tabBar.isHidden = true
     }
     
     func setStyle() {
@@ -124,7 +134,7 @@ private extension ArtistViewController {
     }
     
     func addViewControllersData() {
-        let artistMusicViewController = ArtistMusicViewController(pageVC: pageViewController)
+        let artistMusicViewController = ArtistMusicViewController(artistId: artistId, pageVC: pageViewController)
         artistMusicViewController.delegate = self
         viewControllers.append(artistMusicViewController)
         for _ in 0 ..< tabbarData.count - 1 {

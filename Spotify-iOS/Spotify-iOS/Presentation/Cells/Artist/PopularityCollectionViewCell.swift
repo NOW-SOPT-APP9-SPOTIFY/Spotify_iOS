@@ -109,13 +109,13 @@ extension PopularityCollectionViewCell {
         ranking: Int,
         albumImg: UIImage,
         title: String, 
-        numberOfPlays: String,
+        numberOfPlays: Int,
         is19Plus: Bool
     ) {
         rankingLabel.text = "\(ranking)"
         albumImageView.image = albumImg
         titleLabel.text = title
-        numberOfPlaysLabel.text = numberOfPlays
+        numberOfPlaysLabel.text = formatNumberWithCommas(value: numberOfPlays)
         numberOfPlaysLabel.snp.makeConstraints {
             $0.leading.equalTo(is19Plus ? nineteenPlusButton.snp.trailing : titleLabel)
         }
@@ -127,5 +127,12 @@ extension PopularityCollectionViewCell {
                 $0.bottom.equalTo(numberOfPlaysLabel)
             }
         }
+    }
+    
+    private func formatNumberWithCommas(value: Int) -> String {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        let result = numberFormatter.string(for: value) ?? ""
+        return result
     }
 }

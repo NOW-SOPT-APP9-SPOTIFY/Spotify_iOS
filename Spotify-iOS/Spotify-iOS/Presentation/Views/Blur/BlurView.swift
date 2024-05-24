@@ -15,6 +15,7 @@ final class BlurView: UIVisualEffectView {
     
     // MARK: - Properties
     
+    var artistId: Int = 1
     private var albumId: Int = 0
     private var title: String = ""
     private var artist: String = ""
@@ -138,19 +139,16 @@ final class BlurView: UIVisualEffectView {
     }
     
     func hide() {
-        guard let tabBarController = self.window?.rootViewController as? UITabBarController else { return }
-        
         UIView.animate(withDuration: 0.3) {
             self.alpha = 0.0
         } completion: { _ in
             self.removeFromSuperview()
-            tabBarController.tabBar.isHidden = false
         }
-        
     }
     
-    func setData(id: Int, title: String, artist: String) {
-        self.albumImageView.image = UIImage(named: "imgMusicCard\(id)")
+    func setData(albumId: Int, title: String, artistId: Int, artist: String) {
+        self.artistId = artistId
+        self.albumImageView.image = UIImage(named: "imgMusicCard\(albumId)")
         self.albumTitleLabel.text = title
         self.albumArtistLabel.text = artist
     }
@@ -203,6 +201,6 @@ final class BlurView: UIVisualEffectView {
     @objc 
     private func artistViewTapped() {
         artistDidTapSubject.send(())
+        hide()
      }
-    
 }

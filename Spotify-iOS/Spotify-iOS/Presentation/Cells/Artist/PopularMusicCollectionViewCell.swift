@@ -41,13 +41,11 @@ final class PopularMusicCollectionViewCell: UICollectionViewCell {
         }
         
         albumTitleLabel.do {
-            $0.text = "Unorthodox Jukebox"
             $0.textColor = .white
             $0.font = .font(.h3_en_bold)
         }
         
         yearOfReleaseLabel.do {
-            $0.text = "2012 · 앨범"
             $0.textColor = .spotifyGray30
             $0.font = .systemFont(ofSize: 11, weight: .medium)
         }
@@ -77,6 +75,13 @@ final class PopularMusicCollectionViewCell: UICollectionViewCell {
 
 extension PopularMusicCollectionViewCell {
     
-    func configure() {
+    func configure(
+        title: String,
+        image: UIImage,
+        yearOfRelease: Int
+    ) {
+        albumTitleLabel.text = title
+        albumImageView.image = image
+        yearOfReleaseLabel.text = "\(yearOfRelease) · 앨범"
     }
 }

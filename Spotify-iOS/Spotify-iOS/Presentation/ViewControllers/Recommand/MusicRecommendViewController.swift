@@ -58,11 +58,9 @@ class MusicRecommendViewController: UIViewController {
     // MARK: - Life Cycles
     
     override func loadView() {
-        self.view = musicRecommendView
+        super.loadView()
         
-        if let navigationController = self.navigationController {
-            navigationController.setNavigationBarHidden(true, animated: false)
-        }
+        self.view = musicRecommendView
     }
     
     override func viewDidLoad() {
@@ -74,6 +72,13 @@ class MusicRecommendViewController: UIViewController {
         setRegister()
         setDelegate()
         bind()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.navigationController?.navigationBar.isHidden = true
+        self.tabBarController?.tabBar.isHidden = false
     }
     
     // MARK: - Methods
@@ -102,14 +107,22 @@ class MusicRecommendViewController: UIViewController {
     }
     
     private func presentBlurView(index: Int) {
-        let albumId = albumArray[index].id
-        let albumTitle = albumArray[index].albumName
-        let albumArtist = albumArray[index].artist.artistName
+        let albumData = albumArray[index]
+        let albumId = albumData.id
+        let albumTitle = albumData.albumName
+        let artistId = albumData.artist.artistId
+        let albumArtist = albumData.artist.artistName
         
         print("⭐️⭐️⭐️ albumId= \(albumId) ⭐️⭐️⭐️")
         blurView.show(in: self.view)
         
-        blurView.setData(id: albumId, title: albumTitle, artist: albumArtist) // 여기서 해당하는 Cell의 앨범 id를 받습니다.!
+        blurView.setData(
+            albumId: albumId,
+            title: albumTitle,
+            artistId: artistId,
+            artist: albumArtist
+        )
+        // 여기서 해당하는 Cell의 앨범 id를 받습니다.!
     }
     
     private func bind() {
@@ -120,12 +133,8 @@ class MusicRecommendViewController: UIViewController {
             .store(in: &cancellables)
     }
     
-    // TODO: 4번째 뷰로 가는 로직 작성을 하면됩니다.
-    // 아마 아티스트 ID가 필요할텐데 현재 뷰에서 albumArray[index].id 를 가져가와 setData 해주면 됩니다. !!
-    // 지금은 그냥 예시로 뷰가 넘어가는지 ViewController로 시험을 해봤어요!
-    // 네비게이션 부분만 연결 해주면 좋을 것 같아요 !!
     private func presentToArtistViewController() {
-        let artistViewController = ArtistViewController()
+        let artistViewController = ArtistViewController(artistId: blurView.artistId)
         navigationController?.pushViewController(artistViewController, animated: true)
     }
     

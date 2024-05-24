@@ -17,7 +17,11 @@ final class ArtistMusicViewController: UIViewController {
     
     // MARK: - Properties
     
+    let artistId: Int
     weak var delegate: PushVCDelegate?
+    private var popularChartSongs: [ArtistSong] = []
+    private var popularMusics = ArtistPopularMusicModel.dummyData()
+    private var albumImages = ArtistImageModel.albumImages()
     
     // MARK: - UI Components
     
@@ -27,8 +31,9 @@ final class ArtistMusicViewController: UIViewController {
     
     // MARK: - Life Cycles
     
-    init(pageVC: UIPageViewController) {
+    init(artistId: Int, pageVC: UIPageViewController) {
         self.pageVC = pageVC
+        self.artistId = artistId
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -45,6 +50,7 @@ final class ArtistMusicViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        fetchData()
         setRootViewConstraint()
         setDelegate()
         setRegister()
@@ -53,19 +59,34 @@ final class ArtistMusicViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        collectionView.layoutIfNeeded()
-        
-        /// PageViewController의 height를 해당 뷰 컨텐츠 사이즈만큼 설정하여 동적 높이를 가지도록 합니다.
-        pageVC.view.snp.makeConstraints {
-            $0.height.equalTo(collectionView.contentSize.height)
-        }
-        view.snp.makeConstraints {
-            $0.height.equalTo(collectionView.contentSize.height)
-        }
+        setDynamicHeight()
     }
 }
 
 private extension ArtistMusicViewController {
+    
+    func fetchData() {
+        SpotifyService.shared.getArtistData(artistId: artistId) { [weak self] response in
+            guard let self  = self else { return }
+            switch response {
+            case .success(let data):
+                guard let data = data as? BaseResponse<ArtistDetailDTO> else { return }
+                self.popularChartSongs = data.data?.songs ?? []
+                collectionView.reloadData()
+                setDynamicHeight()
+            case .requestErr:
+                print("요청 오류 입니다")
+            case .decodedErr:
+                print("디코딩 오류 입니다")
+            case .pathErr:
+                print("경로 오류 입니다")
+            case .serverErr:
+                print("서버 오류입니다")
+            case .networkFail:
+                print("네트워크 오류입니다")
+            }
+        }
+    }
     
     func setRootViewConstraint() {
         view.snp.makeConstraints {
@@ -86,6 +107,18 @@ private extension ArtistMusicViewController {
         collectionView.register(ArtistMusicHeaderReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: ArtistMusicHeaderReusableView.className)
         collectionView.register(ArtistMusicFooterReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: ArtistMusicFooterReusableView.className)
     }
+    
+    func setDynamicHeight() {
+        collectionView.layoutIfNeeded()
+        
+        /// PageViewController의 height를 해당 뷰 컨텐츠 사이즈만큼 설정하여 동적 높이를 가지도록 합니다.
+        pageVC.view.snp.updateConstraints {
+            $0.height.equalTo(collectionView.contentSize.height).priority(.low)
+        }
+        view.snp.updateConstraints {
+            $0.height.equalTo(collectionView.contentSize.height).priority(.low)
+        }
+    }
 }
 
 extension ArtistMusicViewController: UICollectionViewDataSource {
@@ -98,7 +131,7 @@ extension ArtistMusicViewController: UICollectionViewDataSource {
         let sectionType = Section.allCases[section]
         switch sectionType {
         case .popularity:
-            return 5
+            return popularChartSongs.count < 5 ? popularChartSongs.count : 5
         case .artistRecommendation:
             return 1
         case .popularMusic:
@@ -111,13 +144,13 @@ extension ArtistMusicViewController: UICollectionViewDataSource {
         switch sectionType {
         case .popularity:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PopularityCollectionViewCell.className, for: indexPath) as? PopularityCollectionViewCell else { return UICollectionViewCell() }
-//            let data = popularMusics[indexPath.item]
+            let data = popularChartSongs[indexPath.item]
             cell.configure(
-                ranking: 1,
-                albumImg: .imgAlbumExample,
-                title: "Locked out of Heaven",
-                numberOfPlays: "1,915,943,900",
-                is19Plus: true
+                ranking: indexPath.item + 1,
+                albumImg: albumImages[indexPath.item % 4],
+                title: data.title,
+                numberOfPlays: data.listenedCount,
+                is19Plus: false
             )
             return cell
         case .artistRecommendation:
@@ -125,6 +158,12 @@ extension ArtistMusicViewController: UICollectionViewDataSource {
             return cell
         case .popularMusic:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PopularMusicCollectionViewCell.className, for: indexPath) as? PopularMusicCollectionViewCell else { return UICollectionViewCell() }
+            let data = popularMusics[indexPath.item]
+            cell.configure(
+                title: data.title,
+                image: data.image,
+                yearOfRelease: data.yearOfRelease
+            )
             return cell
         }
     }
@@ -176,6 +215,6 @@ extension ArtistMusicViewController: UICollectionViewDelegate {
 extension ArtistMusicViewController: HeaderTapEventDelegate {
     
     func popularityHeaderDidTap() {
-        delegate?.pushVC(ArtistPopularityChartViewController())
+        delegate?.pushVC(ArtistPopularityChartViewController(artistId: artistId))
     }
 }

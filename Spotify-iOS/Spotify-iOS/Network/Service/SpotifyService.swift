@@ -67,6 +67,38 @@ extension SpotifyService {
         }
     }
     
+    func getArtistData(artistId: Int, completion: @escaping (NetworkResult<Any>) -> Void) {
+        artistsProvider.request(.getArtistData(artistId: artistId)) { result in
+            switch result {
+            case .success(let response):
+                let statusCode = response.statusCode
+                let data = response.data
+                
+                let networkResult = self.judgeStatus(by: statusCode, data, BaseResponse<ArtistDetailDTO>.self)
+                completion(networkResult)
+                
+            case .failure:
+                completion(.networkFail)
+            }
+        }
+    }
+    
+    func getArtistChartData(artistId: Int, completion: @escaping (NetworkResult<Any>) -> Void) {
+        artistsProvider.request(.getArtistChartData(artistId: artistId)) { result in
+            switch result {
+            case .success(let response):
+                let statusCode = response.statusCode
+                let data = response.data
+                
+                let networkResult = self.judgeStatus(by: statusCode, data, BaseResponse<ArtistChartDTO>.self)
+                completion(networkResult)
+                
+            case .failure:
+                completion(.networkFail)
+            }
+        }
+    }
+    
     public func judgeStatus<T: Codable>(by statusCode: Int, _ data: Data, _ object: T.Type) -> NetworkResult<Any> {
         
         switch statusCode {

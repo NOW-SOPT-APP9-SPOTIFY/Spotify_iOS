@@ -39,6 +39,15 @@ final class ArtistMusicHeaderReusableView: UICollectionReusableView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        nextButton?.removeFromSuperview()
+        titleLabel.snp.updateConstraints {
+            $0.leading.equalToSuperview()
+        }
+    }
+    
     private func setStyle() {
         titleLabel.do {
             $0.textColor = .white
@@ -82,7 +91,6 @@ extension ArtistMusicHeaderReusableView {
         }
         
         nextButton!.snp.makeConstraints {
-            $0.size.equalTo(33)
             $0.leading.equalTo(titleLabel.snp.trailing)
             $0.verticalEdges.equalToSuperview()
         }
