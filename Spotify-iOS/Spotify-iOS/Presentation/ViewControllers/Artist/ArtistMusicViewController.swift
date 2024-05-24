@@ -20,6 +20,8 @@ final class ArtistMusicViewController: UIViewController {
     weak var delegate: PushVCDelegate?
     var artistId: Int = 1
     private var popularChartSongs: [Song] = []
+    private var popularMusics = ArtistPopularMusicModel.dummyData()
+    private var albumImages = ArtistImageModel.albumImages()
     
     // MARK: - UI Components
     
@@ -144,7 +146,7 @@ extension ArtistMusicViewController: UICollectionViewDataSource {
             let data = popularChartSongs[indexPath.item]
             cell.configure(
                 ranking: indexPath.item + 1,
-                albumImg: .imgAlbumExample,
+                albumImg: albumImages[indexPath.item % 4],
                 title: data.title,
                 numberOfPlays: data.listenedCount,
                 is19Plus: false
@@ -155,6 +157,12 @@ extension ArtistMusicViewController: UICollectionViewDataSource {
             return cell
         case .popularMusic:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PopularMusicCollectionViewCell.className, for: indexPath) as? PopularMusicCollectionViewCell else { return UICollectionViewCell() }
+            let data = popularMusics[indexPath.item]
+            cell.configure(
+                title: data.title,
+                image: data.image,
+                yearOfRelease: data.yearOfRelease
+            )
             return cell
         }
     }

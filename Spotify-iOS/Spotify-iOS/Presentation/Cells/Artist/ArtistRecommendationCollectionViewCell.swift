@@ -36,6 +36,7 @@ final class ArtistRecommendationCollectionViewCell: UICollectionViewCell {
     private func setStyle() {
         artistImageView.do {
             $0.backgroundColor = .spotifyGray40
+            $0.image = .imgBrunoMars
             $0.contentMode = .scaleAspectFill
             $0.layer.cornerRadius = 12
             $0.clipsToBounds = true
@@ -49,6 +50,7 @@ final class ArtistRecommendationCollectionViewCell: UICollectionViewCell {
         
         playlistImageView.do {
             $0.backgroundColor = .spotifyGray40
+            $0.image = .imgAlbumSilkSonic
             $0.contentMode = .scaleAspectFill
             $0.clipsToBounds = true
         }
@@ -124,12 +126,5 @@ final class ArtistRecommendationCollectionViewCell: UICollectionViewCell {
         backgroundImageView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
-    }
-}
-
-extension ArtistRecommendationCollectionViewCell {
-    
-    func configure() {
-        
     }
 }

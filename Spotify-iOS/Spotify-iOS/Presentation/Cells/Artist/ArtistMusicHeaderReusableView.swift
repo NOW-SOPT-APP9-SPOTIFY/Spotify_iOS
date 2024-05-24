@@ -43,6 +43,9 @@ final class ArtistMusicHeaderReusableView: UICollectionReusableView {
         super.prepareForReuse()
         
         nextButton?.removeFromSuperview()
+        titleLabel.snp.updateConstraints {
+            $0.leading.equalToSuperview()
+        }
     }
     
     private func setStyle() {

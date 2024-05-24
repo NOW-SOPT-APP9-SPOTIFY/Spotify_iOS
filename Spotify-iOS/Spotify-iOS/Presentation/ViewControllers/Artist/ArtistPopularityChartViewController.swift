@@ -13,6 +13,7 @@ final class ArtistPopularityChartViewController: UIViewController {
     
     let artistId: Int
     private var chartSongs: [Song] = []
+    private var albumImages = ArtistImageModel.albumImages()
     
     // MARK: - UI Components
     
@@ -120,7 +121,7 @@ extension ArtistPopularityChartViewController: UICollectionViewDataSource {
         let data = chartSongs[indexPath.item]
             cell.configure(
                 ranking: indexPath.item + 1,
-                albumImg: .imgAlbumExample,
+                albumImg: albumImages[indexPath.item % 4],
                 title: data.title,
                 numberOfPlays: data.listenedCount,
                 is19Plus: false
