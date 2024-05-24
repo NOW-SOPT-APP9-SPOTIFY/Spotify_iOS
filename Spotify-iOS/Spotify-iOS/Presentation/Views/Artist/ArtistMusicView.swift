@@ -76,7 +76,7 @@ private extension ArtistMusicView {
     }
     
     func setSectionLayout() -> UICollectionViewCompositionalLayout {
-        let layout = UICollectionViewCompositionalLayout { sectionIndex, layoutEnvironment -> NSCollectionLayoutSection in
+        let layout = UICollectionViewCompositionalLayout { sectionIndex, _ -> NSCollectionLayoutSection in
             let sectionType = Section.allCases[sectionIndex]
             switch sectionType {
             case .popularity:

@@ -6,29 +6,10 @@
 //
 
 import UIKit
+import Combine
 
 import SnapKit
 import Then
-
-struct testModel {
-    let musicTitle: String
-    let albumName: String
-    let musicianName: String
-    let albumInfo: String
-}
-
-extension testModel {
-    static func dummy() -> [testModel] {
-        return [
-            testModel(musicTitle: "Bruno Mars - Grenade", albumName: "Doo-Wops & Hooligans", musicianName: "앨범 · Bruno Mars", albumInfo: "2010 · 10곡"),
-            testModel(musicTitle: "Bruno Mars - Grenade", albumName: "Doo-Wops & Hooligans", musicianName: "앨범 · Bruno Mars", albumInfo: "2010 · 10곡"),
-            testModel(musicTitle: "Bruno Mars - Grenade", albumName: "Doo-Wops & Hooligans", musicianName: "앨범 · Bruno Mars", albumInfo: "2010 · 10곡"),
-            testModel(musicTitle: "Bruno Mars - Grenade", albumName: "Doo-Wops & Hooligans", musicianName: "앨범 · Bruno Mars", albumInfo: "2010 · 10곡"),
-            testModel(musicTitle: "Bruno Mars - Grenade", albumName: "Doo-Wops & Hooligans", musicianName: "앨범 · Bruno Mars", albumInfo: "2010 · 10곡"),
-            testModel(musicTitle: "Bruno Mars - Grenade", albumName: "Doo-Wops & Hooligans", musicianName: "앨범 · Bruno Mars", albumInfo: "2010 · 10곡")
-        ]
-    }
-}
 
 struct gradientColor {
     let firstColor: CGColor
@@ -40,36 +21,39 @@ extension gradientColor {
     static func gradientDummy() -> [gradientColor] {
         return [
             gradientColor(
-            firstColor: .init(red: 255/255, green: 185/255, blue: 6/255, alpha: 0.33),
-            secondColor: .init(red: 161/255, green: 160/255, blue: 158/255, alpha: 0.14), 
-            thirdColor: .init(red: 109/255, green: 109/255, blue: 109/255, alpha: 0.14)),
+                firstColor: .init(red: 255/255, green: 185/255, blue: 6/255, alpha: 0.33),
+                secondColor: .init(red: 161/255, green: 160/255, blue: 158/255, alpha: 0.14),
+                thirdColor: .init(red: 109/255, green: 109/255, blue: 109/255, alpha: 0.14)),
             
             gradientColor(
-            firstColor: .init(red: 255/255, green: 223/255, blue: 161/255, alpha: 0.3),
-            secondColor: .init(red: 198/255, green: 183/255, blue: 155/255, alpha: 0.12),
-            thirdColor: .init(red: 149/255, green: 149/255, blue: 149/255, alpha: 0.14)),
+                firstColor: .init(red: 255/255, green: 223/255, blue: 161/255, alpha: 0.3),
+                secondColor: .init(red: 198/255, green: 183/255, blue: 155/255, alpha: 0.12),
+                thirdColor: .init(red: 149/255, green: 149/255, blue: 149/255, alpha: 0.14)),
             
             gradientColor(
-            firstColor: .init(red: 169/255, green: 11/255, blue: 11/255, alpha: 1),
-            secondColor: .init(red: 91/255, green: 26/255, blue: 26/255, alpha: 0.88),
-            thirdColor: .init(red: 35/255, green: 35/255, blue: 35/255, alpha: 1))
+                firstColor: .init(red: 169/255, green: 11/255, blue: 11/255, alpha: 1),
+                secondColor: .init(red: 91/255, green: 26/255, blue: 26/255, alpha: 0.88),
+                thirdColor: .init(red: 35/255, green: 35/255, blue: 35/255, alpha: 1))
         ]
     }
 }
 
-class MusicRecommendViewController: UIViewController, UICollectionViewDelegate {
+class MusicRecommendViewController: UIViewController {
     
     // MARK: - Properties
     
     let headerTitle: [String] = ["Taylor Swift"]
-    private let testList = testModel.dummy()
     var albumArray: [Album] = []
     private let gradientList = gradientColor.gradientDummy()
+    
+    private var cancellables = Set<AnyCancellable>()
     
     // MARK: - UIComponents
     
     let musicRecommendView = MusicRecommendView()
     let musicProgressBarView = MusicProgressBarView()
+    
+    let blurView = BlurView(effect: UIBlurEffect(style: .dark))
     
     // MARK: - Life Cycles
     
@@ -80,20 +64,19 @@ class MusicRecommendViewController: UIViewController, UICollectionViewDelegate {
             navigationController.setNavigationBarHidden(true, animated: false)
         }
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         fetchAlbumInfo()
         musicProgressBarView.progress = CGFloat.random(in: 0...1)
-        
-//        setLayout() // topView 때문에 레이아웃 설정해줘야 할 수도 있어서 남겨놓음
         addTarget()
         setRegister()
         setDelegate()
+        bind()
     }
     
-//    func setLayout() {
-        
-//    }
+    // MARK: - Methods
     
     func addTarget() {
         musicRecommendView.removeButton.addTarget(self, action: #selector(chipButtonDidTap), for: .touchUpInside)
@@ -118,7 +101,37 @@ class MusicRecommendViewController: UIViewController, UICollectionViewDelegate {
         musicRecommendView.musicRecommendationCollectionView.dataSource = self
     }
     
-    @objc 
+    private func presentBlurView(index: Int) {
+        let albumId = albumArray[index].id
+        let albumTitle = albumArray[index].albumName
+        let albumArtist = albumArray[index].artist.artistName
+        
+        print("⭐️⭐️⭐️ albumId= \(albumId) ⭐️⭐️⭐️")
+        blurView.show(in: self.view)
+        
+        blurView.setData(id: albumId, title: albumTitle, artist: albumArtist) // 여기서 해당하는 Cell의 앨범 id를 받습니다.!
+    }
+    
+    private func bind() {
+        blurView.artistDidTapSubject
+            .sink { [weak self] in
+                self?.presentToArtistViewController()
+            }
+            .store(in: &cancellables)
+    }
+    
+    // TODO: 4번째 뷰로 가는 로직 작성을 하면됩니다.
+    // 아마 아티스트 ID가 필요할텐데 현재 뷰에서 albumArray[index].id 를 가져가와 setData 해주면 됩니다. !!
+    // 지금은 그냥 예시로 뷰가 넘어가는지 ViewController로 시험을 해봤어요!
+    // 네비게이션 부분만 연결 해주면 좋을 것 같아요 !!
+    private func presentToArtistViewController() {
+        let artistViewController = ArtistViewController()
+        navigationController?.pushViewController(artistViewController, animated: true)
+    }
+    
+    // MARK: - @Objc Function
+    
+    @objc
     func chipButtonDidTap() {
         if let navigationController = self.navigationController {
             let homeViewController = HomeViewController()
@@ -128,7 +141,14 @@ class MusicRecommendViewController: UIViewController, UICollectionViewDelegate {
             navigationController.setViewControllers(viewControllers, animated: false)
         }
     }
+    
+    @objc
+    private func dismissBlurView() {
+        blurView.hide()
+    }
 }
+
+// MARK: - UICollectionViewDataSource
 
 extension MusicRecommendViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -155,23 +175,31 @@ extension MusicRecommendViewController: UICollectionViewDataSource {
     
 }
 
-// MARK: - Extensions
+// MARK: - UICollectionViewDelegate
+
+extension MusicRecommendViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        presentBlurView(index: indexPath.row)
+    }
+}
+
+// MARK: - Network
 
 extension MusicRecommendViewController {
     private func fetchAlbumInfo() {
         SpotifyService.shared.fetchRecommendDatas { [weak self] response in
             switch response {
             case .success(let data):
-                guard let baseResponse = data as? RecommendModel else {
+                guard let baseResponse = data as? RecommendDTO else {
                     print("데이터를 불러오는 데 실패했습니다.")
                     return
                 }
                 
-                print("🫠🫠\(baseResponse.data)🫠🫠")
+                //                print("🫠🫠\(baseResponse.data)🫠🫠")
                 self?.albumArray = baseResponse.data.albums
                 DispatchQueue.main.async { // UI 업데이트는 메인 쓰레드에서
-                                    self?.musicRecommendView.musicRecommendationCollectionView.reloadData()
-                                }
+                    self?.musicRecommendView.musicRecommendationCollectionView.reloadData()
+                }
                 
             case .requestErr:
                 print("요청 오류 입니다")
@@ -186,5 +214,5 @@ extension MusicRecommendViewController {
             }
         }
     }
-
+    
 }

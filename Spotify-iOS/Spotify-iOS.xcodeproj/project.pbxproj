@@ -21,8 +21,6 @@
 		712531852BFF64770099E8F8 /* ArtistServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712531802BFF0C7F0099E8F8 /* ArtistServiceType.swift */; };
 		712531882BFF6BD40099E8F8 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712531872BFF6BD40099E8F8 /* BlurView.swift */; };
 		7125318A2BFF87970099E8F8 /* SongsDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712531892BFF87970099E8F8 /* SongsDTO.swift */; };
-		712DF5402BEF385600F0BCCB /* Dto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712DF53F2BEF385600F0BCCB /* Dto.swift */; };
-		712DF5422BEF387A00F0BCCB /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712DF5412BEF387A00F0BCCB /* Network.swift */; };
 		712DF5472BEFA75D00F0BCCB /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712DF5462BEFA75D00F0BCCB /* HomeView.swift */; };
 		712DF54A2BEFA7BB00F0BCCB /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712DF5492BEFA7BB00F0BCCB /* UIView+.swift */; };
 		712DF54C2BEFA7EA00F0BCCB /* getClassName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712DF54B2BEFA7EA00F0BCCB /* getClassName.swift */; };
@@ -32,12 +30,12 @@
 		717FA4412BFFCF0400B90849 /* Button1Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B5A3AD2BF7A0A400D0E957 /* Button1Cell.swift */; };
 		717FA4422BFFCF0A00B90849 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712DF5442BEFA71A00F0BCCB /* HomeViewController.swift */; };
 		717FA4432BFFCF1900B90849 /* PopularArtistDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7125318B2BFF903C0099E8F8 /* PopularArtistDTO.swift */; };
-		71B5A3972BF5F3F700D0E957 /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B5A3962BF5F3F700D0E957 /* CardViewController.swift */; };
 		71B5A3AC2BF7A04000D0E957 /* CardMixCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B5A3AB2BF7A04000D0E957 /* CardMixCell.swift */; };
 		71B5A3B02BF7A0BE00D0E957 /* Button2KrCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B5A3AF2BF7A0BE00D0E957 /* Button2KrCell.swift */; };
 		71B5A3B22BF7A0D300D0E957 /* Button5Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B5A3B12BF7A0D300D0E957 /* Button5Cell.swift */; };
 		71B5A3B42BF7A0E200D0E957 /* Button4Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B5A3B32BF7A0E200D0E957 /* Button4Cell.swift */; };
 		71B5A3B62BF7A10B00D0E957 /* Button3Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B5A3B52BF7A10B00D0E957 /* Button3Cell.swift */; };
+		71D0A0FA2BFFD563008CF981 /* BlurViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D0A0F92BFFD563008CF981 /* BlurViewController.swift */; };
 		71FCF3302BE8FB7600D8528A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FCF32F2BE8FB7600D8528A /* AppDelegate.swift */; };
 		71FCF3322BE8FB7600D8528A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FCF3312BE8FB7600D8528A /* SceneDelegate.swift */; };
 		71FCF3342BE8FB7600D8528A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FCF3332BE8FB7600D8528A /* ViewController.swift */; };
@@ -82,7 +80,7 @@
 		B81A0D982BF262B100C5E591 /* MusicRecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81A0D972BF262B100C5E591 /* MusicRecommendViewController.swift */; };
 		B82875722BF82CBB0084B22F /* MusicCollectionViewHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82875712BF82CBB0084B22F /* MusicCollectionViewHeaderCell.swift */; };
 		B873C5012BF3E0B4002D03D0 /* MusicProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B873C5002BF3E0B4002D03D0 /* MusicProgressBarView.swift */; };
-		B8758BB92BFFA06F0054D498 /* RecommendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8758BB82BFFA06F0054D498 /* RecommendModel.swift */; };
+		B8758BB92BFFA06F0054D498 /* RecommendDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8758BB82BFFA06F0054D498 /* RecommendDTO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -101,8 +99,6 @@
 		712531872BFF6BD40099E8F8 /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
 		712531892BFF87970099E8F8 /* SongsDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsDTO.swift; sourceTree = "<group>"; };
 		7125318B2BFF903C0099E8F8 /* PopularArtistDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularArtistDTO.swift; sourceTree = "<group>"; };
-		712DF53F2BEF385600F0BCCB /* Dto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dto.swift; sourceTree = "<group>"; };
-		712DF5412BEF387A00F0BCCB /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		712DF5442BEFA71A00F0BCCB /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		712DF5462BEFA75D00F0BCCB /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		712DF5492BEFA7BB00F0BCCB /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
@@ -110,13 +106,13 @@
 		712DF54E2BEFAD1000F0BCCB /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		712DF5532BF29E5400F0BCCB /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		712DF5562BF42DD600F0BCCB /* CompositionalLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionalLayout.swift; sourceTree = "<group>"; };
-		71B5A3962BF5F3F700D0E957 /* CardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
 		71B5A3AB2BF7A04000D0E957 /* CardMixCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardMixCell.swift; sourceTree = "<group>"; };
 		71B5A3AD2BF7A0A400D0E957 /* Button1Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button1Cell.swift; sourceTree = "<group>"; };
 		71B5A3AF2BF7A0BE00D0E957 /* Button2KrCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button2KrCell.swift; sourceTree = "<group>"; };
 		71B5A3B12BF7A0D300D0E957 /* Button5Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button5Cell.swift; sourceTree = "<group>"; };
 		71B5A3B32BF7A0E200D0E957 /* Button4Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button4Cell.swift; sourceTree = "<group>"; };
 		71B5A3B52BF7A10B00D0E957 /* Button3Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button3Cell.swift; sourceTree = "<group>"; };
+		71D0A0F92BFFD563008CF981 /* BlurViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurViewController.swift; sourceTree = "<group>"; };
 		71FCF32C2BE8FB7600D8528A /* Spotify-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Spotify-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		71FCF32F2BE8FB7600D8528A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		71FCF3312BE8FB7600D8528A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -156,7 +152,7 @@
 		B81A0D972BF262B100C5E591 /* MusicRecommendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicRecommendViewController.swift; sourceTree = "<group>"; };
 		B82875712BF82CBB0084B22F /* MusicCollectionViewHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicCollectionViewHeaderCell.swift; sourceTree = "<group>"; };
 		B873C5002BF3E0B4002D03D0 /* MusicProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicProgressBarView.swift; sourceTree = "<group>"; };
-		B8758BB82BFFA06F0054D498 /* RecommendModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendModel.swift; sourceTree = "<group>"; };
+		B8758BB82BFFA06F0054D498 /* RecommendDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendDTO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,7 +220,6 @@
 			isa = PBXGroup;
 			children = (
 				712DF5442BEFA71A00F0BCCB /* HomeViewController.swift */,
-				71B5A3962BF5F3F700D0E957 /* CardViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -271,6 +266,14 @@
 				71B5A3AF2BF7A0BE00D0E957 /* Button2KrCell.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		71D0A0F82BFFD547008CF981 /* Blur */ = {
+			isa = PBXGroup;
+			children = (
+				71D0A0F92BFFD563008CF981 /* BlurViewController.swift */,
+			);
+			path = Blur;
 			sourceTree = "<group>";
 		};
 		71FCF3232BE8FB7600D8528A = {
@@ -348,10 +351,9 @@
 		71FCF35C2BEA6BB600D8528A /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				712DF54D2BEFAD0700F0BCCB /* Base */,
 				7125317D2BFF05F10099E8F8 /* ServiceType */,
 				712531702BFE16D30099E8F8 /* Service */,
-				712DF54D2BEFAD0700F0BCCB /* Base */,
-				712DF5412BEF387A00F0BCCB /* Network.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -359,13 +361,12 @@
 		71FCF35D2BEA6BC000D8528A /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				712DF53F2BEF385600F0BCCB /* Dto.swift */,
 				95AF20382BFA6F700057D44A /* ArtistTabbarModel.swift */,
 				712531692BFB84220099E8F8 /* HomeMockingModel.swift */,
 				712531822BFF14EC0099E8F8 /* PlaylistsDTO.swift */,
 				712531892BFF87970099E8F8 /* SongsDTO.swift */,
 				7125318B2BFF903C0099E8F8 /* PopularArtistDTO.swift */,
-				B8758BB82BFFA06F0054D498 /* RecommendModel.swift */,
+				B8758BB82BFFA06F0054D498 /* RecommendDTO.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -384,9 +385,9 @@
 		95AF20262BF085520057D44A /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				712531862BFF6BC60099E8F8 /* Blur */,
-				B81A0D922BF25B1B00C5E591 /* Recommend */,
 				95AF20282BF086540057D44A /* Home */,
+				B81A0D922BF25B1B00C5E591 /* Recommend */,
+				712531862BFF6BC60099E8F8 /* Blur */,
 				95AF202A2BF086610057D44A /* Artist */,
 			);
 			path = Views;
@@ -395,8 +396,9 @@
 		95AF20272BF0855C0057D44A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				B81A0D962BF2629B00C5E591 /* Recommand */,
 				712DF5432BEFA15200F0BCCB /* Home */,
+				B81A0D962BF2629B00C5E591 /* Recommand */,
+				71D0A0F82BFFD547008CF981 /* Blur */,
 				95AF20292BF0865C0057D44A /* Artist */,
 			);
 			path = ViewControllers;
@@ -657,7 +659,6 @@
 				B82875722BF82CBB0084B22F /* MusicCollectionViewHeaderCell.swift in Sources */,
 				95AF203F2BFB7F600057D44A /* ArtistMusicView.swift in Sources */,
 				712DF54A2BEFA7BB00F0BCCB /* UIView+.swift in Sources */,
-				71B5A3972BF5F3F700D0E957 /* CardViewController.swift in Sources */,
 				71B5A3B42BF7A0E200D0E957 /* Button4Cell.swift in Sources */,
 				71B5A3AC2BF7A04000D0E957 /* CardMixCell.swift in Sources */,
 				712DF54F2BEFAD1000F0BCCB /* Config.swift in Sources */,
@@ -665,7 +666,7 @@
 				95AF203D2BFA732E0057D44A /* String+.swift in Sources */,
 				717FA4412BFFCF0400B90849 /* Button1Cell.swift in Sources */,
 				95AF20452BFD30C70057D44A /* ArtistRecommendationCollectionViewCell.swift in Sources */,
-				B8758BB92BFFA06F0054D498 /* RecommendModel.swift in Sources */,
+				B8758BB92BFFA06F0054D498 /* RecommendDTO.swift in Sources */,
 				B81A0D982BF262B100C5E591 /* MusicRecommendViewController.swift in Sources */,
 				95AF203B2BFA70230057D44A /* ArtistMusicViewController.swift in Sources */,
 				95AF20302BF87A470057D44A /* ArtistHeaderView.swift in Sources */,
@@ -675,12 +676,11 @@
 				71FCF3322BE8FB7600D8528A /* SceneDelegate.swift in Sources */,
 				95AF20332BF9CE7C0057D44A /* RoundBorderCustomButton.swift in Sources */,
 				717FA4432BFFCF1900B90849 /* PopularArtistDTO.swift in Sources */,
-				712DF5422BEF387A00F0BCCB /* Network.swift in Sources */,
+				71D0A0FA2BFFD563008CF981 /* BlurViewController.swift in Sources */,
 				71B5A3B02BF7A0BE00D0E957 /* Button2KrCell.swift in Sources */,
 				7125318A2BFF87970099E8F8 /* SongsDTO.swift in Sources */,
 				712531762BFE17F40099E8F8 /* HomeServiceType.swift in Sources */,
 				7125317A2BFE27F50099E8F8 /* BaseResponse.swift in Sources */,
-				712DF5402BEF385600F0BCCB /* Dto.swift in Sources */,
 				712531722BFE17C60099E8F8 /* NetworkResult.swift in Sources */,
 				7125316F2BFC9CE50099E8F8 /* DeepDiveHeaderCell.swift in Sources */,
 				712531832BFF14EC0099E8F8 /* PlaylistsDTO.swift in Sources */,
