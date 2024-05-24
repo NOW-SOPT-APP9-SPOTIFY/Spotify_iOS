@@ -17,8 +17,8 @@ final class ArtistMusicViewController: UIViewController {
     
     // MARK: - Properties
     
+    let artistId: Int
     weak var delegate: PushVCDelegate?
-    var artistId: Int = 1
     private var popularChartSongs: [ArtistSong] = []
     private var popularMusics = ArtistPopularMusicModel.dummyData()
     private var albumImages = ArtistImageModel.albumImages()
@@ -31,8 +31,9 @@ final class ArtistMusicViewController: UIViewController {
     
     // MARK: - Life Cycles
     
-    init(pageVC: UIPageViewController) {
+    init(artistId: Int, pageVC: UIPageViewController) {
         self.pageVC = pageVC
+        self.artistId = artistId
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -130,7 +131,7 @@ extension ArtistMusicViewController: UICollectionViewDataSource {
         let sectionType = Section.allCases[section]
         switch sectionType {
         case .popularity:
-            return popularChartSongs.isEmpty ? 0 : 5
+            return popularChartSongs.count < 5 ? popularChartSongs.count : 5
         case .artistRecommendation:
             return 1
         case .popularMusic:

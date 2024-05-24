@@ -15,6 +15,7 @@ final class BlurView: UIVisualEffectView {
     
     // MARK: - Properties
     
+    var artistId: Int = 1
     private var albumId: Int = 0
     private var title: String = ""
     private var artist: String = ""
@@ -149,8 +150,9 @@ final class BlurView: UIVisualEffectView {
         
     }
     
-    func setData(id: Int, title: String, artist: String) {
-        self.albumImageView.image = UIImage(named: "imgMusicCard\(id)")
+    func setData(albumId: Int, title: String, artistId: Int, artist: String) {
+        self.artistId = artistId
+        self.albumImageView.image = UIImage(named: "imgMusicCard\(albumId)")
         self.albumTitleLabel.text = title
         self.albumArtistLabel.text = artist
     }
