@@ -77,9 +77,9 @@ final class Button1Cell: UICollectionViewCell {
     
     // MARK: - Methods
     
-    func bindData(data: ArtistModel) {
-        self.mainImageView.image = data.image
-        self.singerTitle.text = data.title
+    func bindData(data: Artist) {
+        self.mainImageView.image = UIImage(named: "imgArtist\(data.id)")
+        self.singerTitle.text = data.artistName
         
     }
     

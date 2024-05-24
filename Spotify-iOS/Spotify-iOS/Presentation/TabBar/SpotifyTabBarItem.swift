@@ -29,26 +29,26 @@ enum SpotifyTabBarItem {
     var unselectedImage: UIImage {
         switch self {
         case .home:
-            return UIImage(systemName: "house")!
+            return .icHome
         case .search:
-            return UIImage(systemName: "house")!
+            return .icSearch
         case .myLibrary:
-            return UIImage(systemName: "house")!
+            return .icLibrary
         case .premium:
-            return UIImage(systemName: "house")!
+            return .icPremium
         }
     }
     
     var selectedImage: UIImage {
         switch self {
         case .home:
-            return UIImage(systemName: "house.fill")!
+            return .icHomeSelected
         case .search:
-            return UIImage(systemName: "house.fill")!
+            return .icSearchSelected
         case .myLibrary:
-            return UIImage(systemName: "house.fill")!
+            return .icLibrarySelected
         case .premium:
-            return UIImage(systemName: "house.fill")!
+            return .icPremiumSelected
         }
     }
     

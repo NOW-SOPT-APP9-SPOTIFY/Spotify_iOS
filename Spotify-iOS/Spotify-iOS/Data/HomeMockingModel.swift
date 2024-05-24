@@ -42,17 +42,17 @@ struct DeepDiveModel {
 
 struct HomeMockingModel {
     
-    static func getRecommendData() -> [HitSongModel] {
-        
-        let dummyModel = [
-            HitSongModel(image: .imgHitCard1, title: "Magnatic", singer: "ILLIT"),
-            HitSongModel(image: .imgHitCard2, title: "Perfect", singer: "Ed Sheeran"),
-            HitSongModel(image: .imgHitCard3, title: "Perfect", singer: "Ed Sheeran"),
-            HitSongModel(image: .imgHitCard3, title: "Perfect", singer: "Ed Sheeran")
-        ]
-        
-        return dummyModel
-    }
+//    static func getRecommendData() -> [HitSongModel] {
+//        
+//        let dummyModel = [
+//            HitSongModel(image: .imgHitCard1, title: "Magnatic", singer: "ILLIT"),
+//            HitSongModel(image: .imgHitCard2, title: "Perfect", singer: "Ed Sheeran"),
+//            HitSongModel(image: .imgHitCard3, title: "Perfect", singer: "Ed Sheeran"),
+//            HitSongModel(image: .imgHitCard3, title: "Perfect", singer: "Ed Sheeran")
+//        ]
+//        
+//        return dummyModel
+//    }
     
     static func getAristData() -> [ArtistModel] {
         
