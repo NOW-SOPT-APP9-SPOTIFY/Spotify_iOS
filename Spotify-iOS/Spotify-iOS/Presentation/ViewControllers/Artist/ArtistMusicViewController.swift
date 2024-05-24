@@ -18,6 +18,8 @@ final class ArtistMusicViewController: UIViewController {
     // MARK: - Properties
     
     weak var delegate: PushVCDelegate?
+    var artistId: Int = 1
+    private var songs: [Song] = []
     
     // MARK: - UI Components
     
@@ -45,6 +47,7 @@ final class ArtistMusicViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        fetchData()
         setRootViewConstraint()
         setDelegate()
         setRegister()
@@ -66,6 +69,28 @@ final class ArtistMusicViewController: UIViewController {
 }
 
 private extension ArtistMusicViewController {
+    
+    func fetchData() {
+        SpotifyService.shared.getArtistData(artistId: artistId) { [weak self] response in
+            guard let self  = self else { return }
+            switch response {
+            case .success(let data):
+                guard let data = data as? BaseResponse<ArtistDetailDTO> else { return }
+                self.songs = data.data?.songs ?? []
+                collectionView.reloadData()
+            case .requestErr:
+                print("요청 오류 입니다")
+            case .decodedErr:
+                print("디코딩 오류 입니다")
+            case .pathErr:
+                print("경로 오류 입니다")
+            case .serverErr:
+                print("서버 오류입니다")
+            case .networkFail:
+                print("네트워크 오류입니다")
+            }
+        }
+    }
     
     func setRootViewConstraint() {
         view.snp.makeConstraints {
@@ -98,7 +123,7 @@ extension ArtistMusicViewController: UICollectionViewDataSource {
         let sectionType = Section.allCases[section]
         switch sectionType {
         case .popularity:
-            return 5
+            return songs.isEmpty ? 0 : 5
         case .artistRecommendation:
             return 1
         case .popularMusic:
@@ -111,13 +136,13 @@ extension ArtistMusicViewController: UICollectionViewDataSource {
         switch sectionType {
         case .popularity:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PopularityCollectionViewCell.className, for: indexPath) as? PopularityCollectionViewCell else { return UICollectionViewCell() }
-//            let data = popularMusics[indexPath.item]
+            let data = songs[indexPath.item]
             cell.configure(
-                ranking: 1,
+                ranking: indexPath.item + 1,
                 albumImg: .imgAlbumExample,
-                title: "Locked out of Heaven",
-                numberOfPlays: "1,915,943,900",
-                is19Plus: true
+                title: data.title,
+                numberOfPlays: data.listenedCount,
+                is19Plus: false
             )
             return cell
         case .artistRecommendation:

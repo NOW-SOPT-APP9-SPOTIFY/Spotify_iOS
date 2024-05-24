@@ -88,7 +88,7 @@ extension ArtistPopularityChartViewController: UICollectionViewDataSource {
                 ranking: 10,
                 albumImg: .imgAlbumExample,
                 title: "Locked out of Heaven",
-                numberOfPlays: "1,915,943,900",
+                numberOfPlays: 1915943900,
                 is19Plus: true
             )
         return cell

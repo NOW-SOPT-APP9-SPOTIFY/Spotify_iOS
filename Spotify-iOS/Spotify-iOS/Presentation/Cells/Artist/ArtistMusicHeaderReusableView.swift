@@ -82,7 +82,6 @@ extension ArtistMusicHeaderReusableView {
         }
         
         nextButton!.snp.makeConstraints {
-            $0.size.equalTo(33)
             $0.leading.equalTo(titleLabel.snp.trailing)
             $0.verticalEdges.equalToSuperview()
         }
