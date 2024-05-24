@@ -139,15 +139,11 @@ final class BlurView: UIVisualEffectView {
     }
     
     func hide() {
-        guard let tabBarController = self.window?.rootViewController as? UITabBarController else { return }
-        
         UIView.animate(withDuration: 0.3) {
             self.alpha = 0.0
         } completion: { _ in
             self.removeFromSuperview()
-            tabBarController.tabBar.isHidden = false
         }
-        
     }
     
     func setData(albumId: Int, title: String, artistId: Int, artist: String) {
@@ -205,6 +201,6 @@ final class BlurView: UIVisualEffectView {
     @objc 
     private func artistViewTapped() {
         artistDidTapSubject.send(())
+        hide()
      }
-    
 }
