@@ -56,15 +56,7 @@ final class ArtistMusicViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        collectionView.layoutIfNeeded()
-        
-        /// PageViewController의 height를 해당 뷰 컨텐츠 사이즈만큼 설정하여 동적 높이를 가지도록 합니다.
-        pageVC.view.snp.makeConstraints {
-            $0.height.equalTo(collectionView.contentSize.height)
-        }
-        view.snp.makeConstraints {
-            $0.height.equalTo(collectionView.contentSize.height)
-        }
+        setDynamicHeight()
     }
 }
 
@@ -78,6 +70,7 @@ private extension ArtistMusicViewController {
                 guard let data = data as? BaseResponse<ArtistDetailDTO> else { return }
                 self.songs = data.data?.songs ?? []
                 collectionView.reloadData()
+                setDynamicHeight()
             case .requestErr:
                 print("요청 오류 입니다")
             case .decodedErr:
@@ -110,6 +103,18 @@ private extension ArtistMusicViewController {
         
         collectionView.register(ArtistMusicHeaderReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: ArtistMusicHeaderReusableView.className)
         collectionView.register(ArtistMusicFooterReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: ArtistMusicFooterReusableView.className)
+    }
+    
+    func setDynamicHeight() {
+        collectionView.layoutIfNeeded()
+        
+        /// PageViewController의 height를 해당 뷰 컨텐츠 사이즈만큼 설정하여 동적 높이를 가지도록 합니다.
+        pageVC.view.snp.updateConstraints {
+            $0.height.equalTo(collectionView.contentSize.height).priority(.low)
+        }
+        view.snp.updateConstraints {
+            $0.height.equalTo(collectionView.contentSize.height).priority(.low)
+        }
     }
 }
 

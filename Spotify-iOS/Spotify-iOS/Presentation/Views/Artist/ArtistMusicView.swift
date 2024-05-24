@@ -60,6 +60,10 @@ private extension ArtistMusicView {
     }
     
     func setLayout() {
+        self.snp.makeConstraints {
+            $0.height.equalTo(100).priority(.low)
+        }
+        
         collectionView.snp.makeConstraints {
             $0.height.equalTo(100).priority(.low)
             $0.edges.equalToSuperview()
