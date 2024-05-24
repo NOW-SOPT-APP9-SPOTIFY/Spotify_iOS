@@ -13,6 +13,10 @@ struct ArtistDetailDTO: Codable {
     let songs: [Song]
 }
 
+struct ArtistChartDTO: Codable {
+    let songs: [Song]
+}
+
 struct Song: Codable {
     let id: Int
     let title: String

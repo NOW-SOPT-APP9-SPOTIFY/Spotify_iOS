@@ -10,6 +10,7 @@ import Moya
 
 enum ArtistServiceType {
     case getArtistData(artistId: Int)
+    case getArtistChartData(artistId: Int)
 }
 
 extension ArtistServiceType: TargetType {
@@ -24,6 +25,8 @@ extension ArtistServiceType: TargetType {
         switch self {
         case .getArtistData(let artistId):
             return "/v1/api/artists/\(artistId)"
+        case .getArtistChartData(let artistId):
+            return "/v1/api/artists/\(artistId)/songs/popular"
         }
     }
     
@@ -31,12 +34,16 @@ extension ArtistServiceType: TargetType {
         switch self {
         case .getArtistData:
             return .get
+        case .getArtistChartData:
+            return .get
         }
     }
     
     var task: Moya.Task {
         switch self {
         case .getArtistData:
+            return .requestPlain
+        case .getArtistChartData:
             return .requestPlain
         }
     }

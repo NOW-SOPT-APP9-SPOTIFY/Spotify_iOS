@@ -19,7 +19,7 @@ final class ArtistMusicViewController: UIViewController {
     
     weak var delegate: PushVCDelegate?
     var artistId: Int = 1
-    private var songs: [Song] = []
+    private var popularChartSongs: [Song] = []
     
     // MARK: - UI Components
     
@@ -68,7 +68,7 @@ private extension ArtistMusicViewController {
             switch response {
             case .success(let data):
                 guard let data = data as? BaseResponse<ArtistDetailDTO> else { return }
-                self.songs = data.data?.songs ?? []
+                self.popularChartSongs = data.data?.songs ?? []
                 collectionView.reloadData()
                 setDynamicHeight()
             case .requestErr:
@@ -128,7 +128,7 @@ extension ArtistMusicViewController: UICollectionViewDataSource {
         let sectionType = Section.allCases[section]
         switch sectionType {
         case .popularity:
-            return songs.isEmpty ? 0 : 5
+            return popularChartSongs.isEmpty ? 0 : 5
         case .artistRecommendation:
             return 1
         case .popularMusic:
@@ -141,7 +141,7 @@ extension ArtistMusicViewController: UICollectionViewDataSource {
         switch sectionType {
         case .popularity:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PopularityCollectionViewCell.className, for: indexPath) as? PopularityCollectionViewCell else { return UICollectionViewCell() }
-            let data = songs[indexPath.item]
+            let data = popularChartSongs[indexPath.item]
             cell.configure(
                 ranking: indexPath.item + 1,
                 albumImg: .imgAlbumExample,
@@ -206,6 +206,6 @@ extension ArtistMusicViewController: UICollectionViewDelegate {
 extension ArtistMusicViewController: HeaderTapEventDelegate {
     
     func popularityHeaderDidTap() {
-        delegate?.pushVC(ArtistPopularityChartViewController())
+        delegate?.pushVC(ArtistPopularityChartViewController(artistId: artistId))
     }
 }

@@ -66,7 +66,7 @@
 		95AF204B2BFE43C30057D44A /* ArtistMusicFooterReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AF204A2BFE43C30057D44A /* ArtistMusicFooterReusableView.swift */; };
 		95AF204D2BFE55B10057D44A /* ArtistPopularityChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AF204C2BFE55B10057D44A /* ArtistPopularityChartViewController.swift */; };
 		95AF204F2BFE566A0057D44A /* ArtistPopularityChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AF204E2BFE566A0057D44A /* ArtistPopularityChartView.swift */; };
-		95AF20532C0053890057D44A /* ArtistDetailDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AF20522C0053890057D44A /* ArtistDetailDTO.swift */; };
+		95AF20532C0053890057D44A /* ArtistDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AF20522C0053890057D44A /* ArtistDTO.swift */; };
 		95D119CE2BEF5B6D004228C0 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 95D119CB2BEF5B6D004228C0 /* Pretendard-Regular.otf */; };
 		95D119CF2BEF5B6D004228C0 /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 95D119CC2BEF5B6D004228C0 /* Pretendard-Medium.otf */; };
 		95D119D02BEF5B6D004228C0 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 95D119CD2BEF5B6D004228C0 /* Pretendard-SemiBold.otf */; };
@@ -137,7 +137,7 @@
 		95AF204A2BFE43C30057D44A /* ArtistMusicFooterReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistMusicFooterReusableView.swift; sourceTree = "<group>"; };
 		95AF204C2BFE55B10057D44A /* ArtistPopularityChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistPopularityChartViewController.swift; sourceTree = "<group>"; };
 		95AF204E2BFE566A0057D44A /* ArtistPopularityChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistPopularityChartView.swift; sourceTree = "<group>"; };
-		95AF20522C0053890057D44A /* ArtistDetailDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistDetailDTO.swift; sourceTree = "<group>"; };
+		95AF20522C0053890057D44A /* ArtistDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistDTO.swift; sourceTree = "<group>"; };
 		95D119CB2BEF5B6D004228C0 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
 		95D119CC2BEF5B6D004228C0 /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
 		95D119CD2BEF5B6D004228C0 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
@@ -349,7 +349,7 @@
 				95AF20382BFA6F700057D44A /* ArtistTabbarModel.swift */,
 				712531692BFB84220099E8F8 /* HomeMockingModel.swift */,
 				712531822BFF14EC0099E8F8 /* PlaylistsDTO.swift */,
-				95AF20522C0053890057D44A /* ArtistDetailDTO.swift */,
+				95AF20522C0053890057D44A /* ArtistDTO.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -641,7 +641,7 @@
 				95AF202E2BF088020057D44A /* ArtistView.swift in Sources */,
 				71FCF3302BE8FB7600D8528A /* AppDelegate.swift in Sources */,
 				95AF202C2BF087F70057D44A /* ArtistViewController.swift in Sources */,
-				95AF20532C0053890057D44A /* ArtistDetailDTO.swift in Sources */,
+				95AF20532C0053890057D44A /* ArtistDTO.swift in Sources */,
 				7125316D2BFBB1620099E8F8 /* LabelFactory.swift in Sources */,
 				71FCF3472BEA1BFD00D8528A /* SpotifyTabBarController.swift in Sources */,
 				712531782BFE1A3E0099E8F8 /* SpotifyService.swift in Sources */,
