@@ -18,11 +18,6 @@ final class SpotifyTabBarController: UITabBarController {
         setUI()
         setTabBarControllers()
     }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
-    }
 }
 
 // MARK: - Methods

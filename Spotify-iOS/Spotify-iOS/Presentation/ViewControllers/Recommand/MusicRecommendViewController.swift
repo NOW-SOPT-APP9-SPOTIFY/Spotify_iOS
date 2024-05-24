@@ -58,11 +58,9 @@ class MusicRecommendViewController: UIViewController {
     // MARK: - Life Cycles
     
     override func loadView() {
-        self.view = musicRecommendView
+        super.loadView()
         
-        if let navigationController = self.navigationController {
-            navigationController.setNavigationBarHidden(true, animated: false)
-        }
+        self.view = musicRecommendView
     }
     
     override func viewDidLoad() {
@@ -74,6 +72,12 @@ class MusicRecommendViewController: UIViewController {
         setRegister()
         setDelegate()
         bind()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.navigationController?.navigationBar.isHidden = true
     }
     
     // MARK: - Methods

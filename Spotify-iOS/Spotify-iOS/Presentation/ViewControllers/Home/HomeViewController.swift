@@ -27,6 +27,12 @@ final class HomeViewController: UIViewController {
     
     // MARK: - Life Cycles
     
+    override func loadView() {
+        super.loadView()
+        
+        self.view = rootView
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,8 +45,10 @@ final class HomeViewController: UIViewController {
         setRegister()
     }
     
-    override func loadView() {
-        self.view = rootView
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.navigationController?.navigationBar.isHidden = true
     }
     
     // MARK: - Methods

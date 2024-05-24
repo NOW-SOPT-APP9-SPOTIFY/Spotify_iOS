@@ -41,9 +41,14 @@ final class ArtistPopularityChartViewController: UIViewController {
         super.viewDidLoad()
         
         fetchData()
-        setNavigationBarAndTabBar()
         setDelegate()
         setRegister()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        setNavigationBarAndTabBar()
     }
 }
 
