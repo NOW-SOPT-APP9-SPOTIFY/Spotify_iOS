@@ -19,7 +19,7 @@ final class ArtistMusicViewController: UIViewController {
     
     weak var delegate: PushVCDelegate?
     var artistId: Int = 1
-    private var popularChartSongs: [Song] = []
+    private var popularChartSongs: [ArtistSong] = []
     private var popularMusics = ArtistPopularMusicModel.dummyData()
     private var albumImages = ArtistImageModel.albumImages()
     

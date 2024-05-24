@@ -12,7 +12,7 @@ final class ArtistPopularityChartViewController: UIViewController {
     // MARK: - Properties
     
     let artistId: Int
-    private var chartSongs: [Song] = []
+    private var chartSongs: [ArtistSong] = []
     private var albumImages = ArtistImageModel.albumImages()
     
     // MARK: - UI Components

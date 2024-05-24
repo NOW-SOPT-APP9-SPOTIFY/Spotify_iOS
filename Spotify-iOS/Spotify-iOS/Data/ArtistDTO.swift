@@ -10,14 +10,14 @@ import Foundation
 struct ArtistDetailDTO: Codable {
     let id: Int
     let artistName: String
-    let songs: [Song]
+    let songs: [ArtistSong]
 }
 
 struct ArtistChartDTO: Codable {
-    let songs: [Song]
+    let songs: [ArtistSong]
 }
 
-struct Song: Codable {
+struct ArtistSong: Codable {
     let id: Int
     let title: String
     let listenedCount: Int
