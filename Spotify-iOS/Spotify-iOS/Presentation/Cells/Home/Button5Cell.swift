@@ -80,9 +80,9 @@ final class Button5Cell: UICollectionViewCell {
     
     // MARK: - Methods
     
-    func bindData(data: HitSongModel) {
-        self.mainImageView.image = data.image
+    func bindData(data: Song) {
+        self.mainImageView.image = UIImage(named: "imgHitCard\(data.id)")
         self.songTitle.text = data.title
-        self.singerTitle.text = data.singer
+        self.singerTitle.text = data.artist
     }
 }

@@ -42,7 +42,7 @@ extension SpotifyService {
                 let statusCode = response.statusCode
                 let data = response.data
                 
-                let networkResult = self.judgeStatus(by: statusCode, data, BaseResponse<PlaylistsDTO>.self)
+                let networkResult = self.judgeStatus(by: statusCode, data, BaseResponse<SongsDTO>.self)
                 completion(networkResult)
                 
             case .failure:
@@ -58,7 +58,7 @@ extension SpotifyService {
                 let statusCode = response.statusCode
                 let data = response.data
                 
-                let networkResult = self.judgeStatus(by: statusCode, data, BaseResponse<PlaylistsDTO>.self)
+                let networkResult = self.judgeStatus(by: statusCode, data, ArtistsDTO.self)
                 completion(networkResult)
                 
             case .failure:
@@ -121,5 +121,25 @@ extension SpotifyService {
         }
         
         return .success(decodedData as Any)
+    }
+}
+
+// MARK: - Extensions
+
+extension SpotifyService {
+    func fetchRecommendDatas(completion: @escaping (NetworkResult<Any>) -> Void) {
+        recommendProvider.request(.fetchRecommendDatas) { result in
+            switch result {
+            case .success(let response):
+                let statusCode = response.statusCode
+                let data = response.data
+                
+                let networkResult = self.judgeStatus(by: statusCode, data, RecommendDTO.self)
+                completion(networkResult)
+                
+            case .failure:
+                completion(.networkFail)
+            }
+        }
     }
 }
