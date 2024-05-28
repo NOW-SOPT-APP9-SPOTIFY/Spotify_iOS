@@ -1,11 +1,19 @@
 # Spotify_iOS
 아요 레디~🫶 
+<br>
+스포티 파이 앱을 클론 코딩 한 Repo 입니다.
 
 ## Member
 | 이명진<br/>([@thingineeer](https://github.com/thingineeer)) | 김나연<br/>([@Nya128](https://github.com/Nya128)) | 김민성<br/>([@mminny](https://github.com/mminny)) |
 | :---: | :---: | :---: |
 | <img width="540" src="https://github.com/NOW-SOPT-APP9-SPOTIFY/Spotify_iOS/assets/88179341/0edaa970-b08b-4212-8d76-2d8db6cab3ff"/> | <img width="540" src="https://github.com/NOW-SOPT-APP9-SPOTIFY/Spotify_iOS/assets/88179341/0aa8e320-2b52-4790-8c38-a5d31b1e4c94"/> | <img width="540" src="https://github.com/NOW-SOPT-APP9-SPOTIFY/Spotify_iOS/assets/65494460/e9d63d4a-8c35-4896-bb4e-e80393488e1d"/> |
+| Lead, 1번째 뷰 (Home 뷰) 3번째 뷰(블러 처리 뷰) | 4번째(Artist 뷰) 5번째 (Artist Chart 뷰) | 2번째 뷰 (Recommend 뷰) |
 <br>
+
+
+## 시연 영상
+![KakaoTalk_Photo_2024-05-28-18-10-29](https://github.com/NOW-SOPT-APP9-SPOTIFY/Spotify_iOS/assets/88179341/7c414966-f31d-4170-ab1d-984975af0937)
+
 
 > **Commit Message Rule**
 
@@ -63,25 +71,38 @@ ex) [Feat] - Spotify 블러처리 구현
 > **Foldering**
 
 ```
-├── Application
-│   ├── AppDelegate.swift
-│   ├── Base.lproj
-│   ├── Info.plist
-│   ├── SceneDelegate.swift
-│   └── ViewController.swift
-├── Data
-│   └── Dto.swift
-├── Global
-│   ├── Extension
-│   ├── Literals
-│   └── Resource
-├── Network
-│   ├── Base
-│   └── Network.swift
-└── Presentation
-    ├── TabBar
-    ├── ViewControllers
-    └── Views
+├── Spotify-iOS
+│   ├── Application
+│   │   ├── AppDelegate.swift
+│   │   ├── Base.lproj
+│   │   ├── Info.plist
+│   │   ├── SceneDelegate.swift
+│   │   └── ViewController.swift
+│   ├── Data
+│   │   ├── ArtistDTO.swift
+│   │   ├── ArtistImageModel.swift
+│   │   ├── ArtistPopularMusicModel.swift
+│   │   ├── ArtistTabbarModel.swift
+│   │   ├── HomeMockingModel.swift
+│   │   ├── PlaylistsDTO.swift
+│   │   ├── PopularArtistDTO.swift
+│   │   ├── RecommendDTO.swift
+│   │   └── SongsDTO.swift
+│   ├── Global
+│   │   ├── Extension
+│   │   ├── Factory
+│   │   ├── Literals
+│   │   └── Resource
+│   ├── Network
+│   │   ├── Base
+│   │   ├── Service
+│   │   └── ServiceType
+│   └── Presentation
+│       ├── Cells
+│       ├── Common
+│       ├── TabBar
+│       ├── ViewControllers
+│       └── Views
 
 ```
 
